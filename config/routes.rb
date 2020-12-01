@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   resources :breweries
   resources :reviews, only: %i[new create edit update]
-  #resources :beers
-
+  
   resources :beers do
     collection do
       get 'validation'
