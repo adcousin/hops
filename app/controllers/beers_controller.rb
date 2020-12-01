@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
-  before_action :set_beers, only: %i[show destroy edit update validate!]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_beers, only: %i[show destroy edit update validate! decline!]
 
   def index
     @beers = Beer.where(:is_validated == true)
@@ -15,10 +16,10 @@ class BeersController < ApplicationController
   def create
     @beer.new(beers_params)
     @beer.user = current_user
-    @beer.is_validated = nil # nil value = validation pending
+    @beer.is_validated = nil # nil value == validation pending
 
     if @beer.save
-      redirect_to beer_path(@beer)
+      redirect_to beer_path(@beer), notice: 'Beer sucessfully created'
     else
       render :new
     end
@@ -31,11 +32,13 @@ class BeersController < ApplicationController
   def validate!
     @beer.is_validated = true
     @beer.save
+    redirect_to beer_path(@beer), notice: 'Beer sucessfully validated'
   end
 
   def decline!
     @beer.is_validated = false
     @beer.save
+    redirect_to beer_path(@beer), notice: 'Beer sucessfully declined'
   end
 
   private

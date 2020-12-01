@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_lists, only: %I[show destroy]
+  before_action :set_lists, only: %i[show destroy]
 
   def index
     @lists = List.all # To replace with PundIt scope
