@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_113435) do
+ActiveRecord::Schema.define(version: 2020_12_01_130645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_113435) do
     t.bigint "color_id", null: false
     t.bigint "style_id", null: false
     t.text "description"
-    t.float "alcohol_strenght"
+    t.float "alcohol_strength"
     t.integer "ibu"
     t.bigint "barcode"
     t.boolean "is_validated"
