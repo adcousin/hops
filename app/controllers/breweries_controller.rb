@@ -27,8 +27,8 @@ class BreweriesController < ApplicationController
   end
 
   def destroy
-    @brewery.destro
-    redirect_to breweries_pathy, notice: 'Brewery sucessfully deleted'
+    @brewery.destroy
+    redirect_to breweries_path, notice: 'Brewery sucessfully deleted'
   end
 
   private
