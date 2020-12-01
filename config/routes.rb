@@ -7,15 +7,16 @@ Rails.application.routes.draw do
   end
 
   resources :breweries
-  resources :reviews, only: %i[new create edit update destroy]
+  resources :reviews, only: %i[new create edit update]
+  #resources :beers
 
-  # resources :beers do
-  #   namespace :validation do 
-  #     member do 
-  #       patch :validate!
-  #       patch :decline!
-  #     end
-  #   end
-  # end
-
+  resources :beers do
+    collection do
+      get 'validation'
+    end
+    member do 
+      patch 'validate'
+      patch 'decline'
+    end
+  end
 end

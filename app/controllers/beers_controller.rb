@@ -42,13 +42,13 @@ class BeersController < ApplicationController
     @beers.where(:is_validated.nil?)
   end
 
-  def validate!
+  def validate
     @beer.is_validated = true
     @beer.save
     redirect_to beer_path(@beer), notice: 'Beer sucessfully validated'
   end
 
-  def decline!
+  def decline
     @beer.is_validated = false
     @beer.save
     redirect_to beer_path(@beer), notice: 'Beer sucessfully declined'
