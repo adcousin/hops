@@ -19,10 +19,23 @@ class BeersController < ApplicationController
     @beer.is_validated = nil # nil value == validation pending
 
     if @beer.save
-      redirect_to beer_path(@beer), notice: 'Beer sucessfully created'
+      redirect_to beer_path(@beer), notice: 'Beer successfully created'
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @beer.update(beers_params)
+    redirect_to beer_path(@beer), notice: 'Beer successfully updated'
+  end
+
+  def destroy
+    @beer.destroy
+    redirect_to beers_path, notice: 'Beer successfully deleted'
   end
 
   def validation
