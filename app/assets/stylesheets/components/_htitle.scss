@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+h1 {
+  font-family: 'Arvo', serif;
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2e2c2d;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2e2c2d;
+}
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #2e2c2d;
+}
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7d787a;
+}
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #b9b6b8;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #2e2c2d;
+}
+
+.legend-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 8px;
+  font-weight: normal;
+  color: #2e2c2d;
+}
