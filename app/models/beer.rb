@@ -6,4 +6,5 @@ class Beer < ApplicationRecord
   has_many :contents
   has_many :purchases
   has_many :reviews
+  has_one_attached :photo
 end
