@@ -88,17 +88,20 @@ USERS_NAMES.each do |username|
   )
 end
 
-# Create random list's contents
-p "Create random lists contents"
+# Create random list's contents and reviews
+p "Create random lists contents and reviews"
 User.all.each do |user|
   break if user.is_admin
   user.lists.each do |list|
     5.times do
       idx_beer = rand(Beer.first.id...Beer.last.id)
-      cont = Content.new
+      cont = Content.new(beer_id: idx_beer)
       cont.list = list
-      cont.beer = Beer.find(idx_beer)
       cont.save
+
+      rev = Review.new(rate: rand(1..5), comment: "Bon", beer_id: idx_beer)
+      rev.user = user
+      rev.save
     end
   end
 end
