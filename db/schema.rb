@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_130645) do
   create_table "beers", force: :cascade do |t|
     t.string "name"
     t.bigint "brewery_id", null: false
-    t.bigint "color_id", null: false
-    t.bigint "style_id", null: false
+    t.bigint "color_id"
+    t.bigint "style_id"
     t.text "description"
     t.float "alcohol_strength"
     t.integer "ibu"
     t.bigint "barcode"
     t.boolean "is_validated"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.text "decline_reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
