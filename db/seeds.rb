@@ -28,12 +28,17 @@ p "Create countries"
   Country.create(name: country)
 end
 
+# Create dummy color
+Color.create(name: "tdb")
+# Create dummy style
+Style.create(name: "tdb")
+
 # Insert Breweries
 def create_breweries(file_name, country_name)
   file = File.join(File.dirname(__FILE__), "./breweries#{file_name}.json")
   list = JSON.parse(File.read(file))
   country = Country.find_by(name: country_name)
-
+  
   total_breweries = list["breweries"].count
   br = 0
   be = 0
@@ -44,7 +49,7 @@ def create_breweries(file_name, country_name)
                               address: br_address,
                               country_id: country.id)
     br += 1 if new_brewery.save
-
+    
     brewery["beers"].each do |beer|
       be_name = beer["name"]
       be_alcohol = beer["alcohol"].gsub("%", "") if beer["alcohol"]
@@ -52,6 +57,8 @@ def create_breweries(file_name, country_name)
                           alcohol_strength: be_alcohol,
                           brewery_id: new_brewery.id,
                           is_validated: true)
+      new_beer.color = Color.first
+      new_beer.style = Style.first
       be += 1 if new_beer.save
     end
     printf("\rProgress: [%-20s]", "=" * ((br*100/total_breweries)/5))
