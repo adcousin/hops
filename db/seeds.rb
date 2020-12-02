@@ -15,6 +15,7 @@ Review.delete_all
 Purchase.delete_all
 Beer.delete_all
 Color.delete_all
+Style.delete_all
 Brewery.delete_all
 Store.delete_all
 Country.delete_all

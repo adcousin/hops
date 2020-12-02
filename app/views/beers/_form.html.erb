@@ -1,0 +1,12 @@
+<%= simple_form_for (@beer) do |f| %>
+  <%= f.input :name %>
+  <%= f.association :brewery, collection: Brewery.order(:name) %>
+  <%= f.association :color, collection: Color.order(:id) %>
+  <%= f.association :style, collection: Style.order(:name) %>
+  <%= f.input :description %>
+  <%= f.input :alcohol_strength %>
+  <%= f.input :ibu %>
+  <%= f.input :barcode %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to "Cancel", beers_path, class: "btn btn-danger" %>
+<% end %>
