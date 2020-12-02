@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # HOME
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :lists, only: %i[index new create show destroy] do 
+
+  # SEARCH-BEER-TYPING
+  get '/search', to: 'pages#search', as: 'search'
+
+  resources :lists, only: %i[index new create show destroy] do
     resources :contents, only: %i[new create destroy]
   end
 
   resources :breweries
   resources :reviews, only: %i[new create edit update]
-  
+
   resources :beers do
     collection do
       get 'validation'
     end
-    member do 
+    member do
       patch 'validate'
       patch 'decline'
     end
