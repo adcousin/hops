@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_130645) do
+ActiveRecord::Schema.define(version: 2020_12_02_173600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_130645) do
     t.integer "ibu"
     t.bigint "barcode"
     t.boolean "is_validated"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.text "decline_reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
