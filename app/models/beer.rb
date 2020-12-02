@@ -6,4 +6,5 @@ class Beer < ApplicationRecord
   has_many :contents, dependent: :destroy
   has_many :purchases, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_one_attached :photo
 end
