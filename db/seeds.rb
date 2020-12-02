@@ -10,14 +10,14 @@ require 'json'
 
 # clean all db tables
 p "Clean tables..."
+Content.delete_all
+Review.delete_all
+Purchase.delete_all
 Beer.delete_all
 Brewery.delete_all
-Purchase.delete_all
 Store.delete_all
 Country.delete_all
-Content.delete_all
 List.delete_all
-Review.delete_all
 User.delete_all
 
 

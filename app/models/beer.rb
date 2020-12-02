@@ -3,7 +3,7 @@ class Beer < ApplicationRecord
   belongs_to :color, optional: true
   belongs_to :style, optional: true
   belongs_to :user, optional: true
-  has_many :contents
-  has_many :purchases
-  has_many :reviews
+  has_many :contents, dependent: :destroy
+  has_many :purchases, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end
