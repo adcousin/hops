@@ -14,6 +14,7 @@ Content.delete_all
 Review.delete_all
 Purchase.delete_all
 Beer.delete_all
+Color.delete_all
 Brewery.delete_all
 Store.delete_all
 Country.delete_all
@@ -67,6 +68,12 @@ p "Create English breweries"
 create_breweries("UK", "United Kingdom")
 p "Create German breweries"
 create_breweries("DE", "Germany")
+
+# Create colors
+p "Create colors"
+["White", "Blonde", "Black", "Ruby", "Amber"].each do |color|
+  Color.create(name: color)
+end
 
 # Create users
 p "Create users"
