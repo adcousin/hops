@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_161459) do
     t.integer "ibu"
     t.bigint "barcode"
     t.boolean "is_validated"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.text "decline_reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
