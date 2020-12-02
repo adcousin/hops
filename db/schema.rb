@@ -10,10 +10,108 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_140332) do
+ActiveRecord::Schema.define(version: 2020_12_01_130645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.bigint "brewery_id", null: false
+    t.bigint "color_id", null: false
+    t.bigint "style_id", null: false
+    t.text "description"
+    t.float "alcohol_strength"
+    t.integer "ibu"
+    t.bigint "barcode"
+    t.boolean "is_validated"
+    t.bigint "user_id", null: false
+    t.text "decline_reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+    t.index ["color_id"], name: "index_beers_on_color_id"
+    t.index ["style_id"], name: "index_beers_on_style_id"
+    t.index ["user_id"], name: "index_beers_on_user_id"
+  end
+
+  create_table "breweries", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_breweries_on_country_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.bigint "list_id", null: false
+    t.bigint "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_contents_on_beer_id"
+    t.index ["list_id"], name: "index_contents_on_list_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.boolean "deletable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.bigint "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_purchases_on_beer_id"
+    t.index ["store_id"], name: "index_purchases_on_store_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rate"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_reviews_on_beer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_stores_on_country_id"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +121,24 @@ ActiveRecord::Schema.define(version: 2020_11_30_140332) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
+    t.string "address"
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "beers", "breweries"
+  add_foreign_key "beers", "colors"
+  add_foreign_key "beers", "styles"
+  add_foreign_key "beers", "users"
+  add_foreign_key "breweries", "countries"
+  add_foreign_key "contents", "beers"
+  add_foreign_key "contents", "lists"
+  add_foreign_key "lists", "users"
+  add_foreign_key "purchases", "beers"
+  add_foreign_key "purchases", "stores"
+  add_foreign_key "reviews", "beers"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "stores", "countries"
 end
