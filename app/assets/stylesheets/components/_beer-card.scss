@@ -1,0 +1,42 @@
+.beer-card {
+  width: 375px;
+  height: 86px;
+  background-color: white;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+
+  display: flex;
+  align-items: center;
+}
+
+.beer-description {
+  width: 100%;
+  height: 86px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.beer-name-alc, .beer-color-ibu, .beer-brewery-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 10px;
+  height: 14px;
+}
+
+.beer-style, .beer-country {
+  line-height: 10px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+
+}
+
+
+.beer-photo {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+
+}

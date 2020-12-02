@@ -14,6 +14,8 @@ h2 {
   font-size: 18px;
   font-weight: bold;
   color: #2e2c2d;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
@@ -21,31 +23,43 @@ h3 {
   font-size: 16px;
   font-weight: bold;
   color: #2e2c2d;
+  margin: 0;
+  padding: 0;
 }
 h4 {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #2e2c2d;
+  margin: 0;
+  padding: 0;
 }
 h5 {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: bold;
   color: #7d787a;
+  margin: 0;
+  padding: 0;
 }
 h6 {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: normal;
   color: #b9b6b8;
+  margin: 0;
+  padding: 0;
 }
 
-p {
+p, body {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: normal;
   color: #2e2c2d;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .legend-text {
