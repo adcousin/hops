@@ -3,14 +3,17 @@ Rails.application.routes.draw do
 
   # HOME
   root to: 'pages#home'
+  get '/about', to: 'pages#about', as: 'about'
+  get '/contact', to: 'pages#contact', as: 'contact'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # ADMIN-TASKS admin/beers + DELETE, admin/breweries + DELETE
-  namespace :admin do
-    resources :beers, only: %i[index destroy]
-    resources :breweries, only: %i[index destroy]
-    get '/validation', to: 'pages#validation'
-  end
+  # Cancelled : Rails admin gem used instead
+  # namespace :admin do
+  #   resources :beers, only: %i[index destroy]
+  #   resources :breweries, only: %i[index destroy]
+  #   get '/validation', to: 'pages#validation'
+  # end
 
   # SEARCH-BEER-TYPING+BEER-RESULTS
   get '/search', to: 'pages#search', as: 'search'
