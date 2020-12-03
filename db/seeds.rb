@@ -91,14 +91,14 @@ USERS_NAMES.each do |username|
     nickname: username,
     password: '123456',
     password_confirmation: '123456',
-    is_admin: username == 'admin'
+    admin: username == 'admin'
   )
 end
 
 # Create random list's contents and reviews
 p "Create random lists contents and reviews"
 User.all.each do |user|
-  break if user.is_admin
+  break if user.admin
   user.lists.each do |list|
     5.times do
       idx_beer = rand(Beer.first.id...Beer.last.id)
