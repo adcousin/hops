@@ -1,0 +1,5 @@
+  <%= simple_form_for ([@beer, @review]) do |f| %>
+  <%= f.input :comment, label: 'comment', placeholder: 'Leave your review here' %>
+  <%= f.input :rate, label: 'rate',input_html: { min: 0 }, placeholder: 'Leave your rate here' %>
+  <%= f.submit class: 'btn btn-success', id: 'booking_submit' %>
+  <% end %>

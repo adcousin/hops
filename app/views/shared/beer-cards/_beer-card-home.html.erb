@@ -1,0 +1,19 @@
+<div class="beer-card-home">
+  <div class="bch-name-tags">
+    <div class="bch-name">
+    <% if @beer.present? %>
+        <h5><%= @beer.name %></h5>
+      <% else %>
+        <h5><%= beer.name %></h5>
+      <% end %>
+    </div>
+    <div class="bch-tags">
+      <ul>
+        <li><%= image_tag("tags/tag-color-sm.svg") %></li>
+        <li><%= image_tag("tags/tag-alcohol-str-sm.svg") %></li>
+        <li><%= image_tag("tags/tag-country-sm.svg") %></li>
+        <li><%= image_tag("tags/tag-style-sm.svg") %></li>
+      </ul>
+    </div>
+  </div>
+</div>

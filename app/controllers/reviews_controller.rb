@@ -1,24 +1,39 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[edit update destroy]
+  before_action :set_review, only: %i[update destroy]
 
   def new
     @review = Review.new
   end
 
   def create
-    # How to get beer?
+
+    @beer = Beer.find(params[:beer_id]) # Getting beer from params which is coming from beers#show when clicking on submit edit
     @review = Review.new(review_params)
     @review.user = current_user
+    @review.beer = @beer
+    if @review.save
+      redirect_to beer_path(@beer), notice: 'Review sucessfully created'
+    else
+      render 'beers#show'
+    end
 
-    redirect_to review_path(@review), notice: 'Review sucessfully created'
   end
 
   def edit
+    @beer = Beer.find(params[:beer_id])
+    @review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
   end
 
   def update
-    @review.update(review_params)
-    redirect_to review_path(@review), notice: 'Review sucessfully updated'
+
+    if @review.save
+      @review.update(review_params)
+      @beer = @review.beer
+      redirect_to beer_path(@beer), notice: 'Review sucessfully updated'
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -31,7 +46,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_review
-    @review.find(params[:id])
+     @review = Review.find(params[:id])
   end
 
   def review_params

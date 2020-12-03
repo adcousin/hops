@@ -1,0 +1,30 @@
+<div class="beer-card-lg">
+  <div>
+    <%= image_tag('beer-placeholder.jpg', class: 'beer-photo') %>
+  </div>
+  <div class="beer-description-lg">
+    <div class="beer-name-alc">
+      <div class="beer-name"> <h4><%= beer.name %></h4> 
+        <%= image_tag("icons/delete.svg", width: 14, height: 14 ) %>  
+      </div>
+      <div class="beer-alc"><%= beer.alcohol_strength %></div>
+    </div>
+    <div class="beer-color-ibu">
+      <div class="beer-color"> <h5><%= beer.color.name %></h5> </div>
+      <div class="beer-ibu"><%= beer.ibu %></div>
+    </div>
+    <div class="beer-style"> <h6><%= beer.style.name %></h6> </div>
+    <div class="beer-country"><%= beer.brewery.country.name %></div>
+    <div class="beer-brewery-icons">
+      <div class="beer-brewery"> <h5><%= beer.brewery.name %></h5> </div>
+      <div class="beer-icons">
+        <ul class="d-flex m-0 p-0">
+          <li><%= image_tag("icons/whitelist-black.svg", width: 16, height: 16 ) %></li>
+          <li><%= image_tag("icons/blacklist-black.svg", width: 16, height: 16) %></li>
+          <li><%= image_tag("icons/wishlist-black.svg", width: 16, height: 16) %></li>
+          <li><%= image_tag("icons/addlist-black.svg", width: 16, height: 16) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

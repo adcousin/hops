@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Hops!.. I did it again!</h1>
+  </div>
+</div>
+<div class="rounded-white-background ">
+  <div class="container pt-5 d-flex justify-content-center align-content-center">
+    <div class="card-grid">
+      <% @beers.each do |beer| %>
+        <%= link_to beer_path(beer), class: 'text-decoration-none' do  %>
+          <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
