@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   # HOME
   root to: 'pages#home'
+
+  get '/uikit', to: 'pages#uikit', as: 'uikit'
   get '/about', to: 'pages#about', as: 'about'
   get '/contact', to: 'pages#contact', as: 'contact'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # ADMIN-TASKS admin/beers + DELETE, admin/breweries + DELETE
