@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # SEARCH-BEER-TYPING+BEER-RESULTS
   # get '/search', to: 'pages#search', as: 'search'
-  resources :searches, only: %i[index]
+  resources :searches, only: %i[index], path: "search"
 
   # CELLARS-LISTS /lists + BEER-LISTS /lists/:id
   resources :lists, only: %i[index show new create edit update destroy] do
