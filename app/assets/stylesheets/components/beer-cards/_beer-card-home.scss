@@ -13,6 +13,9 @@
   justify-content: flex-end;
 }
 
+h5{
+  font-size: 16px;
+}
 
 .bch-name-tags {
   display: flex;
@@ -43,6 +46,10 @@
   .beer-card-home {
     width:250px;
     height: 250px;
+
+  }
+  h5{
+    font-size: 14px;
   }
 }
 
@@ -65,6 +72,9 @@
   .beer-card-home {
     width:135px;
     height: 135px;
+  }
+  h5{
+    font-size: 12px;
   }
 }
 
