@@ -1,18 +1,11 @@
 <div class= 'banner'>
   <h1>Hops!.. I did it again!</h1>
 </div>
-<div class="rounded-white-background d-flex justify-content-center align-items-center">
-  <div class="container">
+<div class="rounded-white-background ">
+  <div class="container pt-5 d-flex justify-content-center">
     <div class="card-grid">
       <% @beers.each do |beer| %>
-      <div class="card">
-        <%= cl_image_path beer.photo.key if beer.photo.attached?%>
-        <p><%= beer.name %></p>
-        <p><%= beer.color.name %></p>
-        <p><%= beer.alcohol_strength %></p>
-        <p><%= beer.style.name %></p>
-        <p><%= beer.brewery.country.name %></p>
-      </div>
+        <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
       <% end %>
     </div>
   </div>

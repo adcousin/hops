@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def uikit
+    @beer = Beer.order('RANDOM()').includes(:brewery, :style, :color, brewery: [:country]).limit(1)
   end
 
   def search
