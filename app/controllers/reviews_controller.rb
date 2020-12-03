@@ -7,11 +7,16 @@ class ReviewsController < ApplicationController
 
   def create
 
-    @beer = Beer.find(params[:id]) # Getting beer from params which is coming from beers#show when clicking on submit edit
+    @beer = Beer.find(params[:beer_id]) # Getting beer from params which is coming from beers#show when clicking on submit edit
     @review = Review.new(review_params)
     @review.user = current_user
     @review.beer = @beer
-    redirect_to beer_path(@beer), notice: 'Review sucessfully created'
+    if @review.save
+      redirect_to beer_path(@beer), notice: 'Review sucessfully created'
+    else
+      render 'beers#show'
+    end
+
   end
 
   def edit
