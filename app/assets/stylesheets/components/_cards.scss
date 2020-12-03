@@ -1,7 +1,7 @@
 .card-grid{
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr ;
-  grid-gap: 10px;
+  gap: 15px;
 }
 
 @media(max-width: 1550px){
