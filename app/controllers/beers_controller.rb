@@ -9,6 +9,12 @@ class BeersController < ApplicationController
   end
 
   def show
+    @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
+    if @beer_user_review
+      @review = @beer_user_review
+    else
+      @review = Review.new
+    end
   end
 
   def new
