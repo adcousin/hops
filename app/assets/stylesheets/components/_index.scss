@@ -2,3 +2,15 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+// to be remove when beer#index will be dropped
+tr {
+  &:hover {
+    background-color: lime;
+  }
+}
+
+// to be remove when beer#index will be dropped
+td {
+  padding: 0 5px;
+}

@@ -14,7 +14,7 @@ class BeersController < ApplicationController
   end
 
   def create
-    @beer.new(beers_params)
+    @beer = Beer.new(beers_params)
     @beer.user = current_user
     @beer.is_validated = false
 
@@ -57,7 +57,7 @@ class BeersController < ApplicationController
   private
 
   def beers_params
-    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode)
+    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id)
   end
 
   def set_beers
