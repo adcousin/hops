@@ -7,6 +7,7 @@
   <%= f.input :alcohol_strength %>
   <%= f.input :ibu %>
   <%= f.input :barcode %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
   <%= link_to "Cancel", beers_path, class: "btn btn-danger" %>
 <% end %>
