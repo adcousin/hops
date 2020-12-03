@@ -1,6 +1,12 @@
 <div class="beer-card-home">
   <div class="bch-name-tags">
-    <div class="bch-name"> <h5>Beer name</h5> </div>
+    <div class="bch-name">
+    <% if @beer.present? %>
+        <h5><%= @beer.name %></h5>
+      <% else %>
+        <h5><%= beer.name %></h5>
+      <% end %>
+    </div>
     <div class="bch-tags">
       <ul>
         <li><%= image_tag("tags/tag-color-sm.svg") %></li>
