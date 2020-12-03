@@ -31,7 +31,6 @@
 
         <%=image_tag("icons/rating.svg", alt: 'rate', width: 16) * @review.rate %>
         <%= image_tag("icons/delete.svg", alt: 'no-rate', width: 16, class: 'transparent') * (5 - @review.rate) %>
-        <%= "@review.rate = #{@review.rate}" %>
       </div>
       <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
     <% end %>
@@ -76,11 +75,23 @@
 
   <div class="statistics border">
     <h2>STATISTICS</h2>
-    <div class="cont-icons d-flex">
-      <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%><%= @white_count %></div>
-      <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %><%= @black_count %></div>
-      <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %><%= @wish_count %></div>
-      <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %><%= @list_count %></div>
+    <div class="d-flex">
+      <div class="text-center">
+        <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
+        <div><%= @white_count %></div>
+      </div>
+      <div class="text-center">
+        <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+        <div><%= @black_count %></div>
+      </div>
+      <div class="text-center">
+        <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+        <div><%= @wish_count %></div>
+      </div>
+      <div class="text-center">
+        <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+        <div><%= @list_count %></div>
+      </div>
     </div>
   </div>
 </div>
