@@ -15,6 +15,7 @@ Review.delete_all
 Purchase.delete_all
 Beer.delete_all
 Color.delete_all
+Style.delete_all
 Brewery.delete_all
 Store.delete_all
 Country.delete_all
@@ -56,7 +57,7 @@ def create_breweries(file_name, country_name)
       new_beer = Beer.new(name: be_name,
                           alcohol_strength: be_alcohol,
                           brewery_id: new_brewery.id,
-                          is_validated: true)
+                          validated: true)
       new_beer.color = Color.first
       new_beer.style = Style.first
       be += 1 if new_beer.save
@@ -91,14 +92,14 @@ USERS_NAMES.each do |username|
     nickname: username,
     password: '123456',
     password_confirmation: '123456',
-    is_admin: username == 'admin'
+    admin: username == 'admin'
   )
 end
 
 # Create random list's contents and reviews
 p "Create random lists contents and reviews"
 User.all.each do |user|
-  break if user.is_admin
+  break if user.admin
   user.lists.each do |list|
     5.times do
       idx_beer = rand(Beer.first.id...Beer.last.id)

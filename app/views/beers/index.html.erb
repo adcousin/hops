@@ -1,0 +1,32 @@
+<%= link_to "Add a beer", new_beer_path, class: "btn btn-primary" %>
+
+<br>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Brewery</td>
+    <td>Color</td>
+    <td>Style</td>
+    <td>Description</td>
+    <td>Alcohol</td>
+    <td>IBU</td>
+    <td>Details</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  <% @beers.each do |beer| %>
+    <tr>
+      <td><%= beer.name %></td>
+      <td><%= beer.brewery.name %></td>
+      <td><%= beer.color.name %></td>
+      <td><%= beer.style.name %></td>
+      <td><%= beer.description %></td>
+      <td><%= beer.alcohol_strength %></td>
+      <td><%= beer.ibu %></td>
+      <td><%= link_to "Show", beer_path(beer) %></td>
+      <td><%= link_to "Edit", edit_beer_path(beer) %></td>
+      <td><%= link_to "Delete", beer_path(beer), method: :delete, data: {confirm: "Sure ?"} %></td>
+    </tr>
+  <% end %>
+</table>
