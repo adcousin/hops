@@ -1,0 +1,7 @@
+<h2>
+  <%= "Adding #{@beer.name} to a list" %>
+</h2>
+<%= simple_form_for [@beer,@content] do |f| %>
+  <%= f.input :list, collection: @lists %>
+  <%= f.button :submit %>
+<% end %>

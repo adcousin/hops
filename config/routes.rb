@@ -34,9 +34,9 @@ Rails.application.routes.draw do
 
 
   # BEER-INFO
-  resources :contents, only: %i[new create]
   # get '/contents/new', to: 'contents#new', as: 'new_content'
   resources :beers  do
+    resources :contents, only: %i[new create]
     resources :reviews, only: %i[new create edit update]
     collection do
       get 'validation'

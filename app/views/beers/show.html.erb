@@ -12,7 +12,7 @@
     <%= link_to render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content), '#' %>
     <%= link_to render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content), '#' %>
     <%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content), '#' %>
-    <%= render 'shared/buttons/addlist' %>
+    <%= render 'shared/buttons/addlist', beer: @beer %>
   </div>
   <div class="notes border">
     <% if @beer_user_review.nil?%>
