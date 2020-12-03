@@ -36,39 +36,41 @@
     <% end %>
   <div class="info border">
     <h2>INFO</h2>
-      <div class="tag-color">
-        <%= link_to image_tag("icons/rating.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}" %>
-        <%= @beer.color.name %>
-      </div>
+      <div class="tags d-flex">
+        <div class="tag-color">
+          <%= link_to image_tag("icons/rating.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}" %>
+          <%= @beer.color.name %>
+        </div>
 
-      <div class="tag-style">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= @beer.style.name %>
-      </div>
+        <div class="tag-style">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= @beer.style.name %>
+        </div>
 
-      <div class="tag-alcohol">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= @beer.alcohol_strength %>
-      </div>
+        <div class="tag-alcohol">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= @beer.alcohol_strength %>
+        </div>
 
-      <div class="tag-ibu">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= @beer.ibu %>
-      </div>
+        <div class="tag-ibu">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= @beer.ibu %>
+        </div>
 
-      <div class="tag-brewery">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= @beer.brewery.name %>
-      </div>
+        <div class="tag-brewery">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= @beer.brewery.name %>
+        </div>
 
-      <div class="tag-country">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= @beer.brewery.country.name %>
-      </div>
+        <div class="tag-country">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= @beer.brewery.country.name %>
+        </div>
 
-      <div class="tag-city">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
-        <%= "City must be added to model" %>
+        <div class="tag-city">
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+          <%= "City must be added to model" %>
+        </div>
       </div>
       <%= @beer.description %>
   </div>
