@@ -9,6 +9,19 @@ class BeersController < ApplicationController
   end
 
   def show
+    @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
+    if @beer_user_review
+      @review = @beer_user_review
+    else
+      @review = Review.new
+    end
+    beer_tags = %i[alcohol_strength ibu] # WIP : Automate tag creation if nil?
+    beer_attr = %i[brewery color style] # WIP : Automate tag creation if nil?
+    @white_count = List.joins(:contents).where("name = 'Whitelist' AND beer_id = ?", @beer.id).count
+    @black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", @beer.id).count
+    @wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", @beer.id).count
+    @list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", @beer.id).count
+    # @list_count = 0
   end
 
   def new
@@ -61,6 +74,7 @@ class BeersController < ApplicationController
   def beers_params
     params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id)
   end
+
 
   def set_beers
     @beer = Beer.find(params[:id])

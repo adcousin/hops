@@ -1,16 +1,86 @@
-<%= @beer.name %>
-<h2>NOTES</h2>
-<h2>INFO</h2>
+<div class="container">
+  <div class="banner border">
+    <div class="navbar">
+      <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back) %>
+      <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home'), root_path %>
+    </div>
+    <div class="title">
+      <%= @beer.name %>
+    </div>
+  </div>
+  <div class="action-icons d-flex">
+    <div class="action-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32) %></div>
+    <div class="action-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+    <div class="action-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+    <div class="action-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+  </div>
+  <div class="notes border">
+    <% if @beer_user_review.nil?%>
+    <div class="d-flex">
+      <h2>NOTES - No personal notes</h2>
+    </div>
+    <%= simple_form_for ([@beer, @review]) do |f| %>
+      <%= f.input :comment, input_html: { min: 0 }, placeholder: 'Leave a new review for yourself here' %>
+      <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Leave a new rate for yourself here' %>
+      <%= f.submit 'Add review', class: 'btn btn-success', id: 'review_submit' %>
+    <% end %>
+    <% else %>
+      <div class="d-flex">
+        <h2>NOTES</h2>
+        <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 32), edit_beer_review_path(@beer, @review) %>
 
-<p><%= @beer.color.name %></p>
-<p><%= @beer.style.name %></p>
-<p><%= @beer.alcohol_strength %></p>
-<p><%= @beer.brewery.country.name %></p>
-<p>???CITY???</p>
-<p><%= @beer.ibu %></p>
-<p><%= @beer.brewery.name %></p>
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 16) * @review.rate %>
+        <%= image_tag("icons/delete.svg", alt: 'no-rate', width: 16, class: 'transparent') * (5 - @review.rate) %>
+        <%= "@review.rate = #{@review.rate}" %>
+      </div>
+      <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
+    <% end %>
+  <div class="info border">
+    <h2>INFO</h2>
+      <div class="tag-color">
+        <%= link_to image_tag("icons/rating.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}" %>
+        <%= @beer.color.name %>
+      </div>
 
-<p><%= @beer.description %></p>
+      <div class="tag-style">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= @beer.style.name %>
+      </div>
 
-<br>
-<%= link_to "Beers index", beers_path %>
+      <div class="tag-alcohol">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= @beer.alcohol_strength %>
+      </div>
+
+      <div class="tag-ibu">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= @beer.ibu %>
+      </div>
+
+      <div class="tag-brewery">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= @beer.brewery.name %>
+      </div>
+
+      <div class="tag-country">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= @beer.brewery.country.name %>
+      </div>
+
+      <div class="tag-city">
+        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= "City must be added to model" %>
+      </div>
+      <%= @beer.description %>
+  </div>
+
+  <div class="statistics border">
+    <h2>STATISTICS</h2>
+    <div class="cont-icons d-flex">
+      <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%><%= @white_count %></div>
+      <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %><%= @black_count %></div>
+      <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %><%= @wish_count %></div>
+      <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %><%= @list_count %></div>
+    </div>
+  </div>
+</div>
