@@ -1,0 +1,12 @@
+<% note = 3 %>
+<% max = 5 %>
+<% minus = max - note %>
+
+<ul class="rating">
+  <% note.times do %>
+    <li class="rate"> <%= image_tag('icons/rating.svg', width: 20, height: 20) %> </li>
+  <% end %>
+  <% minus.times do %>
+    <li class="rate"> <%= image_tag('icons/rating-alt.svg', width: 20, height: 20) %> </li>
+  <% end %>
+</ul>
