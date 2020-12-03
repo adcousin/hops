@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row ">
     <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-      <h1>Pages#home</h1>
-      <p>Find me in app/views/pages/home.html.erb</p>
-      <% @beers.each do | beer| %>
-      <p><%= beer.name %></p>
-      <p><%= beer.alcohol_strength %>%</p>
-      <p><%= beer.style.name %>%/p>
-      <p><%= beer.brewery.country.name %></p>
-
-      <% end %>
+      <div class="cards">
+        <% @beers.each do | beer| %>
+          <div class="card">
+            <%= cl_image_path beer.photo.key if beer.photo.attached?%>
+            <p><%= beer.name %></p>
+            <p><%= beer.alcohol_strength %></p>
+            <p><%= beer.style.name %></p>
+            <p><%= beer.brewery.country.name %></p>
+          </div>
+        <% end %>
+      </div>
 
     </div>
   </div>
