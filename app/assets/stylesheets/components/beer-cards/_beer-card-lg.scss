@@ -1,4 +1,4 @@
-.beer-card {
+.beer-card-lg {
   width: 375px;
   height: 86px;
   background-color: white;
@@ -8,13 +8,21 @@
   align-items: center;
 }
 
-.beer-description {
+.beer-description-lg {
   width: 100%;
   height: 86px;
   padding: 7px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.beer-name {
+  display: flex;
+  align-items: center;
+  h4 {
+    margin-right: 5px;
+  }
 }
 
 .beer-name-alc, .beer-color-ibu, .beer-brewery-icons {
