@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row ">
-    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
       <h1>Pages#home</h1>
       <p>Find me in app/views/pages/home.html.erb</p>
-      <p>Need to put the beers instances in the dedicated cards</p>
+      <% @beers.each do | beer| %>
+      <p><%= beer.name %></p>
+      <p><%= beer.alcohol_strength %>%</p>
+      <p><%= beer.style.name %>%/p>
+      <p><%= beer.brewery.country.name %></p>
+
+      <% end %>
 
     </div>
   </div>
