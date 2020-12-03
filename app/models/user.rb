@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :lists
-  has_many :beers
-  has_many :reviews
+  has_many :lists, dependent: :destroy
+  has_many :beers, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   after_create :generate_default_lists
 
