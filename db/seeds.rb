@@ -57,7 +57,7 @@ def create_breweries(file_name, country_name)
       new_beer = Beer.new(name: be_name,
                           alcohol_strength: be_alcohol,
                           brewery_id: new_brewery.id,
-                          is_validated: true)
+                          validated: true)
       new_beer.color = Color.first
       new_beer.style = Style.first
       be += 1 if new_beer.save
