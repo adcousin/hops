@@ -20,8 +20,26 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <p> Dev/Resources </p>
+            <%= link_to "UI Kit UP", uikit_path, class: "dropdown-item" %>
+            <%= link_to "Admin UP", rails_admin_path, class: "dropdown-item" %>
+            <p> Demo </p>
+            <%= link_to "Search UP", search_path, class: "dropdown-item" %>
+            <%= link_to "Beer show WIP", '/beers/143', class: "dropdown-item" %>
+            <%= link_to "Brewery show TO DO", '/breweries/2', class: "dropdown-item" %>
+            <%= link_to "Lists index TO DO", '/lists', class: "dropdown-item" %>
+            <%= link_to "Lists show TO DO", '/lists/1', class: "dropdown-item" %>
+            <p>Forms</p>
+            <%= link_to "Beer edit TO DO", '/beers/143/edit', class: "dropdown-item" %>
+            <%= link_to "Beer add TO DO", '/beers/new', class: "dropdown-item" %>
+            <%= link_to "Brewery edit TO DO", '/breweries/2/edit', class: "dropdown-item" %>
+            <%= link_to "Brewery add TO DO", '/breweries/new', class: "dropdown-item" %>
+            <p>Static pages</p>
+            <%= link_to "About TO DO", '/breweries/2', class: "dropdown-item" %>
+            <%= link_to "Contact TO DO", '/breweries/2', class: "dropdown-item" %>
+            <p> Other </p>
+            <%= link_to "Beers index UP", beers_path, class: "dropdown-item" %>
+            <%= link_to "Breweries index TO DO", '/breweries/2', class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
