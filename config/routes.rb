@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :reviews, only: %i[create edit update]
 
   # BEER-INFO
-  resources :beers, only: %i[index show new create edit update]  do
+  resources :beers  do
     collection do
       get 'validation'
     end

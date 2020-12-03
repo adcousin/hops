@@ -3,7 +3,9 @@ class BeersController < ApplicationController
   before_action :set_beers, only: %i[show destroy edit update validate! decline!]
 
   def index
-    @beers = Beer.where(validated: true)
+    @beers = Beer.where(:validated == true || current_user == :user_id)
+                 .includes(:brewery, :color, :style)
+                 .order(:name)
   end
 
   def show
@@ -16,7 +18,7 @@ class BeersController < ApplicationController
   def create
     @beer = Beer.new(beers_params)
     @beer.user = current_user
-    @beer.is_validated = false
+    @beer.validated = false
 
     if @beer.save
       redirect_to beer_path(@beer), notice: 'Beer successfully created'
