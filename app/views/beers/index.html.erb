@@ -5,9 +5,9 @@
 <table>
   <tr>
     <td>Name</td>
-    <td>Brewery ID</td>
-    <td>Color ID</td>
-    <td>Style ID</td>
+    <td>Brewery</td>
+    <td>Color</td>
+    <td>Style</td>
     <td>Description</td>
     <td>Alcohol</td>
     <td>IBU</td>
@@ -19,9 +19,9 @@
   <% @beers.each do |beer| %>
     <tr>
       <td><%= beer.name %></td>
-      <td><%= beer.brewery_id %></td>
-      <td><%= beer.color_id %></td>
-      <td><%= beer.style_id %></td>
+      <td><%= beer.brewery.name %></td>
+      <td><%= beer.color.name %></td>
+      <td><%= beer.style.name %></td>
       <td><%= beer.description %></td>
       <td><%= beer.alcohol_strength %></td>
       <td><%= beer.ibu %></td>

@@ -3,7 +3,8 @@ class BeersController < ApplicationController
   before_action :set_beers, only: %i[show destroy edit update validate! decline!]
 
   def index
-    @beers = Beer.where(:is_validated == true || current_user == :user_id).order(:name)
+    @beers = Beer.where(:is_validated == true || current_user == :user_id)
+                 .order(:name).includes(:brewery, :color, :style)
   end
 
   def show
