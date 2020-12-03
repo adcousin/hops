@@ -7,7 +7,9 @@
   <div class="container pt-5 d-flex justify-content-center align-content-center">
     <div class="card-grid">
       <% @beers.each do |beer| %>
-        <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
+        <%= link_to beer_path(beer), class: 'text-decoration-none' do  %>
+          <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
+        <% end %>
       <% end %>
     </div>
   </div>
