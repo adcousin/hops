@@ -11,7 +11,6 @@
     <td>Description</td>
     <td>Alcohol</td>
     <td>IBU</td>
-    <td>In list</td>
     <td>Details</td>
     <td>Edit</td>
     <td>Delete</td>
@@ -25,7 +24,6 @@
       <td><%= beer.description %></td>
       <td><%= beer.alcohol_strength %></td>
       <td><%= beer.ibu %></td>
-      <td><%= beer.contents.count %></td>
       <td><%= link_to "Show", beer_path(beer) %></td>
       <td><%= link_to "Edit", edit_beer_path(beer) %></td>
       <td><%= link_to "Delete", beer_path(beer), method: :delete, data: {confirm: "Sure ?"} %></td>
