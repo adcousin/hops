@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   def new
     @beer = Beer.find(params[:beer_id])
     @lists = List.where(user_id: current_user.id)
+    @custom_lists = @lists.where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist')")
     @content = Content.new
   end
 

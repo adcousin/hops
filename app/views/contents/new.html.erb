@@ -1,7 +1,19 @@
-<h2>
-  <%= "Adding #{@beer.name} to a list" %>
-</h2>
-<%= simple_form_for [@beer,@content] do |f| %>
-  <%= f.input :list, collection: @lists %>
-  <%= f.button :submit %>
-<% end %>
+  <div class="banner my-4">
+    <div class="navbar">
+      <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back) %>
+      <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home'), root_path %>
+    </div>
+    <div class="title">
+      <%= link_to "#{@beer.name} - #{@beer.id}", beer_path(@beer) %>
+    </div>
+  </div>
+
+<div class="container">
+  <h2>
+    <%= "Adding #{@beer.name} to a custom list" %>
+  </h2>
+  <%= simple_form_for [@beer,@content] do |f| %>
+    <%= f.input :list, collection: @custom_lists %>
+    <%= f.button :submit, class: 'btn btn-light' %>
+  <% end %>
+</div>
