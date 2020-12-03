@@ -1,6 +1,6 @@
 <div class="beer-card-lg">
   <div>
-    <%= image_tag('beer-placeholder.jpg', class: 'beer-photo') %>
+    <%= image_tag(beer.photo, class: 'beer-photo') rescue image_tag('beer-placeholder.jpg', class: 'beer-photo') %>
   </div>
   <div class="beer-description-lg">
     <div class="beer-name-alc">
