@@ -3,7 +3,9 @@ class BeersController < ApplicationController
   before_action :set_beers, only: %i[show destroy edit update validate! decline!]
 
   def index
-    @beers = Beer.where(:is_validated == true || current_user == :user_id)
+    @beers = Beer.where(:validated == true || current_user == :user_id)
+                 .includes(:brewery, :color, :style)
+                 .order(:name)
   end
 
   def show
@@ -14,9 +16,9 @@ class BeersController < ApplicationController
   end
 
   def create
-    @beer.new(beers_params)
+    @beer = Beer.new(beers_params)
     @beer.user = current_user
-    @beer.is_validated = false
+    @beer.validated = false
 
     if @beer.save
       redirect_to beer_path(@beer), notice: 'Beer successfully created'
@@ -39,7 +41,7 @@ class BeersController < ApplicationController
   end
 
   def validation
-    @beers.where(:is_validated == false)
+    Beer.where(validated: false)
   end
 
   def validate
@@ -57,7 +59,7 @@ class BeersController < ApplicationController
   private
 
   def beers_params
-    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode)
+    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id)
   end
 
   def set_beers

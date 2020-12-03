@@ -1,0 +1,16 @@
+<%= @beer.name %>
+<h2>NOTES</h2>
+<h2>INFO</h2>
+
+<p><%= @beer.color.name %></p>
+<p><%= @beer.style.name %></p>
+<p><%= @beer.alcohol_strength %></p>
+<p><%= @beer.brewery.country.name %></p>
+<p>???CITY???</p>
+<p><%= @beer.ibu %></p>
+<p><%= @beer.brewery.name %></p>
+
+<p><%= @beer.description %></p>
+
+<br>
+<%= link_to "Beers index", beers_path %>
