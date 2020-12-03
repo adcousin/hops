@@ -1,0 +1,11 @@
+.banner{
+  display: flex;
+  background-image: asset-url('beer-placeholder.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 45vh;
+  position: relative;
+  padding-bottom:20px;
+  align-items: center;
+  justify-content: center;
+}
