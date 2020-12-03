@@ -8,6 +8,13 @@ class ContentsController < ApplicationController
     @content = Content.new
     @list = List.find(params[:list_id])
     @content.list = @list
+    @content.beer_id = params[:beer_id]
+    if @content.save
+      redirect_to beer_path(params[:beer_id])
+    else
+      flash[:notice] = 'Something went wrong'
+      redirect_to beer_path(params[:beer_id])
+    end
   end
 
   def destroy

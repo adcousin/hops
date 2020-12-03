@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/search', to: 'pages#search', as: 'search'
 
   # CELLARS-LISTS /lists + BEER-LISTS /lists/:id
+
   resources :lists, only: %i[index show new create edit update destroy] do
     resources :contents, only: %i[new create destroy]
   end
@@ -33,6 +34,8 @@ Rails.application.routes.draw do
 
 
   # BEER-INFO
+  resources :contents, only: %i[new create]
+  # get '/contents/new', to: 'contents#new', as: 'new_content'
   resources :beers  do
     resources :reviews, only: %i[new create edit update]
     collection do

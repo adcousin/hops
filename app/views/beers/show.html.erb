@@ -5,14 +5,14 @@
       <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home'), root_path %>
     </div>
     <div class="title">
-      <%= @beer.name %>
+      <%= "#{@beer.name} - #{@beer.id}" %>
     </div>
   </div>
-  <div class="action-icons d-flex">
-    <div class="action-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32) %></div>
-    <div class="action-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
-    <div class="action-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
-    <div class="action-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+  <div class="d-flex">
+    <%= link_to render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content), '#' %>
+    <%= link_to render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content), '#' %>
+    <%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content), '#' %>
+    <%= render 'shared/buttons/addlist' %>
   </div>
   <div class="notes border">
     <% if @beer_user_review.nil?%>
