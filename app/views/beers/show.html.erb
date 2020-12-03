@@ -38,7 +38,7 @@
   <div class="info border">
     <h2>INFO</h2>
       <div class="tag-color">
-        <%=image_tag("icons/rating.svg", alt: 'rate', width: 32) %>
+        <%= link_to image_tag("icons/rating.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}" %>
         <%= @beer.color.name %>
       </div>
 
