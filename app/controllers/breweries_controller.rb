@@ -4,17 +4,13 @@ class BreweriesController < ApplicationController
 
   def index
     @breweries = Brewery.all
-
-    # Geocoding markers
-    @markers = @breweries.geocoded.map do |brewery|
-      {
-        lat: brewery.latitude,
-        lng: brewery.longitude
-      }
-    end
   end
 
   def show
+    @markers = {
+      lat: @brewery.latitude,
+      lng: @brewery.longitude
+    }
   end
 
   def new
