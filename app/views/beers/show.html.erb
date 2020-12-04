@@ -1,9 +1,4 @@
-<div class="banner-info">
-  <div class="d-flex justify-content-around text-center">
-    <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back)%>
-    <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home', width: 32), root_path %>
-    <%= link_to image_tag("icons/hops-logo-2.svg", alt: 'Home', width: 16), lists_path %>
-  </div>
+<div class="banner info">
   <div class=" main-title y-border w-bg">
     <h1><%= "#{@beer.name} - #{@beer.id}" %></h1>
   </div>
@@ -18,9 +13,7 @@
   </div>
 </div>
 <div class="rounded-white-background">
-
   <div class="container pt-5">
-
     <div class="notes my-4">
       <% if @beer_user_review.nil?%>
       <h2>NOTES - No personal notes</h2>
