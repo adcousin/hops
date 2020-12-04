@@ -1,31 +1,28 @@
 <div class= 'banner'>
   <div class=" main-title y-border w-bg">
-    <h1>Hops!.. I did it again!</h1>
+    <h1>My cellar</h1>
   </div>
 </div>
 <div class="rounded-white-background ">
   <div class="container pt-5">
-    <div class="title mx-auto">
-      <h2>My cellar / My lists</h2>
-    </div>
 
     <div>
       <nav class="nav nav-tabs" role="tablist">
         <a class="nav-link w-25 text-center active" id="whitelist-tab" data-toggle="tab" href="#whitelist" role="tab" aria-controls="whitelist" aria-selected="true">
           <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
-          <div><%= @white_count %></div>
+          <p><%= @white_count %></p>
         </a>
         <a class="nav-link w-25 text-center" id="blacklist-tab" data-toggle="tab" href="#blacklist" role="tab" aria-controls="blacklist" aria-selected="false">
           <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
-          <div><%= @black_count %></div>
+          <p><%= @black_count %></p>
         </a>
         <a class="nav-link w-25 text-center" id="whishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlist" aria-selected="false">
           <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
-          <div><%= @wish_count %></div>
+          <p><%= @wish_count %></p>
         </a>
         <a class="nav-link w-25 text-center" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">
           <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
-          <div><%= @list_count %></div>
+          <p><%= @list_count %></p>
         </a>
       </nav>
     </div>
