@@ -1,6 +1,6 @@
 <%= render "shared/searchbar", search: searches_path %>
 
-<div class="card">
+<div class="cards">
   <% @results.each do |result| %>
     <% search_res = result.searchable %>
     <% if search_res.class.name == "Beer" %>
