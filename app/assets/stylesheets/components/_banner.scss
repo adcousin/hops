@@ -10,3 +10,42 @@
   align-items: center;
   justify-content: center;
 }
+
+.banner-info{
+  background-image: asset-url('beer-placeholder.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 38vh;
+  width: 100vw;
+  position: relative;
+  padding-bottom:40px;
+}
+
+#action-white{
+  position: absolute;
+  bottom: 40px;
+  left: 25vw;
+  z-index: 100;
+}
+
+#action-black{
+  position: absolute;
+  bottom: 40px;
+  left: 25+50/3*1vw;
+  z-index: 100;
+}
+
+#action-wish{
+  position: absolute;
+  bottom: 40px;
+  left: 25+50/3*2vw;
+  z-index: 100;
+}
+
+#action-add{
+  position: absolute;
+  bottom: 40px;
+  left: 75vw;
+  z-index: 100;
+}
+

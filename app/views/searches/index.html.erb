@@ -1,13 +1,6 @@
-<div>
-  <%= form_tag searches_path, id: "search-form", method: :get do %>
-    <%= text_field_tag :query, params[:query], id: "search-text" %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
-</div>
+<%= render "shared/searchbar", search: searches_path %>
 
-<br>
-
-<div class="card">
+<div class="cards">
   <% @results.each do |result| %>
     <% search_res = result.searchable %>
     <% if search_res.class.name == "Beer" %>
