@@ -1,7 +1,8 @@
 const focusSearchBar = () =>{
-  const searchBar = document.querySelector('.searchbar')
+  const searchBar = document.getElementById('search-bar')
   if(searchBar){
-    searchBar.focus();
+    const searchInput = document.querySelector('.sb-input')
+    searchInput.focus();
   }
 }
 
