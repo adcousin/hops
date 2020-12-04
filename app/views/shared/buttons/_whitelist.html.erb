@@ -1,1 +1,5 @@
-<%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), uikit_path, class: "button" %>
+<%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), list_contents_path(whitelist), method: 'post', class: "d-none" %>
+<%= form_tag list_contents_path(whitelist), method: :post, class: 'button' do %>
+  <%= hidden_field_tag 'beer_id', beer.id %>
+  <%= image_submit_tag('icons/whitelist-black.svg', width: 20, height: 20) %>
+<% end %>

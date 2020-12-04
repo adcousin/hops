@@ -9,7 +9,11 @@ class BeersController < ApplicationController
   end
 
   def show
+    @whitelist = List.where(user_id: current_user.id, name: 'Whitelist').first
+    @blacklist = List.where(user_id: current_user.id, name: 'Blacklist').first
+    @wishlist = List.where(user_id: current_user.id, name: 'Wishlist').first
     @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
+    @content = Content.new
     if @beer_user_review
       @review = @beer_user_review
     else
@@ -21,7 +25,6 @@ class BeersController < ApplicationController
     @black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", @beer.id).count
     @wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", @beer.id).count
     @list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", @beer.id).count
-    # @list_count = 0
   end
 
   def new
