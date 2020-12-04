@@ -21,32 +21,14 @@
   padding-bottom:40px;
 }
 
-#action-white{
+#action-buttons{
   position: absolute;
   top: 75%;
-  left: 25%;
+  width: 100%;
+  display: flex;
   z-index: 100;
-}
-
-#action-black{
-  position: absolute;
-  top: 75%;
-  left: 25+50/3*1%;
-  z-index: 100;
-}
-
-#action-wish{
-  position: absolute;
-  top: 75%;
-  left: 25+50/3*2%;
-  z-index: 100;
-}
-
-#action-add{
-  position: absolute;
-  top: 75%;
-  left: 75%;
-  z-index: 100;
+  justify-content: space-around;
+  padding: 0 10%;
 }
 
 h1 a{

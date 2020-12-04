@@ -2,14 +2,16 @@
   <div class=" main-title y-border w-bg">
     <h1><%= "#{@beer.name} - #{@beer.id}" %></h1>
   </div>
-  <div id="action-white"><%= link_to render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content), '#' %></div>
-  <div id="action-black"><%= link_to render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content), '#' %></div>
-  <div id="action-wish"><%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content), '#' %>
-  </div>
-  <div id="action-add">
-    <% if current_user.lists.count > 3 %>
-      <%= render 'shared/buttons/addlist', beer: @beer %>
-    <% end %>
+  <div id="action-buttons">
+    <div><%= link_to render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content), '#' %></div>
+    <div><%= link_to render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content), '#' %></div>
+    <div><%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content), '#' %>
+    </div>
+    <div>
+      <% if current_user.lists.count > 3 %>
+        <%= render 'shared/buttons/addlist', beer: @beer %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="rounded-white-background">
@@ -28,8 +30,8 @@
           <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 32), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
-          <%=image_tag("icons/rating.svg", alt: 'rate', width: 16) * @review.rate %>
-          <%= image_tag("icons/delete.svg", alt: 'no-rate', width: 16, class: 'transparent') * (5 - @review.rate) %>
+          <%=image_tag("icons/rating.svg", alt: 'rate', width: 22) * @review.rate %>
+          <%= image_tag("icons/rating-alt.svg", alt: 'no-rate', width: 16) * (5 - @review.rate) %>
         </div>
         <div class='bg-light br-4'>
           <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
