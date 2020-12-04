@@ -1,3 +1,11 @@
-<div id="map" style="width: 100%; height: 38vh; z-index: -1" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div>
+  <div id="map"style="width: 100%; height: 38vh; z-index: -1" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <h1 class = 'main-title y-border w-bg'><%= @brewery.name %></h1>
+  </div>
+</div>
 <div class="rounded-white-background">
+<p><%= @brewery.address %></p>
+  <h2>INFOS</h2>
+  <h2>STATISTICS</h2>
+  <h2>BEERS</h2>
 </div>
