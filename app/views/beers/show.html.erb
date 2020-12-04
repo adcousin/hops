@@ -1,6 +1,6 @@
 <div class="banner-info">
   <div class="d-flex justify-content-around text-center">
-    <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back) %>
+    <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back)%>
     <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home', width: 32), root_path %>
     <%= link_to image_tag("icons/hops-logo-2.svg", alt: 'Home', width: 16), lists_path %>
   </div>
@@ -30,15 +30,17 @@
           <%= f.submit 'Add review', class: 'btn btn-light', id: 'review_submit' %>
         <% end %>
       <% else %>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between pr-4">
           <h2>NOTES</h2>
           <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 32), edit_beer_review_path(@beer, @review) %>
         </div>
-        <div>
+        <div class="my-2">
           <%=image_tag("icons/rating.svg", alt: 'rate', width: 16) * @review.rate %>
           <%= image_tag("icons/delete.svg", alt: 'no-rate', width: 16, class: 'transparent') * (5 - @review.rate) %>
         </div>
-        <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
+        <div class='bg-light br-4'>
+          <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
+        </div>
       <% end %>
     </div>
     <div class="info my-4">
@@ -46,54 +48,56 @@
         <div class="d-flex flex-wrap">
           <% if @beer.color %>
             <div class="tag tag-color text-center">
-              <div><%= link_to image_tag("tags/blond.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}" %></div>
+              <div class="my-2"><%= link_to image_tag("tags/blond.svg", alt: 'rate', width: 32), "/search?query=#{@beer.color.name}"%></div>
               <%= @beer.color.name %>
             </div>
           <% end %>
 
           <% if @beer.style.name %>
             <div class="tag tag-style text-center">
-              <div><%=image_tag("tags/style.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/style.svg", alt: 'rate', width: 32) %></div>
               <%= @beer.style.name %>
             </div>
            <% end %>
 
           <% if @beer.alcohol_strength %>
             <div class="tag tag-alcohol text-center">
-              <div><%=image_tag("tags/alcohol_strength.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/alcohol_strength.svg", alt: 'rate', width: 32) %></div>
               <%= @beer.alcohol_strength %>
             </div>
           <% end %>
 
           <% if @beer.ibu %>
             <div class="tag tag-ibu text-center">
-              <div><%=image_tag("tags/ibu.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/ibu.svg", alt: 'rate', width: 32) %></div>
               <%= @beer.ibu %>
             </div>
           <% end %>
 
           <% if @beer.brewery.name %>
             <div class="tag tag-brewery text-center">
-              <div><%=image_tag("tags/brewery.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/brewery.svg", alt: 'rate', width: 32) %></div>
               <%= @beer.brewery.name %>
             </div>
           <% end %>
 
           <% if @beer.brewery.country.name %>
             <div class="tag tag-country text-center">
-              <div><%=image_tag("tags/country.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/country.svg", alt: 'rate', width: 32) %></div>
               <%= @beer.brewery.country.name %>
             </div>
           <% end %>
 
           <% if true %>
             <div class="tag tag-city text-center">
-              <div><%=image_tag("tags/city.svg", alt: 'rate', width: 32) %></div>
+              <div class="my-2"><%=image_tag("tags/city.svg", alt: 'rate', width: 32) %></div>
               <%= "City" %>
             </div>
           <% end %>
         </div>
-        <%= @beer.description %>
+        <div class='bg-light br-4'>
+          <%= @beer.description %>
+        </div>
     </div>
     <div class="statistics my-4">
       <h2>STATISTICS</h2>
