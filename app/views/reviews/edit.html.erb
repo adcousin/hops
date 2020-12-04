@@ -1,18 +1,15 @@
-<div class="banner my-4">
-  <div class="navbar">
-    <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back) %>
-    <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home'), root_path %>
-  </div>
-  <div class="title">
-    <%= link_to "#{@beer.name} - #{@beer.id}", beer_path(@beer) %>
+<div class="banner">
+  <div class="main-title y-border w-bg">
+    <h1><%=@beer.name%></h1>
   </div>
 </div>
-<div class="container">
-  <h2><%= @beer.name %></h2>
-  <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
-    <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false%>
-    <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Rate !', label: false, class: 'w-25' %>
-    <%= f.submit 'Update review', class: 'btn btn-light', id: 'review_submit' %>
-  <% end %>
-
+<div class="rounded-white-background">
+  <div class="container pt-5">
+    <h2><%= @beer.name %></h2>
+    <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
+      <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false%>
+      <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Rate !', label: false, class: 'w-25' %>
+      <%= f.submit 'Update review', class: 'btn btn-light', id: 'review_submit' %>
+    <% end %>
+  </div>
 </div>
