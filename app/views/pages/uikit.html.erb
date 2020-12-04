@@ -60,14 +60,23 @@
   <%= render'shared/barcode' %>
 </div>
 
-<ul class="d-flex ml-5 p-0">
+<ul class="d-flex ml-5 mb-3 p-0">
   <li class="mr-2"> <%= render'shared/buttons/whitelist' %> </li>
   <li class="mr-2"> <%= render'shared/buttons/blacklist' %> </li>
   <li class="mr-2"> <%= render'shared/buttons/wishlist' %> </li>
   <li> <%= render'shared/buttons/addlist' %> </li>
-
-
 </ul>
+
+<ul class="d-flex ml-5 mb-3 p-0">
+  <li class="mr-2"> <%= render'shared/buttons/edit' %> </li>
+  
+</ul>
+
+<h4 class="bg-secondary">Rating</h4>
+<div class="ml-5 mb-3">
+  <%= render'shared/rating' %>
+</div>
+
 
 
 
