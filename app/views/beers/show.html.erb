@@ -34,7 +34,7 @@
           <%= image_tag("icons/rating-alt.svg", alt: 'no-rate', width: 16) * (5 - @review.rate) %>
         </div>
         <div class='bg-light br-4'>
-          <%= "#{@beer_user_review.id}. #{@beer_user_review.comment}" %>
+          <%= @beer_user_review.comment %>
         </div>
       <% end %>
     </div>
