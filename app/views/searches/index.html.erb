@@ -11,13 +11,9 @@
   <% @results.each do |result| %>
     <% search_res = result.searchable %>
     <% if search_res.class.name == "Beer" %>
-      <%= link_to beer_path(search_res.id) do  %>
+      <%= link_to beer_path(search_res.id), class: 'beer-card-lg-link' do  %>
         <%= render "shared/beer-cards/beer-card-lg", beer: search_res %>
       <% end %>
-    <% else %>
-     <div>
-      Brewery <%= search_res.name %>
-     </div>
     <% end %>
   <% end %>
 </div>

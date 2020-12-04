@@ -6,6 +6,8 @@
 
   display: flex;
   align-items: center;
+
+  margin-bottom: 3px;
 }
 
 .beer-description-lg {
@@ -45,4 +47,8 @@
   width: 86px;
   height: 86px;
   object-fit: cover;
+}
+
+.beer-card-lg-link {
+  text-decoration: none !important;
 }
