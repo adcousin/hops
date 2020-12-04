@@ -1,45 +1,41 @@
-<div class="banner my-4">
-  <div class="navbar">
-    <%= link_to image_tag("icons/back-arrow.svg", alt: 'Back', width: 16), url_for(:back) %>
-    <%= link_to image_tag("icons/hops-logo.svg", alt: 'Home'), root_path %>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Hops!.. I did it again!</h1>
   </div>
 </div>
-<div class="container">
-  <div class="title mx-auto">
-    <h2>My cellar / My lists</h2>
-  </div>
-  <div class="statistics my-4">
-    <h2>LISTS</h2>
-    <div class="d-flex justify-content-around">
-      <div class="text-center">
-        <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
-        <div><%= @white_count %></div>
-      </div>
-      <div class="text-center">
-        <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
-        <div><%= @black_count %></div>
-      </div>
-      <div class="text-center">
-        <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
-        <div><%= @wish_count %></div>
-      </div>
-      <div class="text-center">
-        <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
-        <div><%= @list_count %></div>
-      </div>
+<div class="rounded-white-background ">
+  <div class="container pt-5">
+    <div class="title mx-auto">
+      <h2>My cellar / My lists</h2>
     </div>
-  </div>
 
-  <h2>LISTS v2</h2>
-  <div class="d-flex justify-content-around px-5 my-4">
-    <%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), list_path(@whitelist), class: "button" %>
-    <%= link_to image_tag('icons/blacklist-black.svg', width: 20, height: 20), list_path(@blacklist), class: "button" %>
-    <%= link_to image_tag('icons/wishlist-black.svg', width: 20, height: 20), list_path(@wishlist), class: "button" %>
-  </div>
-  <% @custom_lists.each do |list| %>
-    <div class="d-flex align-items-center">
-      <%= link_to image_tag('icons/addlist-black.svg', width: 20, height: 20), list_path(list), class: "button disabled" %>
-      <%= list.name %>
+    <div>
+      <nav class="nav nav-tabs" role="tablist">
+        <a class="nav-link w-25 text-center active" id="whitelist-tab" data-toggle="tab" href="#whitelist" role="tab" aria-controls="whitelist" aria-selected="true">
+          <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
+          <div><%= @white_count %></div>
+        </a>
+        <a class="nav-link w-25 text-center" id="blacklist-tab" data-toggle="tab" href="#blacklist" role="tab" aria-controls="blacklist" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+          <div><%= @black_count %></div>
+        </a>
+        <a class="nav-link w-25 text-center" id="whishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlist" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+          <div><%= @wish_count %></div>
+        </a>
+        <a class="nav-link w-25 text-center" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+          <div><%= @list_count %></div>
+        </a>
+      </nav>
     </div>
-  <% end %>
+    <div class="show-container dsp-tabs">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab"><%= render "./shared/list", beers: @whitelist %></div>
+        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist %></div>
+        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist %></div>
+        <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @custom_lists %></div>
+      </div>
+    </div>
+  </div>
 </div>
