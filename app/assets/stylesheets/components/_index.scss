@@ -1,8 +1,12 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
-@import "navbar";
+@import 'banner';
+@import 'cards';
 @import "htitle";
+@import "navbar";
+@import 'rounded_white_background';
+@import 'title_background';
 @import "beer-cards/beer-card-lg";
 @import "beer-cards/beer-card-home";
 @import "searchbar";

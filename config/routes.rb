@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/uikit', to: 'pages#uikit', as: 'uikit'
   get '/about', to: 'pages#about', as: 'about'
   get '/contact', to: 'pages#contact', as: 'contact'
-
+  #
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # ADMIN-TASKS admin/beers + DELETE, admin/breweries + DELETE
@@ -20,9 +20,11 @@ Rails.application.routes.draw do
   # end
 
   # SEARCH-BEER-TYPING+BEER-RESULTS
-  get '/search', to: 'pages#search', as: 'search'
+  # get '/search', to: 'pages#search', as: 'search'
+  resources :searches, only: %i[index], path: "search"
 
   # CELLARS-LISTS /lists + BEER-LISTS /lists/:id
+
   resources :lists, only: %i[index show new create edit update destroy] do
     resources :contents, only: %i[new create destroy]
   end
@@ -33,7 +35,9 @@ Rails.application.routes.draw do
 
 
   # BEER-INFO
+  # get '/contents/new', to: 'contents#new', as: 'new_content'
   resources :beers  do
+    resources :contents, only: %i[new create]
     resources :reviews, only: %i[new create edit update]
     collection do
       get 'validation'

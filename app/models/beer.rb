@@ -7,4 +7,7 @@ class Beer < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
+
+  include PgSearch::Model
+  multisearchable against: %i[name alcohol_strength ibu]
 end

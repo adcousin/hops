@@ -2,7 +2,15 @@ class ListsController < ApplicationController
   before_action :set_lists, only: %i[show destroy]
 
   def index
-    @lists = List.all # To replace with PundIt scope
+    @lists = List.where(user_id: current_user.id)
+    @white_count = List.joins(:contents).where("name = 'Whitelist' AND user_id = ?", current_user.id).count
+    @black_count = List.joins(:contents).where("name = 'Blacklist' AND user_id = ?", current_user.id).count
+    @wish_count = List.joins(:contents).where("name = 'Wishlist' AND user_id = ?", current_user.id).count
+    @list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND user_id = ?", current_user.id).count
+    @whitelist = List.where("name = 'Whitelist' AND user_id = ?", current_user.id).take
+    @blacklist = List.where("name = 'Blacklist' AND user_id = ?", current_user.id).take
+    @wishlist = List.where("name = 'Wishlist' AND user_id = ?", current_user.id).take
+    @custom_lists = List.where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND user_id = ?", current_user.id)
   end
 
   def new
@@ -22,6 +30,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @contents = @list.contents
   end
 
   def destroy

@@ -1,0 +1,21 @@
+<div>
+  <%= form_tag searches_path, id: "search-form", method: :get do %>
+    <%= text_field_tag :query, params[:query], id: "search-text" %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
+</div>
+
+<br>
+
+<div class="card">
+  <% @results.each do |result| %>
+    <% search_res = result.searchable %>
+    <% if search_res.class.name == "Beer" %>
+      <%= render "shared/beer-cards/beer-card-lg", beer: search_res %>
+    <% else %>
+     <div>
+      Brewery <%= search_res.name %>
+     </div>
+    <% end %>
+  <% end %>
+</div>
