@@ -1,4 +1,4 @@
 <%= simple_form_for :search, method: "GET", html: { class: 'searchbar' } do |f| %>
-        <%= f.input :name, input_html: {class: 'sb-input'}, label: false, placeholder: 'Search...' %>   
-        <%= f.submit "", class: "sb-submit" %>
-      <% end %>
+  <%= f.input :query, input_html: {name: 'query', value: params[:query], class: 'sb-input'}, label: false, placeholder: 'Search...' %>   
+  <%= f.submit "", class: "sb-submit" %>
+<% end %>

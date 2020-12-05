@@ -1,21 +1,21 @@
-<div>
-  <%= form_tag searches_path, id: "search-form", method: :get do %>
-    <%= text_field_tag :query, params[:query], id: "search-text" %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Search Beers</h1>
+  </div>
 </div>
+<div class="rounded-white-background ">
+  <div class="container pt-5 d-flex flex-column align-items-center" id= 'search-bar'>
+    <%= render "shared/searchbar", search: searches_path %>
 
-<br>
-
-<div class="card">
-  <% @results.each do |result| %>
-    <% search_res = result.searchable %>
-    <% if search_res.class.name == "Beer" %>
-      <%= render "shared/beer-cards/beer-card-lg", beer: search_res %>
-    <% else %>
-     <div>
-      Brewery <%= search_res.name %>
-     </div>
-    <% end %>
-  <% end %>
+    <div class="cards">
+      <% @results.each do |result| %>
+        <% search_res = result.searchable %>
+        <% if search_res.class.name == "Beer" %>
+          <%= link_to beer_path(search_res.id), class: 'beer-card-lg-link' do  %>
+            <%= render "shared/beer-cards/beer-card-lg", beer: search_res %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

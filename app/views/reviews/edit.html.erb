@@ -1,5 +1,15 @@
-  <%= simple_form_for ([@beer, @review]) do |f| %>
-  <%= f.input :comment, label: 'comment', placeholder: 'Leave your review here' %>
-  <%= f.input :rate, label: 'rate',input_html: { min: 0 }, placeholder: 'Leave your rate here' %>
-  <%= f.submit class: 'btn btn-success', id: 'booking_submit' %>
-  <% end %>
+<div class="banner">
+  <div class="main-title y-border w-bg">
+    <h1><%=@beer.name%></h1>
+  </div>
+</div>
+<div class="rounded-white-background">
+  <div class="container pt-5">
+    <h2><%= @beer.name %></h2>
+    <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
+      <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false%>
+      <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Rate !', label: false, class: 'w-25' %>
+      <%= f.submit 'Update review', class: 'btn btn-light', id: 'review_submit' %>
+    <% end %>
+  </div>
+</div>

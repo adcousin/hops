@@ -6,6 +6,7 @@ h1 {
   font-family: 'Arvo', serif;
   color: white;
   font-size: 24px;
+  font-weight: bold;
   text-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
 }
 
@@ -17,6 +18,11 @@ h2 {
   margin: 0;
   padding: 0;
 }
+
+.notes h2, .info h2, .statistics h2 {
+  margin-bottom: 10px;
+}
+
 
 h3 {
   font-family: 'Roboto', sans-serif;

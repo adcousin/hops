@@ -2,12 +2,18 @@
   <div class=" main-title y-border w-bg">
     <h1>Hops!.. I did it again!</h1>
   </div>
+  <div class = 'sb-placement'>
+    <%= link_to searches_path  do  %>
+      <%= render 'shared/searchbar' %>
+    <% end %>
+  </div>
 </div>
 <div class="rounded-white-background ">
+  <h2 class="mt-5 text-center">Ours newest beers</h2>
   <div class="container pt-5 d-flex justify-content-center align-content-center">
     <div class="card-grid">
       <% @beers.each do |beer| %>
-        <%= link_to beer_path(beer), class: 'text-decoration-none' do  %>
+        <%= link_to beer_path(beer)do  %>
           <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
         <% end %>
       <% end %>

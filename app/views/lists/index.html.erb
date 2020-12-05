@@ -1,0 +1,38 @@
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>My cellar</h1>
+  </div>
+</div>
+<div class="rounded-white-background ">
+  <div class="container pt-5">
+
+    <div>
+      <nav class="nav nav-tabs" role="tablist">
+        <a class="nav-link w-25 text-center active" id="whitelist-tab" data-toggle="tab" href="#whitelist" role="tab" aria-controls="whitelist" aria-selected="true">
+          <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
+          <p><%= @white_count %></p>
+        </a>
+        <a class="nav-link w-25 text-center" id="blacklist-tab" data-toggle="tab" href="#blacklist" role="tab" aria-controls="blacklist" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+          <p><%= @black_count %></p>
+        </a>
+        <a class="nav-link w-25 text-center" id="whishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlist" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+          <p><%= @wish_count %></p>
+        </a>
+        <a class="nav-link w-25 text-center" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">
+          <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+          <p><%= @list_count %></p>
+        </a>
+      </nav>
+    </div>
+    <div class="show-container dsp-tabs">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab"><%= render "./shared/list", beers: @whitelist %></div>
+        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist %></div>
+        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist %></div>
+        <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @custom_lists %></div>
+      </div>
+    </div>
+  </div>
+</div>

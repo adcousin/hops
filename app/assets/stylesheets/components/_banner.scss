@@ -3,10 +3,35 @@
   background-image: asset-url('beer-placeholder.jpg');
   background-position: center;
   background-size: cover;
-  height: 38vh;
+  height: 50vh;
   width: 100vw;
   position: relative;
   padding-bottom:40px;
   align-items: center;
   justify-content: center;
+}
+
+.banner-info{
+  background-image: asset-url('beer-placeholder.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  width: 100vw;
+  position: relative;
+  padding-bottom:40px;
+}
+
+#action-buttons{
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  justify-content: space-around;
+  padding: 0 10%;
+}
+
+h1 a{
+  text-decoration: none!important;
+  color: white;
 }
