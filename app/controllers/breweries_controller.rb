@@ -9,7 +9,8 @@ class BreweriesController < ApplicationController
   def show
     @markers = {
       lat: @brewery.latitude,
-      lng: @brewery.longitude
+      lng: @brewery.longitude,
+      image_url: helpers.asset_url('icons/hops-logo.png')
     }
   end
 

@@ -13,12 +13,14 @@ const buildMap = (mapElement) => {
 
 const addMarkersToMap = (map, markers) => {
     if (mapElement) {
-    // [ ... ]
-    const marker = JSON.parse(mapElement.dataset.markers);
-      new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
-    }
+      const customMarker = document.createElement('div');
+      customMarker.className ='marker'
+
+      const marker = JSON.parse(mapElement.dataset.markers);
+        new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
+      }
   if (mapElement){
     fitMapToMarkers(map, markers);
   }
