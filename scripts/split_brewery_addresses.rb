@@ -8,28 +8,26 @@ UK_ZIP_REG =/[A-Z0-9]{2,4} [A-Z0-9]{3}$/
 LOG_FILE = File.new("scripts/split_addr_logs.txt", "a")
 
 def split_addr(breweries, country)
-  LOG_FILE.puts "#{country} addresses"
+  p "#{country} addresses"
   breweries.each do |brewery|
     if brewery.address
-      LOG_FILE.puts brewery.address
       splitted = brewery.address.rpartition(ZIP_REG)
-      LOG_FILE.puts "  Address : #{splitted[0].delete_suffix(", ")}"
-      LOG_FILE.puts "  Zipcode : #{splitted[1]}"
-      LOG_FILE.puts "  City    : #{splitted[2].strip}"
+      brewery.street = splitted[0].delete_suffix(", ")
+      brewery.zipcode = splitted[1]
+      brewery.city = splitted[2].strip
+      brewery.save
     end
   end
-  LOG_FILE.puts "---------------------------------------------------------------------"
 end
 
 split_addr(fr_breweries, "French")
 split_addr(be_breweries, "Belgian")
 split_addr(de_breweries, "German")
 
-LOG_FILE.puts "English addresses"
+p "English addresses"
 uk_breweries.each do |brewery|
   if brewery.address
-    addr = brewery.address
-    LOG_FILE.puts addr
+    addr = "  #{brewery.address}"
     zipcode = addr.slice!(UK_ZIP_REG)
 
     zip_sep = addr.rindex(",")
@@ -41,8 +39,13 @@ uk_breweries.each do |brewery|
       city = addr.strip
     end
 
-    LOG_FILE.puts "  Address : #{address}"
-    LOG_FILE.puts "  Zipcode : #{zipcode}"
-    LOG_FILE.puts "  City    : #{city}"
+    brewery.street = address
+    brewery.zipcode = zipcode
+    brewery.city = city
+    
+    brewery.save
   end
 end
+
+p "#{Brewery.count} breweries, #{Brewery.where(city: nil).count} without city"
+p "#{Brewery.select(:city).distinct.count} distinct cities"
