@@ -1,4 +1,4 @@
-<div id="map"style="width: 100%; height: 38vh; z-index: -1" class = 'd-flex justify-content-center align-items-center pb-5' data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div id="map"style="width: 100%; height: 50vh; z-index: -1; padding: 0px 0px 50px 0px" class = 'd-flex justify-content-center align-items-center pb-5' data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   <h1 class = 'main-title y-border w-bg' style = 'position: absolute; z-index: 1'>
     <%= @brewery.name %>
   </h1>
