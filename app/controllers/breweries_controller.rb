@@ -7,11 +7,17 @@ class BreweriesController < ApplicationController
   end
 
   def show
-    @markers = {
-      lat: @brewery.latitude,
-      lng: @brewery.longitude,
-      image_url: helpers.asset_url('icons/hops-logo.png')
-    }
+    if @brewery.geocoded?
+      @markers = {
+        lat: @brewery.latitude,
+        lng: @brewery.longitude,
+      }
+    else
+      @markers = {
+        lat: 50.631198343768695,
+        lng: 3.054824203881607
+      }
+    end
   end
 
   def new
