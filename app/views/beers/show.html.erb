@@ -34,9 +34,9 @@
           </div>
         <% end %>
       <% else %>
-        <div class="d-flex justify-content-between pr-4">
+        <div class="d-flex justify-content-between">
           <h2>NOTES</h2>
-          <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 32), edit_beer_review_path(@beer, @review) %>
+          <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
           <%=image_tag("icons/rating.svg", alt: 'rate', width: 22) * @review.rate %>
