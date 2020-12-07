@@ -24,9 +24,8 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
-
-    # how to get country?
-    # need to geocode on save
+    @brewery.address = "#{params[:brewery][:street]} #{params[:brewery][:zipcode]} #{params[:brewery][:city]}"
+    @brewery.country = Country.find(params[:brewery][:country_id])
 
     if @bewery.save
       redirect_to brewery_path(@brewery), notice: 'Brewery sucessfully created'
@@ -43,7 +42,7 @@ class BreweriesController < ApplicationController
   private
 
   def brewery_params
-    params.require(:brewery).permit(:name, :address, :photo)
+    params.require(:brewery).permit(:name, :street, :zipcode, :city, :country_id, :photo)
   end
 
   def set_brewery
