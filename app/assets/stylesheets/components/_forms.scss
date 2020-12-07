@@ -1,12 +1,26 @@
-.simple_form.new_content, .form-group, .label {
+.simple_form {
+  font-size: 1em
+}
+
+.simple_form.new_content, .form-group {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
+.form-group label {
+  width: 100%;
+  margin: 0;
+}
+
+
 #content_list {
   flex-grow: 1;
+
 }
 
 .form-btn {
   border: 1px solid #ced4da;
   height: calc(1.5em + 0.75rem + 2px);
+  margin-bottom: 16px;
 }
