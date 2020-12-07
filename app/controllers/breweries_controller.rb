@@ -19,12 +19,6 @@ class BreweriesController < ApplicationController
       }
     end
 
-    @whitelist = List.where(user_id: current_user.id, name: 'Whitelist').first
-    @blacklist = List.where(user_id: current_user.id, name: 'Blacklist').first
-    @wishlist = List.where(user_id: current_user.id, name: 'Wishlist').first
-    beer_tags = %i[alcohol_strength ibu] # WIP : Automate tag creation if nil?
-    beer_attr = %i[brewery color style] # WIP : Automate tag creation if nil?
-
     count_white_list
     count_black_list
     count_wish_list
