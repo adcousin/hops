@@ -14,13 +14,35 @@
 }
 
 
-#content_list {
+.review_comment, #content_list {
   flex-grow: 1;
-
 }
 
+
 .form-btn {
-  border: 1px solid #ced4da;
-  height: calc(1.5em + 0.75rem + 2px);
+  border: 1px solid $yellow;
+  background-color: $gray;
+  color: $light-gray;
+  border-radius: 4px;
+  // height: calc(1.5em + 0.75rem + 2px);
   margin-bottom: 16px;
+  font-size: 1em;
+  #review_submit{
+    line-height: 1.5;
+  }
+}
+
+.review-rate.fas.fa-beer.inactive {
+  color: rgba(255,199,0,0.3);
+  font-size: 2.5em;
+}
+
+.review-rate.fas.fa-beer {
+  color: rgba(255,199,0,1);
+  font-size: 2.5em;
+}
+
+.form-control {
+  font-size: 1em;
+  border-radius: 4px;
 }

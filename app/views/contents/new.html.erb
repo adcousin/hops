@@ -9,6 +9,6 @@
     <h2 class="mb-5 text-center"><%= "Adding #{@beer.name} to a custom list" %></h2>
     <%= simple_form_for [@beer,@content] do |f| %>
       <%= f.input :list, label: 'Select a custom list', collection: @custom_lists, selected: 1 %>
-      <%= f.button :submit, class: 'form-btn' %>
+      <%= f.button :submit, 'Add to list', class: 'form-btn' %>
     <% end %>
   </div>

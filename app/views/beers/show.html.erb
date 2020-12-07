@@ -3,8 +3,8 @@
     <h1><%= @beer.name %></h1>
   </div>
   <div id="action-buttons">
-    <div><%= link_to render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content), '#' %></div>
-    <div><%= link_to render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content), '#' %></div>
+    <div><%= render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
+    <div><%= render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
     <div><%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content), '#' %>
     </div>
     <% if current_user.lists.count > 3 %>

@@ -3,7 +3,7 @@ const toggleListsState = () => {
   if (listButtons) {
     listButtons.forEach(button => {
       button.addEventListener('click', (event) => {
-        event.currentTarget.classList.toggle('active')
+        event.currentTarget.classList.toggle('active');
       });
     });
   };

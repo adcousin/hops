@@ -5,11 +5,20 @@
 </div>
 <div class="rounded-white-background">
   <div class="container pt-5">
-    <h2><%= @beer.name %></h2>
     <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
-      <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false%>
-      <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Rate !', label: false, class: 'w-25' %>
-      <%= f.submit 'Update review', class: 'btn btn-light', id: 'review_submit' %>
+      <div class="d-flex justify-content-between">
+        <h2 class="mb-4">Rate & Comment</h2>
+        <div>
+          <% 5.times do |index| %>
+              <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
+          <% end %>
+        </div>
+      </div>
+      <%= f.input :rate, as: :hidden %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false %>
+        <%= f.submit 'Update review', class: 'form-btn', id: 'review_submit' %>
+      </div>
     <% end %>
   </div>
 </div>
