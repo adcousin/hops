@@ -29,10 +29,10 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox'
 import { focusSearchBar } from '../components/_search_bar_focus'
+import { toggleListsState } from '../components/_toggle_lists_state'
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   initMapbox();
   focusSearchBar();
+  toggleListsState();
 });

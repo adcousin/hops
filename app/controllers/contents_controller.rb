@@ -29,11 +29,12 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    # Need help to understand what to destroy in this
     @content = Content.find(params[:id])
     @list = List.find(params[:list_id])
     @content.destroy
 
-    redirect_to list_path(@list)
+
+    redirect_to beer_path(@content.beer)
+    # redirect_to list_path(@list)
   end
 end
