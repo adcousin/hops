@@ -19,6 +19,7 @@ class BreweriesController < ApplicationController
 
   def new
     @brewery = Brewery.new
+    @countries = Country.all
   end
 
   def create
