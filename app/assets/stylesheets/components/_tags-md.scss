@@ -8,20 +8,20 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 12px;
-  max-height: 50px;
-  max-width: 100px;
+  font-size: 16px;
+  max-height: 100px;
+  max-width: 200px;
   overflow: auto;
   p {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
   }
 
 }
 
 .tag-icon-md {
-  width: 20px;
-  height: 20px;
+  width: 27px;
+  height: 27px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@
   color: #2E2C2D;
   margin: 2px 0 0 0 ;
   padding: 0;
-  line-height: 12px;
+  line-height: 16px;
   font-weight: bold;
   text-align: center;
 }
@@ -67,31 +67,31 @@
   color: #40a4d8;
 }
 
-.white {
+.White {
   background-color: #f8e3b740;
   color: #f8e3b7;
 
 }
 
-.blond {
+.Blond {
   background-color: #e79e4e40;
   color: #e79e4e;
 
 }
 
-.ruby {
+.Ruby {
   background-color: #aa3a3a40;
   color: #aa3a3a;
 
 }
 
-.amber {
+.Amber {
   background-color: #a0534440;
   color: #a05344;
 
 }
 
-.black {
+.Black {
   background-color: #3f262e40;
   color: #3f262e;
 }
