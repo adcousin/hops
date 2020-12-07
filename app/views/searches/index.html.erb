@@ -3,11 +3,11 @@
     <h1>Search Beers</h1>
   </div>
 </div>
-<div class="sb-placement">
-  <%= render "shared/searchbar", search: searches_path %>
-</div>
-<div class="rounded-white-background ">
+<div class="rounded-white-background">
   <div class="container pt-5 d-flex flex-column align-items-center" id= 'search-bar'>
+    <div class="sb-placement">
+      <%= render "shared/searchbar", search: searches_path %>
+    </div>
 
     <div class="cards">
       <% @results.each do |result| %>

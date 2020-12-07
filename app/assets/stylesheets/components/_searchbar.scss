@@ -47,11 +47,7 @@
 
 .sb-placement{
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   z-index: 5;
-  top: 74%;
-  left: 0;
-  right:0;
-  width: 220px;
+  top: -16px;
 }
