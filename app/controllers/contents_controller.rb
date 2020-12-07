@@ -7,11 +7,15 @@ class ContentsController < ApplicationController
   end
 
   def create
-      @content = Content.new
+    @content = Content.new
+    @user_core_lists = params[:user_core_lists]
     if params[:list_id].nil?
       @content.list_id = params[:content][:list]
       @content.beer_id = params[:beer_id]
     else
+      if @user_core_lists.include?(params[:list_id])
+        Content.where(beer_id: params[:beer_id], list_id: params[:list_id]).delete_all
+      end
       @list = List.find(params[:list_id])
       @content.list = @list
       @content.beer_id = params[:beer_id]

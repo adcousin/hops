@@ -12,6 +12,7 @@ class BeersController < ApplicationController
     @whitelist = List.where(user_id: current_user.id, name: 'Whitelist').first
     @blacklist = List.where(user_id: current_user.id, name: 'Blacklist').first
     @wishlist = List.where(user_id: current_user.id, name: 'Wishlist').first
+    @user_core_lists = [@whitelist, @blacklist, @wishlist]
     @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
     @content = Content.new
     if @beer_user_review
