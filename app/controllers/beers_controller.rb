@@ -19,8 +19,10 @@ class BeersController < ApplicationController
     @user_core_lists = [@whitelist, @blacklist, @wishlist]
 
     # Get the active non-deletable list (if any)
-    @active_core_list = @user_core_lists.select { |list| !list.contents.where(beer_id: @beer.id).nil? }.first
+    @active_core_list = @user_core_lists.reject { |list| @beer.contents.where(list_id: list.id).empty? }.first
+    unless @active_core_list.nil?
     @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
+    end
 
     # Display review if it exists, create empty review otherwise
     @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first

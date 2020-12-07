@@ -1,0 +1,12 @@
+.simple_form.new_content, .form-group, .label {
+  display: flex;
+  justify-content: center;
+}
+#content_list {
+  flex-grow: 1;
+}
+
+.form-btn {
+  border: 1px solid #ced4da;
+  height: calc(1.5em + 0.75rem + 2px);
+}
