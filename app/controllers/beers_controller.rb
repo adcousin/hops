@@ -50,10 +50,10 @@ class BeersController < ApplicationController
   def create
     @beer = Beer.new(beers_params)
     @beer.user = current_user
-    @beer.validated = false
+    @beer.validated = false unless current_user.admin
 
     if @beer.save
-      redirect_to beer_path(@beer), notice: 'Beer successfully created'
+      redirect_to beer_path(@beer), notice: "#{@beer.name} successfully created"
     else
       render :new
     end
@@ -64,26 +64,27 @@ class BeersController < ApplicationController
 
   def update
     @beer.update(beers_params)
-    redirect_to beer_path(@beer), notice: 'Beer successfully updated'
+    redirect_to beer_path(@beer), notice: "#{@beer.name} successfully updated"
   end
 
   def destroy
+    beer_name = @beer.name
     @beer.destroy
-    redirect_to searches_path, notice: 'Beer successfully deleted'
+    redirect_to root_path, alert: "#{beer_name} successfully deleted"
   end
 
   def validation
-    Beer.where(validated: false)
+    @pending_validations = Beer.where(validated: false)
   end
 
   def validate
-    @beer.is_validated = true
+    @beer.validated = true
     @beer.save
     redirect_to beer_path(@beer), notice: 'Beer sucessfully validated'
   end
 
   def decline
-    @beer.is_validated = false
+    @beer.validated = false
     @beer.save
     redirect_to beer_path(@beer), notice: 'Beer sucessfully declined'
   end
