@@ -34,6 +34,42 @@ Color.create(name: "Other")
 # Create dummy style
 Style.create(name: "Other")
 
+# split addresses in 3 parts
+ZIP_REG = /[FDB]-\w+/
+UK_ZIP_REG =/[A-Z0-9]{2,4} [A-Z0-9]{3}$/
+
+def uk_script(brewery)
+  if brewery.address
+    addr = brewery.address
+    zipcode = addr.slice!(UK_ZIP_REG)
+
+    zip_sep = addr.rindex(",")
+    if zip_sep
+      address = addr[0..zip_sep - 1]
+      city = addr[zip_sep + 1..-1].strip
+    else
+      address = ""
+      city = addr.strip
+    end
+
+    brewery.street = address
+    brewery.zipcode = zipcode
+    brewery.city = city
+    
+    brewery.save
+  end
+end
+
+def others_script(brewery)
+  if brewery.address
+    splitted = brewery.address.rpartition(ZIP_REG)
+    brewery.street = splitted[0].delete_suffix(", ")
+    brewery.zipcode = splitted[1]
+    brewery.city = splitted[2].strip
+    brewery.save
+  end
+end
+
 # Insert Breweries
 def create_breweries(file_name, country_name)
   file = File.join(File.dirname(__FILE__), "./breweries#{file_name}.json")
@@ -50,6 +86,9 @@ def create_breweries(file_name, country_name)
                               address: br_address,
                               country_id: country.id)
     br += 1 if new_brewery.save
+
+    # split the address
+    file_name == "UK" ? uk_script(new_brewery) : others_script(new_brewery)
     
     brewery["beers"].each do |beer|
       be_name = beer["name"]
@@ -102,7 +141,7 @@ USERS_NAMES.each do |username|
   )
 end
 
-# Create random list's contents and reviews
+# # Create random list's contents and reviews
 p "Create random lists contents and reviews"
 User.all.each do |user|
   break if user.admin
@@ -118,4 +157,34 @@ User.all.each do |user|
       rev.save
     end
   end
+end
+
+# For some beers, populate color/style/photo
+beers = [
+    { beer_name: "Leffe Ruby", color_name: "Ruby", style_name: "IPA", photo_key: "2mghes6q5obg8ctrksmuzkwoyx8d" },
+    { beer_name: "Leffe Tripel", color_name: "Blond", style_name: "tdb", photo_key: "jco9dpckxcb1bdcaky92i9e940jy" },
+    { beer_name: "Leffe Blonde\/Blond", color_name: "Blond", style_name: "tdb", photo_key: "wxkmnryjinaxgpus3mvyhelxntdd" },
+    { beer_name: "Leffe Brune\/Bruin", color_name: "Black", style_name: "tdb", photo_key: "m930fcrxxc78sfp6uox7k8basrm9" },
+    { beer_name: "Leffe Radieuse", color_name: "Ruby", style_name: "tdb", photo_key: "xbefdk3d8gauhn3v6smzfrjpoi6a" },
+    { beer_name: "Leffe Rituel 9°", color_name: "Blond", style_name: "tdb", photo_key: "aoeg8p4499c2mwvh7iyoagtfq4h8" },
+    { beer_name: "Orval", color_name: "Blond", style_name: "tdb", photo_key: "sjxg39ew99kpzvoyqami8gkwf3ib" },
+    { beer_name: "33 Export", color_name: "Blond", style_name: "tdb", photo_key: "fqn8adtiemw8l3h7a2xoidcqex6b" },
+    { beer_name: "Guinness", color_name: "Black", style_name: "Stout", photo_key: "dimstmzbiw5rt6v9r5sbl4tqqqcv" },
+    { beer_name: "Bière des Ours", color_name: "Blond", style_name: "tdb", photo_key: "7u21crfelwkbf9byfizybrxuyrra" },
+    { beer_name: "Wychwood Hobgoblin Ruby", color_name: "Ruby", style_name: "Lambic", photo_key: "ohr4yqrtbbukwmrd2zcnwy7z9j52" },
+    { beer_name: "Dark Ruby Ale", color_name: "Ruby", style_name: "Ale", photo_key: "b09jhn8fffo7gxhjb4pn1roma4oa" }
+]
+URL = "https://res.cloudinary.com/dmzqd01xs/image/upload/"
+
+p "Seed details for some beers"
+beers.each do |beer|
+  p beer[:beer_name]
+  b = Beer.find_by(name: beer[:beer_name])
+  c = Color.find_by(name: beer[:color_name]) || Color.first
+  s = Style.find_by(name: beer[:style_name]) || Style.first
+  
+  b.color = c
+  b.style = s
+  b.photo.attach(io: open("#{URL}#{beer[:photo_key]}"), filename: "#{beer[:beer_name]}.jpg")
+  b.save
 end
