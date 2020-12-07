@@ -8,7 +8,9 @@
         <% if beer.color %>
           <li><%= render 'shared/tags/tag-sm-color', beer: beer %></li>
         <% end %>
-          <li><%= image_tag("tags/tag-alcohol-str-sm.svg") %></li>
+        <% if beer.alcohol_strength %>
+          <li><%= render 'shared/tags/tag-sm-alc-str', beer: beer %></li>
+        <% end %>
         <% if beer.brewery.country.name %>
           <li><%= render 'shared/tags/tag-sm-country', beer: beer %></li>
         <% end %>

@@ -53,10 +53,7 @@
            <% end %>
 
           <% if @beer.alcohol_strength %>
-            <div class="tag tag-alcohol text-center">
-              <div class="my-2"><%=image_tag("tags/alcohol_strength.svg", alt: 'rate', width: 32) %></div>
-              <%= @beer.alcohol_strength %>
-            </div>
+            <%= render 'shared/tags/tag-md-alc-str' %>
           <% end %>
 
           <% if @beer.ibu %>
