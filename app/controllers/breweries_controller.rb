@@ -27,7 +27,7 @@ class BreweriesController < ApplicationController
     @brewery.address = "#{params[:brewery][:street]} #{params[:brewery][:zipcode]} #{params[:brewery][:city]}"
     @brewery.country = Country.find(params[:brewery][:country_id])
 
-    if @bewery.save
+    if @brewery.save
       redirect_to brewery_path(@brewery), notice: 'Brewery sucessfully created'
     else
       render :new
