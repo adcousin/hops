@@ -27,7 +27,7 @@
 
 li.list-card-light {
   flex-grow: 1;
-  max-width: 300px;
+  max-width: 250px;
   // height: 40px;
   padding: 5px 10px;
   margin: 10px 10px;
@@ -38,6 +38,7 @@ li.list-card-light {
   align-items: center;
   box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
   border-radius: 4px;
+  overflow: hidden;
 }
 
 @media(max-width: 1550px){
