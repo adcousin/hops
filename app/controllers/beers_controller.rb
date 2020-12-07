@@ -9,18 +9,34 @@ class BeersController < ApplicationController
   end
 
   def show
+    # Initialize content to enable content create via action buttons
+    @content = Content.new
+
+    # Get the non-deletable lists of current_user
     @whitelist = List.where(user_id: current_user.id, name: 'Whitelist').first
     @blacklist = List.where(user_id: current_user.id, name: 'Blacklist').first
     @wishlist = List.where(user_id: current_user.id, name: 'Wishlist').first
+    @user_core_lists = [@whitelist, @blacklist, @wishlist]
+
+    # Get the active non-deletable list (if any)
+    @active_core_list = @user_core_lists.reject { |list| @beer.contents.where(list_id: list.id).empty? }.first
+    unless @active_core_list.nil?
+    @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
+    end
+
+    # Display review if it exists, create empty review otherwise
     @beer_user_review = Review.where(beer_id: @beer.id, user_id: current_user.id).first
-    @content = Content.new
     if @beer_user_review
       @review = @beer_user_review
     else
       @review = Review.new
     end
-    beer_tags = %i[alcohol_strength ibu] # WIP : Automate tag creation if nil?
-    beer_attr = %i[brewery color style] # WIP : Automate tag creation if nil?
+
+    # WIP : Automate tag creation if nil?
+    beer_tags = %i[alcohol_strength ibu]
+    beer_attr = %i[brewery color style]
+
+    # Count beers in each list
     @white_count = List.joins(:contents).where("name = 'Whitelist' AND beer_id = ?", @beer.id).count
     @black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", @beer.id).count
     @wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", @beer.id).count

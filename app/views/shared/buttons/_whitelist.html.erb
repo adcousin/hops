@@ -1,5 +1,6 @@
-<%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), list_contents_path(whitelist), method: 'post', class: "d-none" %>
-<%= form_tag list_contents_path(whitelist), method: :post, class: 'button' do %>
-  <%= hidden_field_tag 'beer_id', beer.id %>
-  <%= image_submit_tag('icons/whitelist-black.svg', width: 20, height: 20) %>
+<!-- Version 2 : Add parameter in link_to -->
+<% if !active_core_list.nil? && active_core_list.name == 'Whitelist' && active_core_content %>
+  <%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), list_content_path(whitelist, active_core_content), method: 'delete', class: "button active", remote: true %>
+<% else %>
+  <%= link_to image_tag('icons/whitelist-black.svg', width: 20, height: 20), list_contents_path(whitelist, beer_id: beer.id, user_core_lists: user_core_lists), method: 'post', class: "button", remote: true %>
 <% end %>

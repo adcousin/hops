@@ -5,7 +5,6 @@ uk_breweries = Brewery.where(country_id: Country.find_by(name: "United Kingdom")
 
 ZIP_REG = /[FDB]-\w+/
 UK_ZIP_REG =/[A-Z0-9]{2,4} [A-Z0-9]{3}$/
-LOG_FILE = File.new("scripts/split_addr_logs.txt", "a")
 
 def split_addr(breweries, country)
   p "#{country} addresses"
