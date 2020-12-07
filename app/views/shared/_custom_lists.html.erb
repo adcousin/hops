@@ -1,0 +1,11 @@
+<ul>
+  <% lists.each do |list| %>
+    <div class="d-flex align-items-center justify-content-center">
+      <li class="list-card-light">
+        <%= list.name %>
+      </li>
+      <%= link_to image_tag('icons/edit.svg', width: 20, height: 20), edit_list_path(list) %>
+      <%= link_to image_tag('icons/delete.svg', width: 20, height: 20), list_path(list), method: 'delete', remote: true, :data => {:confirm => 'Your power is great. Are you sure you want to DELETE this custom list?'}%>
+    </div>
+  <% end %>
+</ul>

@@ -20,6 +20,26 @@
   }
 }
 
+.tab-pane ul {
+  margin: 0;
+  padding: 0;
+}
+
+li.list-card-light {
+  flex-grow: 1;
+  max-width: 300px;
+  // height: 40px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  background: white;
+  color: #2E2C2D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border-radius: 4px;
+}
+
 @media(max-width: 1550px){
   .card-grid{
     grid-template-columns: 1fr 1fr 1fr;
