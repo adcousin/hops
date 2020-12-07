@@ -1,7 +1,7 @@
 .tag-md {
   background-color: white;
   border: 1px solid rgba(0,0,0,0.2);
-  padding: 2px 3px;
+  padding: 2px 5px;
   border-radius: 4px;
   margin: 1px 2px;
   display: flex;
@@ -34,6 +34,11 @@
   padding: 0;
   line-height: 12px;
   font-weight: bold;
+}
+
+.country {
+  background-color: #33beb840;
+  color: #33beb8;
 }
 
 .white {

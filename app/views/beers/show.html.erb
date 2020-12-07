@@ -74,10 +74,7 @@
           <% end %>
 
           <% if @beer.brewery.country.name %>
-            <div class="tag tag-country text-center">
-              <div class="my-2"><%=image_tag("tags/country.svg", alt: 'rate', width: 32) %></div>
-              <%= @beer.brewery.country.name %>
-            </div>
+            <%= render 'shared/tags/tag-md-country' %>
           <% end %>
 
           <% if true %>
