@@ -1,18 +1,16 @@
 <div class="beer-card-home" style = "background-image: url(<%= cl_image_path beer.photo.key if beer.photo.key rescue image_path 'beer-placeholder.jpg' %>);" >
   <div class="bch-name-tags">
     <div class="bch-name">
-    <% if @beer.present? %>
-        <h5><%= @beer.name %></h5>
-      <% else %>
-        <h5><%= beer.name %></h5>
-      <% end %>
+      <h5><%= beer.name %></h5>
     </div>
     <div class="bch-tags">
       <ul>
-        <li><%= image_tag("tags/tag-color-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-alcohol-str-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-country-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-style-sm.svg") %></li>
+        <% if beer.color %>
+          <li><%= render 'shared/tags/tag-sm-color', beer: beer %></li>
+        <% end %>
+          <li><%= image_tag("tags/tag-alcohol-str-sm.svg") %></li>
+          <li><%= image_tag("tags/tag-country-sm.svg") %></li>
+          <li><%= image_tag("tags/tag-style-sm.svg") %></li>
       </ul>
     </div>
   </div>

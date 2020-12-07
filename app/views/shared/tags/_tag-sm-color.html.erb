@@ -1,0 +1,46 @@
+<div class="tag-sm">
+  <% case beer.color.name %> 
+  <% when 'White' %> 
+    <div class="tag-icon-sm white">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> <%= beer.color.name %> </p>
+    </div>
+  <% when 'Blond' %> 
+    <div class="tag-icon-sm blond">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> <%= beer.color.name %> </p>
+    </div>
+  <% when 'Ruby' %> 
+    <div class="tag-icon-sm ruby">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> <%= beer.color.name %> </p>
+    </div>
+  <% when 'Amber' %> 
+    <div class="tag-icon-sm amber">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> <%= beer.color.name %> </p>
+    </div>
+  <% when 'Black' %> 
+    <div class="tag-icon-sm black">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> <%= beer.color.name %> </p>
+    </div>
+  <% else %>
+    <div class="tag-icon-sm">
+      <i class="fas fa-beer"></i>
+    </div>
+    <div class="tag-name-sm">
+      <p> TBD </p>
+    </div>
+  <% end %>
+</div>

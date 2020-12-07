@@ -1,0 +1,68 @@
+.tag-md {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 2px 3px;
+  border-radius: 4px;
+  margin: 1px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  max-height: 50px;
+  p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+}
+
+.tag-icon-md {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 3px;
+
+}
+
+.tag-name-md {
+  color: #2E2C2D;
+  margin: 2px 0 0 0 ;
+  padding: 0;
+  line-height: 12px;
+  font-weight: bold;
+}
+
+.white {
+  background-color: #f8e3b740;
+  color: #f8e3b7;
+
+}
+
+.blond {
+  background-color: #e79e4e40;
+  color: #e79e4e;
+
+}
+
+.ruby {
+  background-color: #aa3a3a40;
+  color: #aa3a3a;
+
+}
+
+.amber {
+  background-color: #a0534440;
+  color: #a05344;
+
+}
+
+.black {
+  background-color: #3f262e40;
+  color: #3f262e;
+}
+
+
