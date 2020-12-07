@@ -118,7 +118,7 @@ class BreweriesController < ApplicationController
   def count_white_beers
     @white_count = 0
     @brewery.beers.each do |beer|
-      @white_count += 1 if beer.color.name == 'white'
+      @white_count += 1 if beer.color.name == 'White'
     end
   end
 end
