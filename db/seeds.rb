@@ -25,7 +25,7 @@ User.delete_all
 
 # Insert countries
 p "Create countries"
-["French", "United Kingdom", "Belgium", "Germany"].each do |country|
+["France", "United Kingdom", "Belgium", "Germany"].each do |country|
   Country.create(name: country)
 end
 
