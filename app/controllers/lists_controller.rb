@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_lists, only: %i[show destroy]
+  before_action :set_lists, only: %i[show destroy edit update]
 
   def index
     @list = List.new
@@ -29,6 +29,7 @@ class ListsController < ApplicationController
     @list.deletable = true
     @list.user = current_user
     @list.save
+    redirect_to lists_path
   end
 
   def show
@@ -39,6 +40,11 @@ class ListsController < ApplicationController
   end
 
   def update
+    if @list.update(lists_params)
+      redirect_to lists_path
+    else
+      render :edit
+    end
   end
 
   def destroy
