@@ -10,7 +10,7 @@ class BreweriesController < ApplicationController
     if @brewery.geocoded?
       @markers = {
         lat: @brewery.latitude,
-        lng: @brewery.longitude,
+        lng: @brewery.longitude
       }
     else
       @markers = {
@@ -18,6 +18,17 @@ class BreweriesController < ApplicationController
         lng: 3.054824203881607
       }
     end
+
+    @whitelist = List.where(user_id: current_user.id, name: 'Whitelist').first
+    @blacklist = List.where(user_id: current_user.id, name: 'Blacklist').first
+    @wishlist = List.where(user_id: current_user.id, name: 'Wishlist').first
+    beer_tags = %i[alcohol_strength ibu] # WIP : Automate tag creation if nil?
+    beer_attr = %i[brewery color style] # WIP : Automate tag creation if nil?
+
+    count_white_list
+    count_black_list
+    count_wish_list
+    count_custom_list
   end
 
   def new
@@ -50,5 +61,41 @@ class BreweriesController < ApplicationController
 
   def set_brewery
     @brewery = Brewery.find(params[:id])
+  end
+
+  def count_white_list
+    @white_count = 0
+    @brewery.beers.each do |beer|
+      single_white_count = List.joins(:contents).where("name = 'Whitelist' AND beer_id = ?", beer.id).count
+      @white_count += single_white_count
+    end
+    return @white_count
+  end
+
+  def count_black_list
+    @black_count = 0
+    @brewery.beers.each do |beer|
+      single_black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", beer.id).count
+      @black_count += single_black_count
+    end
+    return @black_count
+  end
+
+  def count_wish_list
+    @wish_count = 0
+    @brewery.beers.each do |beer|
+      single_wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", beer.id).count
+      @wish_count += single_wish_count
+    end
+    return @wish_count
+  end
+
+  def count_custom_list
+    @custom_count = 0
+    @brewery.beers.each do |beer|
+      single_list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", beer.id).count
+      @custom_count += single_list_count
+    end
+    return @custom_count
   end
 end
