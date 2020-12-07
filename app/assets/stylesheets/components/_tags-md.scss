@@ -1,9 +1,9 @@
 .tag-md {
   background-color: white;
   border: 1px solid rgba(0,0,0,0.2);
-  padding: 2px 5px;
+  padding: 10px 15px;
   border-radius: 4px;
-  margin: 1px 2px;
+  margin: 5px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -32,7 +32,7 @@
 
 .tag-name-md {
   color: #2E2C2D;
-  margin: 2px 0 0 0 ;
+  margin: 14px 0 0 0 ;
   padding: 0;
   line-height: 16px;
   font-weight: bold;
@@ -96,4 +96,15 @@
   color: #3f262e;
 }
 
+.add {
+  background-color: #2E2C2D20;
+  color: white;
+}
 
+.add-border {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.add-text p {
+  color: #2E2C2D40;
+}
