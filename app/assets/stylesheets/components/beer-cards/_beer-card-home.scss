@@ -21,7 +21,6 @@
 .bch-name-tags {
   display: flex;
   flex-direction: column;
-
 }
 .bch-name {
   background-color: white;
@@ -37,8 +36,9 @@
     display: flex;
     margin: 0;
     padding: 2px;
+    overflow-y: scroll;
     li {
-      margin-right: 2px;
+      margin-right: 1px;
     }
   }
 }

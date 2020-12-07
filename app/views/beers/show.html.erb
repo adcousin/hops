@@ -54,29 +54,21 @@
           <% end %>
 
           <% if @beer.ibu %>
-            <div class="tag tag-ibu text-center">
-              <div class="my-2"><%=image_tag("tags/ibu.svg", alt: 'rate', width: 32) %></div>
-              <%= @beer.ibu %>
-            </div>
+            <%= render 'shared/tags/tag-md-ibu' %>
           <% end %>
 
           <% if @beer.brewery.name %>
-            <div class="tag tag-brewery text-center">
-              <div class="my-2"><%=image_tag("tags/brewery.svg", alt: 'rate', width: 32) %></div>
-              <%= @beer.brewery.name %>
-            </div>
+            <%= render 'shared/tags/tag-md-brewery' %>
           <% end %>
 
           <% if @beer.brewery.country.name %>
             <%= render 'shared/tags/tag-md-country' %>
           <% end %>
 
-          <% if true %>
-            <div class="tag tag-city text-center">
-              <div class="my-2"><%=image_tag("tags/city.svg", alt: 'rate', width: 32) %></div>
-              <%= "City" %>
-            </div>
+          <% if @beer.brewery.city %>
+            <%= render 'shared/tags/tag-md-city' %>
           <% end %>
+
         </div>
         <div class='bg-light br-4'>
           <%= @beer.description %>

@@ -10,6 +10,8 @@
   align-items: center;
   font-size: 12px;
   max-height: 50px;
+  max-width: 100px;
+  overflow: hidden;
   p {
     font-size: 12px;
     font-weight: bold;
@@ -34,6 +36,7 @@
   padding: 0;
   line-height: 12px;
   font-weight: bold;
+  text-align: center;
 }
 
 .style {
@@ -48,6 +51,20 @@
 .country {
   background-color: #33beb840;
   color: #33beb8;
+}
+
+.ibu {
+  background-color: #3cc22640;
+}
+
+.brewery {
+  background-color: #f6622040;
+  color: #f66220;
+}
+
+.city {
+  background-color: #40a4d840;
+  color: #40a4d8;
 }
 
 .white {
