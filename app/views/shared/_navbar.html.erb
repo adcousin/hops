@@ -1,14 +1,14 @@
 <div class="navbar-expand-sm navbar-lewagon">
   <ul class="navbar-nav navbar">
+    <div class="navbar-left">
+      <li class="nav-item active">
+        <%= link_to render 'shared/buttons/back'%>
+      </li>
+      <li class="nav-item active">
+        <%= link_to render 'shared/buttons/home'%>
+      </li>
+    </div>
     <% if user_signed_in? %>
-      <div class="navbar-left">
-        <li class="nav-item active">
-          <%= link_to render 'shared/buttons/back'%>
-        </li>
-        <li class="nav-item active">
-          <%= link_to render 'shared/buttons/home'%>
-        </li>
-      </div>
 
       <div class="navbar-right">
         <li class="nav-item">
@@ -42,9 +42,11 @@
         </li>
       </div>
     <% else %>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
+      <div class="navbar-right">
+        <li class="nav-item">
+          <%= link_to render'shared/buttons/login' %>
+        </li>
+      </div>
     <% end %>
   </ul>
 </div>
