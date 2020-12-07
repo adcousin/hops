@@ -4,6 +4,22 @@
   gap: 15px;
 }
 
+.list-card {
+  // width: 40px;
+  // height: 40px;
+  padding: 5px 10px;
+  background: #2E2C2D;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border-radius: 4px;
+  img {
+    margin-right: 10px;
+  }
+}
+
 @media(max-width: 1550px){
   .card-grid{
     grid-template-columns: 1fr 1fr 1fr;
