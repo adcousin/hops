@@ -30,9 +30,9 @@ p "Create countries"
 end
 
 # Create dummy color
-Color.create(name: "tdb")
+Color.create(name: "Other")
 # Create dummy style
-Style.create(name: "tdb")
+Style.create(name: "Other")
 
 # Insert Breweries
 def create_breweries(file_name, country_name)
@@ -69,7 +69,7 @@ def create_breweries(file_name, country_name)
 end
 
 p "Create French breweries"
-create_breweries("FR", "French")
+create_breweries("FR", "France")
 p "Create Belgian breweries"
 create_breweries("BE", "Belgium")
 p "Create English breweries"
@@ -79,8 +79,14 @@ create_breweries("DE", "Germany")
 
 # Create colors
 p "Create colors"
-["White", "Blonde", "Black", "Ruby", "Amber"].each do |color|
+%w[White Blond Black Ruby Amber].each do |color|
   Color.create(name: color)
+end
+
+# Create styles
+p "Create styles"
+%w[Ale Lager Pilsener IPA Stout Sour Wheat Dubbel Lambic Triple Quadruple Wine Bitter].each do |style|
+  Style.create(name: style)
 end
 
 # Create users
