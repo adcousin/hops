@@ -1,6 +1,8 @@
 class BreweriesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_brewery, only: %i[show edit update destroy]
+  before_action :count_white_list, :count_black_list, :count_wish_list, :count_custom_list, :count_amber_beers,
+                :count_black_beers, :count_blond_beers, :count_ruby_beers, :count_white_beers, only: %i[show]
 
   def index
     @breweries = Brewery.all
@@ -18,11 +20,6 @@ class BreweriesController < ApplicationController
         lng: 3.054824203881607
       }
     end
-
-    count_white_list
-    count_black_list
-    count_wish_list
-    count_custom_list
   end
 
   def new
@@ -31,9 +28,6 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
-
-    # how to get country?
-    # need to geocode on save
 
     if @bewery.save
       redirect_to brewery_path(@brewery), notice: 'Brewery sucessfully created'
@@ -91,5 +85,40 @@ class BreweriesController < ApplicationController
       @custom_count += single_list_count
     end
     return @custom_count
+  end
+
+  def count_amber_beers
+    @amber_count = 0
+    @brewery.beers.each do |beer|
+      @amber_count += 1 if beer.color.name == 'Amber'
+    end
+  end
+
+  def count_ruby_beers
+    @ruby_count = 0
+    @brewery.beers.each do |beer|
+      @ruby_count += 1 if beer.color.name == 'Ruby'
+    end
+  end
+
+  def count_black_beers
+    @black_count = 0
+    @brewery.beers.each do |beer|
+      @black_count += 1 if beer.color.name == 'Black'
+    end
+  end
+
+  def count_blond_beers
+    @blond_count = 0
+    @brewery.beers.each do |beer|
+      @blond_count += 1 if beer.color.name == 'Blond'
+    end
+  end
+
+  def count_white_beers
+    @white_count = 0
+    @brewery.beers.each do |beer|
+      @white_count += 1 if beer.color.name == 'white'
+    end
   end
 end

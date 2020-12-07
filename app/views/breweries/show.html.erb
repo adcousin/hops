@@ -32,8 +32,9 @@
             </div>
         </div>
     </div>
-    <h2 class = >BEERS</h2>
+    <h2 class ='my-4'>BEERS</h2>
     <% if @brewery.beers %>
+    <%= @amber_count %>
     <ul>
       <% @brewery.beers.each do |beer| %>
         <li><%= beer.name %></li>
