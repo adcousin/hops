@@ -6,13 +6,13 @@
 <div class="rounded-white-background">
   <div class="container">
     <p><%= @brewery.address %></p>
+    <div class="info my-4">
       <h2>INFOS</h2>
       <%= @brewery.city %>
       <%= @brewery.country.name %>
-
+    </div>
     <div class="statistics my-4">
       <h2>STATISTICS</h2>
-      <% if @brewery.beers %>
         <div class="d-flex justify-content-around">
           <div class="text-center">
             <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
@@ -32,8 +32,17 @@
             </div>
         </div>
     </div>
-      <% else %>
-        <p>Sorry, this Brewery doesn't have linked beers yet.</p>
+    <h2 class = >BEERS</h2>
+    <% if @brewery.beers %>
+    <ul>
+      <% @brewery.beers.each do |beer| %>
+        <li><%= beer.name %></li>
+        <li><%= beer.color.name %></li>
+        <li><%= @brewery.name %></li>
       <% end %>
+    </ul>
+    <% else %>
+      <p>Sorry, this Brewery doesn't have linked beers yet.</p>
+    <% end %>
   </div>
 </div>
