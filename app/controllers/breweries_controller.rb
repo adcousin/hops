@@ -52,12 +52,12 @@ class BreweriesController < ApplicationController
   end
 
   def count_white_list
-    @white_count = 0
+    @white_count = 4
     @brewery.beers.each do |beer|
       single_white_count = List.joins(:contents).where("name = 'Whitelist' AND beer_id = ?", beer.id).count
       @white_count += single_white_count
     end
-    return @white_count
+    return @whitelist_count
   end
 
   def count_black_list
@@ -66,7 +66,7 @@ class BreweriesController < ApplicationController
       single_black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", beer.id).count
       @black_count += single_black_count
     end
-    return @black_count
+    return @blacklist_count
   end
 
   def count_wish_list
@@ -75,7 +75,7 @@ class BreweriesController < ApplicationController
       single_wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", beer.id).count
       @wish_count += single_wish_count
     end
-    return @wish_count
+    return @wishlist_count
   end
 
   def count_custom_list
@@ -84,7 +84,7 @@ class BreweriesController < ApplicationController
       single_list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", beer.id).count
       @custom_count += single_list_count
     end
-    return @custom_count
+    return @customlist_count
   end
 
   def count_amber_beers
