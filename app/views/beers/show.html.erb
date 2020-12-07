@@ -46,10 +46,7 @@
           <% end %>
 
           <% if @beer.style.name %>
-            <div class="tag tag-style text-center">
-              <div class="my-2"><%=image_tag("tags/style.svg", alt: 'rate', width: 32) %></div>
-              <%= @beer.style.name %>
-            </div>
+            <%= render 'shared/tags/tag-md-style' %>
            <% end %>
 
           <% if @beer.alcohol_strength %>

@@ -14,7 +14,9 @@
         <% if beer.brewery.country.name %>
           <li><%= render 'shared/tags/tag-sm-country', beer: beer %></li>
         <% end %>
-          <li><%= image_tag("tags/tag-style-sm.svg") %></li>
+        <% if beer.style %>
+          <li><%= render 'shared/tags/tag-sm-style', beer: beer %></li>
+        <% end %>
       </ul>
     </div>
   </div>
