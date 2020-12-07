@@ -130,11 +130,11 @@
       <h2>!! DATABASE ZONE !!</h2>
       <div class="d-flex justify-content-around">
         <div class="list-card">
-          <%= link_to image_tag('icons/delete.svg', width: 20, height: 20), root_path, :data => {:confirm => 'Your power is great. Are you sure you want to DELETE the holy Bible of the Beer?'} %>
+          <%= link_to image_tag('icons/delete.svg', width: 20, height: 20), beer_path(@beer), method: 'delete', :data => {:confirm => 'Your power is great. Are you sure you want to DELETE the holy Bible of the Beer?'} %>
           <div> DELETE BEER </div>
         </div>
         <div class="list-card">
-          <%= link_to image_tag('icons/edit.svg', width: 20, height: 20), root_path, :data => {:confirm => 'Your power is great. Are you sure you want to MODIFY the holy Bible of the Beer?'} %>
+          <%= link_to image_tag('icons/edit.svg', width: 20, height: 20), edit_beer_path(@beer), :data => {:confirm => 'Your power is great. Are you sure you want to MODIFY the holy Bible of the Beer?'} %>
           <div>EDIT BEER</div>
         </div>
       </div>

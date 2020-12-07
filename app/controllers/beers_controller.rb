@@ -69,7 +69,7 @@ class BeersController < ApplicationController
 
   def destroy
     @beer.destroy
-    redirect_to beers_path, notice: 'Beer successfully deleted'
+    redirect_to searches_path, notice: 'Beer successfully deleted'
   end
 
   def validation
