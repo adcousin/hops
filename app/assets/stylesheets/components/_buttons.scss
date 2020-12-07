@@ -12,3 +12,7 @@
 .edit-button {
   opacity: 1;
 }
+
+.button.active {
+  box-shadow: inset 4px 4px rgba($color: #000000, $alpha: .25);
+}
