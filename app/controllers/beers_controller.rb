@@ -60,7 +60,6 @@ class BeersController < ApplicationController
   end
 
   def edit
-    fail
   end
 
   def update
