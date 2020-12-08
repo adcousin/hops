@@ -1,5 +1,4 @@
-//= require quagga
-//= require_tree .
+import Quagga from 'quagga';
 
 function order_by_occurrence(arr) {
   var counts = {};
