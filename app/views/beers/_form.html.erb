@@ -1,5 +1,4 @@
 <div class="container">
-<% raise %>
   <%= simple_form_for (@beer) do |f| %>
     <%= f.input :name , input_html: {name: 'name', value: params[:name]}%>
     <%= f.association :brewery, collection: Brewery.order(:name) %>
