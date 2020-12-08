@@ -93,11 +93,11 @@ class BeersController < ApplicationController
   end
 
   def read_barcode
-    @beer = Beer.find_or_initialize_by(upc: params[:upc])
+    @beer = Beer.find_or_initialize_by(barcode: params[:barcode])
     unless @beer.new_record?
       redirect_to @beer
     else
-      redirect_to new_product_path(upc: params[:upc])
+      redirect_to new_product_path(barcode: params[:barcode])
     end
   end
 

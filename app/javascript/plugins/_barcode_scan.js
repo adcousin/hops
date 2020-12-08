@@ -29,7 +29,7 @@ function load_quagga(){
           $.ajax({
             type: "POST",
             url: '/products/read_barcode',
-            data: { upc: code }
+            data: { barcode: code }
           });
         }
       });
