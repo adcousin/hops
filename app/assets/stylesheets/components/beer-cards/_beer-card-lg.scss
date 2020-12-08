@@ -29,7 +29,8 @@
   }
 }
 
-.beer-name-alc, .beer-color-ibu, .beer-brewery-icons {
+// .beer-brewery-icons
+.beer-name-alc, .beer-color-ibu, .beer-country {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +38,8 @@
   height: 14px;
 }
 
-.beer-style, .beer-country {
+// .beer-country
+.beer-style,  .beer-brewery-icons {
   line-height: 10px;
   height: 14px;
   display: flex;

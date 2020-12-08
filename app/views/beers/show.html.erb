@@ -18,16 +18,25 @@
   <div class="container pt-5">
     <div class="notes my-4">
       <% if @beer_user_review.nil?%>
-      <h2>NOTES - No personal notes</h2>
         <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
-          <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false%>
-          <%= f.input :rate, input_html: { min: 0 }, placeholder: 'Rate !', label: false, class: 'w-25' %>
-          <%= f.submit 'Add review', class: 'btn btn-light', id: 'review_submit' %>
+          <div class="d-flex justify-content-between">
+            <h2>RATE & COMMENT</h2>
+            <div>
+              <% 5.times do |index| %>
+                  <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
+              <% end %>
+            </div>
+          </div>
+          <%= f.input :rate, as: :hidden %>
+          <div class="d-flex justify-content-between">
+            <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false %>
+            <%= f.submit 'Update review', class: 'form-btn', id: 'review_submit' %>
+          </div>
         <% end %>
       <% else %>
-        <div class="d-flex justify-content-between pr-4">
+        <div class="d-flex justify-content-between">
           <h2>NOTES</h2>
-          <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 32), edit_beer_review_path(@beer, @review) %>
+          <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
           <%=image_tag("icons/rating.svg", alt: 'rate', width: 22) * @review.rate %>
@@ -97,8 +106,20 @@
         </div>
       </div>
     </div>
-
-
   </div>
-
+  <div class="show-footer">
+    <div class="container">
+      <h2>!! DATABASE ZONE !!</h2>
+      <div class="d-flex justify-content-around">
+        <div class="list-card">
+          <%= link_to image_tag('icons/delete.svg', width: 20, height: 20), beer_path(@beer), method: 'delete', :data => {:confirm => 'Your power is great. Are you sure you want to DELETE the holy Bible of the Beer?'} %>
+          <div> DELETE BEER </div>
+        </div>
+        <div class="list-card">
+          <%= link_to image_tag('icons/edit.svg', width: 20, height: 20), edit_beer_path(@beer), :data => {:confirm => 'Your power is great. Are you sure you want to MODIFY the holy Bible of the Beer?'} %>
+          <div>EDIT BEER</div>
+        </div>
+      </div>
+    </div>
+    </div>
 </div>
