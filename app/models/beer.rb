@@ -9,7 +9,22 @@ class Beer < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+  validates :name, :brewery_id, :color_id, :style_id, :alcohol_strength, :ibu, presence: true
+  validates :alcohol_strength, numericality: { :greater_than_or_equal_to => 0 }
+  validates :ibu, numericality: { only_integer: true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
+  before_save :capitalize
+
   include PgSearch::Model
   multisearchable against: %i[name alcohol_strength ibu]
 
+  private
+
+  def capitalize
+    self.name = titleize(self.name)
+    self.description.capitalize!
+  end
+
+  def titleize(str)
+    str.split.map { |word| word.capitalize }.join(" ")
+  end
 end

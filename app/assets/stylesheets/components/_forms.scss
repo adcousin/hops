@@ -57,3 +57,36 @@
 .select2-container {
     width: 100% !important;
 }
+
+.add-edit-container {
+  max-width: 50vw;
+  min-width: 450px;
+  input, select, textarea, label, img {
+    box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+    border-radius: 16px;
+  }
+}
+
+.btn-add-edit-save {
+  color: white;
+  background-color: #53A653;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border-radius: 19px;
+}
+
+.form-group-invalid {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-photo {
+  border: 1px solid #ced4da;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6c757d;
+  background: white;
+  border-radius: 2px;
+}

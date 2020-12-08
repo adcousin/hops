@@ -1,11 +1,18 @@
-<div class="container py-5">
-  <h2 class ='py-3'>Suggest a new brewery</h2>
-  <%= simple_form_for (@brewery) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :street %>
-  <%= f.input :zipcode %>
-  <%= f.input :city %>
-  <%= f.input :country_id, collection: @countries %>
-  <%= f.button :submit, "Send your suggestion!",class: 'btn btn-success' %>
-  <% end %>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Add/Edit a brewery</h1>
+  </div>
+</div>
+
+<div class="rounded-white-background">
+  <div class="container mt-5 add-edit-container">
+    <%= simple_form_for (@brewery) do |f| %>
+    <%= f.input :name, placeholder: 'Brewery name', label:false %>
+    <%= f.input :street, placeholder: 'Address', label:false %>
+    <%= f.input :zipcode, placeholder: 'Zip code', label:false %>
+    <%= f.input :city, placeholder: 'City', label:false %>
+    <%= f.input :country_id, collection: Country.all, prompt: 'Country', label:false %>
+    <%= f.button :submit, "Add/Edit brewery",class: 'btn btn-add-edit-save w-100' %>
+    <% end %>
+  </div>
 </div>
