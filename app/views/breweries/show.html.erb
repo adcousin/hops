@@ -43,7 +43,7 @@
       </div>
       <ul>
         <% @brewery.beers.each do |beer| %>
-          <%= render 'shared/beer-cards/beer-card-lg', beer: beer %>
+          <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
         <% end %>
       </ul>
     <% else %>
