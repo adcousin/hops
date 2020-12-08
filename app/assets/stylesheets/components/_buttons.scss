@@ -9,6 +9,17 @@
   border-radius: 4px;
 }
 
+.button-sm.active {
+  width: 20px;
+  height: 20px;
+  background: #2E2C2D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border-radius: 4px;
+}
+
 .edit-button {
   opacity: 1;
 }
