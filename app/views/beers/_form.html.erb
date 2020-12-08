@@ -1,11 +1,11 @@
 <div class="container">
   <%= simple_form_for (@beer) do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name , input_html: {name: 'name', value: params[:name]}%>
     <%= f.association :brewery, collection: Brewery.order(:name) %>
     <%= f.association :color, collection: Color.order(:id) %>
     <%= f.association :style, collection: Style.order(:name) %>
     <%= f.input :description %>
-    <%= f.input :alcohol_strength %>
+    <%= f.input :alcohol_strength, input_html: {name: 'alcohol_strength', value: params[:alcohol_strength]} %>
     <%= f.input :ibu %>
     <%= f.input :barcode, input_html: {name: 'barcode', value: params[:barcode]} %>
     <%= f.input :photo, as: :file %>

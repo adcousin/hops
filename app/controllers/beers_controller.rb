@@ -94,12 +94,12 @@ class BeersController < ApplicationController
 
   def read_barcode
     @beer = Beer.find_or_initialize_by(barcode: params[:barcode])
-    unless @beer.new_record?
+    if @beer.new_record? == false
       redirect_to @beer
-    # elsif # API Call
-    #   # Call that API ASAP
+    elsif find_beer(params[:barcode])
+      redirect_to new_beer_path(barcode: params[:barcode])
     else
-      flash[:alert]= 'Your Beer was not found by our best algorithm'
+      flash[:alert] = 'Your Beer was not found by our best algorithm'
       redirect_to new_beer_path(barcode: params[:barcode])
     end
   end
@@ -110,17 +110,23 @@ class BeersController < ApplicationController
     params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id, :photo)
   end
 
-
   def set_beers
     @beer = Beer.find(params[:id])
   end
 
-  def request_api(barcode)
-    response = Excon.get(
-      url,
-      headers: {
+  def request_api(url)
+    connexion = Excon.new(
+      url
+      )
+    connexion = connexion.get
+    return nil if connexion.status != 200
 
-      }
+    JSON.parse(connexion.body)
+  end
+
+  def find_beer(barcode)
+    request_api(
+      "https://world.openfoodfacts.org/api/v0/product/#{barcode}.json"
     )
   end
 
