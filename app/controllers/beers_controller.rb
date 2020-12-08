@@ -9,8 +9,6 @@ class BeersController < ApplicationController
   end
 
   def show
-    # Get all the beers for add form
-    @beers = Beer.all
     # Initialize content to enable content create via action buttons
     @content = Content.new
 
