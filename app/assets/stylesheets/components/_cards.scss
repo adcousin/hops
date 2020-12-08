@@ -41,6 +41,10 @@ li.list-card-light {
   overflow: hidden;
 }
 
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background: $yellow;
+}
+
 @media(max-width: 1550px){
   .card-grid{
     grid-template-columns: 1fr 1fr 1fr;
