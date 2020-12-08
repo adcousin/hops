@@ -1,0 +1,58 @@
+<div id="map"style="width: 100%; height: 50vh; z-index: -1; padding: 0px 0px 50px 0px" class = 'd-flex justify-content-center align-items-center pb-5' data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <h1 class = 'main-title y-border w-bg' style = 'position: absolute; z-index: 1'>
+    <%= @brewery.name %>
+  </h1>
+</div>
+<div class="rounded-white-background">
+  <div class="container">
+    <div class="info my-4">
+      <h2>INFOS</h2>
+      <%= @brewery.address %>
+      <%= @brewery.city %>
+      <%= @brewery.country.name %>
+    </div>
+    <div class="statistics my-4">
+      <h2>STATISTICS</h2>
+        <div class="d-flex justify-content-around">
+          <div class="text-center">
+            <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
+              <div><%= @whitelist_count %></div>
+            </div>
+            <div class="text-center">
+              <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+              <div><%= @blacklist_count %></div>
+            </div>
+            <div class="text-center">
+              <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+              <div><%= @wishlist_count %></div>
+            </div>
+            <div class="text-center">
+              <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+              <div><%= @customlist_count %></div>
+            </div>
+        </div>
+    </div>
+    <h2 class ='my-4'>BEERS</h2>
+    <% if @brewery.beers %>
+      <p>Amber</p>
+      <%= @amber_count %>
+      <p>White</p>
+      <%= @white_count %>
+      <p>Black</p>
+      <%= @black_count %>
+      <p>Ruby</p>
+      <%= @ruby_count %>
+      <p>Blond</p>
+      <%= @blond_count %>
+      <ul>
+        <% @brewery.beers.each do |beer| %>
+          <li><%= beer.name %></li>
+          <li><%= beer.color.name %></li>
+          <li><%= @brewery.name %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Sorry, this Brewery doesn't have linked beers yet.</p>
+    <% end %>
+  </div>
+</div>
