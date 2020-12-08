@@ -1,9 +1,13 @@
 <div class="d-flex justify-content-center">
   <div class="cards">
     <% beers.each do |beer| %>
-      <%= link_to beer_path(beer.id), class: 'beer-card-lg-link' do  %>
-        <%= render "shared/beer-cards/beer-card-lg-variable", beer: beer %>
+        <% content = Content.where(list_id: list.id, beer_id: beer.id).take %>
+        <%= link_to beer_path(beer.id), class: 'beer-card-lg-link' do  %>
+          <div class="d-flex align-items">
+          <%= render "shared/beer-cards/beer-card-lg-variable", beer: beer %>
+        <% end %>
+        <%= link_to image_tag('icons/cross-black.svg', width: 20, height: 20), list_content_path(list, content), method: 'delete', class: "button active", remote: true %>
+          </div>
       <% end %>
-    <% end %>
   </div>
 </div>

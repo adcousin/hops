@@ -5,6 +5,9 @@ class ListsController < ApplicationController
     @list = List.new
     # Get all the lists of the user and the custom lists
     @lists = List.where(user_id: current_user.id)
+    @whitelist_instance = @lists.where(name: 'Whitelist').take
+    @blacklist_instance = @lists.where(name: 'Blacklist').take
+    @wishlist_instance = @lists.where(name: 'Wishlist').take
     @custom_list = @lists - List.where("name IN ('Whitelist', 'Blacklist', 'Wishlist')")
 
     # Count all the rows of each core list

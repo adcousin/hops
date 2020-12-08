@@ -53,8 +53,7 @@ class ContentsController < ApplicationController
     @list = List.find(params[:list_id])
     @content.destroy
 
-
-    redirect_to beer_path(@content.beer)
+    redirect_to lists_path
     # redirect_to list_path(@list)
   end
 end
