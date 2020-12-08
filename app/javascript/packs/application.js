@@ -31,10 +31,12 @@ import { initMapbox } from '../plugins/init_mapbox'
 import { focusSearchBar } from '../components/_search_bar_focus'
 import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
+import { searchAddsDisplay } from '../components/_search_adds_display'
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   focusSearchBar();
   toggleListsState();
   dynamicRating();
+  searchAddsDisplay();
 });
