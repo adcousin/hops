@@ -96,7 +96,10 @@ class BeersController < ApplicationController
     @beer = Beer.find_or_initialize_by(barcode: params[:barcode])
     unless @beer.new_record?
       redirect_to @beer
+    # elsif # API Call
+    #   # Call that API ASAP
     else
+      flash[:alert]= 'Your Beer was not found by our best algorithm'
       redirect_to new_beer_path(barcode: params[:barcode])
     end
   end
@@ -111,4 +114,14 @@ class BeersController < ApplicationController
   def set_beers
     @beer = Beer.find(params[:id])
   end
+
+  def request_api(barcode)
+    response = Excon.get(
+      url,
+      headers: {
+
+      }
+    )
+  end
+
 end
