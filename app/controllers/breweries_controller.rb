@@ -2,7 +2,7 @@ class BreweriesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_brewery, only: %i[show edit update destroy]
   before_action :count_white_list, :count_black_list, :count_wish_list, :count_custom_list, :count_amber_beers,
-                :count_black_beers, :count_blond_beers, :count_ruby_beers, :count_white_beers, only: %i[show]
+                :count_black_beers, :count_blond_beers, :count_ruby_beers, :count_white_beers, :count_other_beers, only: %i[show]
 
   def index
     @breweries = Brewery.all
@@ -123,6 +123,13 @@ class BreweriesController < ApplicationController
     @white_count = 0
     @brewery.beers.each do |beer|
       @white_count += 1 if beer.color.name == 'White'
+    end
+  end
+
+  def count_other_beers
+    @other_count = 0
+    @brewery.beers.each do |beer|
+      @other_count += 1 if beer.color.name == 'Other'
     end
   end
 end
