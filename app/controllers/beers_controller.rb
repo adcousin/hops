@@ -128,9 +128,10 @@ class BeersController < ApplicationController
       url
     )
     connexion = connexion.get
-    return nil if connexion.status != 200
+    @api_answer = JSON.parse(connexion.body)
+    return nil if @api_answer['status'].zero?
 
-    return @api_answer = JSON.parse(connexion.body)
+    return @api_answer
   end
 
   def find_beer(barcode)
