@@ -93,7 +93,6 @@ class BeersController < ApplicationController
   end
 
   def read_barcode
-
     if (@beer = Beer.find_by(barcode: params[:barcode]))
       redirect_to beer_path(@beer)
     elsif find_beer(params[:barcode])
