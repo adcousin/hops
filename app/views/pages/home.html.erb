@@ -12,8 +12,8 @@
     <div class = 'sb-placement'>
       <%= render 'shared/searchbar' %>
     </div>
-    <h2 class="mt-2 mb-5">Ours newest beers</h2>
-    <div class="card-grid">
+    <h3>Check out our latest beers !</h3>
+    <div class="card-grid-home mt-1">
       <% @beers.each do |beer| %>
         <%= link_to beer_path(beer)do  %>
           <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
