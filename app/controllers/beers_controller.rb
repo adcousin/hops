@@ -97,7 +97,10 @@ class BeersController < ApplicationController
     if @beer.new_record? == false
       redirect_to @beer
     elsif find_beer(params[:barcode])
-      redirect_to new_beer_path(name: @api_answer['product']['product_name'], barcode: params[:barcode])
+      redirect_to new_beer_path(name: @api_answer['product']['product_name'],
+                                barcode: params[:barcode],
+                                alcohol_strength: @api_answer['product']['nutriments']['alcohol_value'],
+                                brewery: @api_answer['product']['brands_tags'][0])
       flash[:alert] = 'Review what we fetched'
     else
       flash[:alert] = 'Your Beer was not found by our best algorithm'
