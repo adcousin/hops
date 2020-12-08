@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_132735) do
+ActiveRecord::Schema.define(version: 2020_12_06_115738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 2020_12_03_132735) do
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "street"
+    t.string "zipcode"
+    t.string "city"
     t.index ["country_id"], name: "index_breweries_on_country_id"
   end
 

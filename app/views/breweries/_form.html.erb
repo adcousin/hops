@@ -1,0 +1,11 @@
+<div class="container py-5">
+  <h2 class ='py-3'>Suggest a new brewery</h2>
+  <%= simple_form_for (@brewery) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :street %>
+  <%= f.input :zipcode %>
+  <%= f.input :city %>
+  <%= f.input :country_id, collection: @countries %>
+  <%= f.button :submit, "Send your suggestion!",class: 'btn btn-success' %>
+  <% end %>
+</div>

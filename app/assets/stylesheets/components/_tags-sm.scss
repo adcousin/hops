@@ -1,0 +1,37 @@
+.tag-sm {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 2px 3px;
+  border-radius: 4px;
+  margin: 1px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-size: 6px;
+  font-weight: bold;
+  max-height: 26px;
+  overflow: hidden;
+  p {
+    font-size: 6px;
+    font-weight: bold;
+  }
+}
+
+.tag-icon-sm {
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 3px;
+
+}
+
+.tag-name-sm {
+  color: #2E2C2D;
+  margin: 2px 0 0 0 ;
+  padding: 0;
+  line-height: 6px;
+}

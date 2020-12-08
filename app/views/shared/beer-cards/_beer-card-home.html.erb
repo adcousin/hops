@@ -1,18 +1,36 @@
 <div class="beer-card-home" style = "background-image: url(<%= cl_image_path beer.photo.key if beer.photo.key rescue image_path 'beer-placeholder.jpg' %>);" >
   <div class="bch-name-tags">
     <div class="bch-name">
-    <% if @beer.present? %>
-        <h5><%= @beer.name %></h5>
-      <% else %>
-        <h5><%= beer.name %></h5>
-      <% end %>
+      <h5><%= beer.name %></h5>
     </div>
     <div class="bch-tags">
       <ul>
-        <li><%= image_tag("tags/tag-color-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-alcohol-str-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-country-sm.svg") %></li>
-        <li><%= image_tag("tags/tag-style-sm.svg") %></li>
+        <% if beer.color %>
+          <li><%= render 'shared/tags/tag-sm-color', beer: beer %></li>
+        <% end %>
+        <% if beer.style %>
+          <li><%= render 'shared/tags/tag-sm-style', beer: beer %></li>
+        <% end %>
+        <% if beer.alcohol_strength %>
+          <li><%= render 'shared/tags/tag-sm-alc-str', beer: beer %></li>
+        <% end %>
+        <% if beer.brewery.country.name %>
+          <li><%= render 'shared/tags/tag-sm-country', beer: beer %></li>
+        <% end %>
+        <% if beer.ibu %>
+          <li><%= render 'shared/tags/tag-sm-ibu', beer: beer %></li>
+        <% end %>
+
+        <%# brewery disabled by default because of wonky ui %>
+        <% if false %>
+          <% if beer.brewery.name %>
+            <li><%= render 'shared/tags/tag-sm-brewery', beer: beer %></li>
+          <% end %>
+        <% end %>
+
+        <% if beer.brewery.city %>
+          <li><%= render 'shared/tags/tag-sm-city', beer: beer %></li>
+        <% end %>
       </ul>
     </div>
   </div>

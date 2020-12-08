@@ -22,7 +22,7 @@
         </a>
         <a class="nav-link w-25 text-center" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">
           <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
-          <p><%= @list_count %></p>
+          <p><%= @custom_list.count %></p>
         </a>
       </nav>
     </div>
@@ -31,8 +31,12 @@
         <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab"><%= render "./shared/list", beers: @whitelist %></div>
         <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist %></div>
         <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist %></div>
-        <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @custom_lists %></div>
+        <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/custom_lists", lists: @custom_list %>
+          <%= simple_form_for [@list], remote: true do  |f| %>
+            <%= f.input :name, label: false %>
+            <%= f.button :submit, :class => 'form-btn' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>

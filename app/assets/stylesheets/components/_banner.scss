@@ -9,6 +9,16 @@
   padding-bottom:40px;
   align-items: center;
   justify-content: center;
+  span.line{
+    display: inline-block;
+  }
+}
+#logo{
+  padding-right: 10px;
+  padding-bottom: 10px;
+  max-width: 55px;
+  -webkit-filter: drop-shadow(0 4px 4px  rgba(0, 0, 0, 0.3));
+  filter: drop-shadow( 0 4px 4px  rgba(0, 0, 0, 0.3));
 }
 
 .banner-info{

@@ -1,0 +1,55 @@
+.simple_form {
+  font-size: 1em
+}
+
+.simple_form.new_content, .form-group, .edit_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#new_list {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 30px;
+}
+
+.form-group label {
+  width: 100%;
+  margin: 0;
+}
+
+
+.review_comment, #content_list {
+  flex-grow: 1;
+}
+
+
+.form-btn {
+  border: 1px solid #ced4da;
+  background-color: $yellow;
+  color: rgba(20,20,20, 0.5);
+  border-radius: 4px;
+  // height: calc(1.5em + 0.75rem + 2px);
+  margin-bottom: 16px;
+  font-size: 1em;
+  #review_submit{
+    line-height: 1.5;
+  }
+}
+
+.review-rate.fas.fa-beer.inactive {
+  color: rgba(255,199,0,0.3);
+  font-size: 2.5em;
+}
+
+.review-rate.fas.fa-beer {
+  color: rgba(255,199,0,1);
+  font-size: 2.5em;
+}
+
+.form-control {
+  font-size: 1em;
+  border-radius: 4px;
+}

@@ -6,9 +6,9 @@
 
 <div class="rounded-white-background">
   <div class="container pt-5">
-    <h2><%= "Adding #{@beer.name} to a custom list" %></h2>
-    <%= simple_form_for [@beer,@content], html: {class: 'form-inline'} do |f| %>
-      <%= f.input :list, collection: @custom_lists %>
-      <%= f.button :submit, class: 'btn btn-light' %>
+    <h2 class="mb-5 text-center"><%= "Adding #{@beer.name} to a custom list" %></h2>
+    <%= simple_form_for [@beer,@content] do |f| %>
+      <%= f.input :list, label: 'Select a custom list', collection: @custom_lists, selected: 1 %>
+      <%= f.button :submit, 'Add to list', class: 'form-btn' %>
     <% end %>
   </div>
