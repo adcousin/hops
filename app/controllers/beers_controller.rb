@@ -89,6 +89,15 @@ class BeersController < ApplicationController
     redirect_to beer_path(@beer), notice: 'Beer sucessfully declined'
   end
 
+  def read_barcode
+    @beer = Beer.find_or_initialize_by(upc: params[:upc])
+    unless @beer.new_record?
+      redirect_to @beer
+    else
+      redirect_to new_product_path(upc: params[:upc])
+    end
+  end
+
   private
 
   def beers_params
