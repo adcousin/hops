@@ -27,7 +27,7 @@
       </div>
       <div>
         <%= simple_form_for [@list, @content] do  |f| %>
-          <%= f.input :beer_id%>
+          <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id %>
           <%= f.button :submit, 'Add this beer', :class => 'form-btn' %>
         <% end %>
       </div>
