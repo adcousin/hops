@@ -34,21 +34,16 @@
     </div>
     <h2 class ='my-4'>BEERS</h2>
     <% if @brewery.beers %>
-      <p>Amber</p>
-      <%= @amber_count %>
-      <p>White</p>
-      <%= @white_count %>
-      <p>Black</p>
-      <%= @black_count %>
-      <p>Ruby</p>
-      <%= @ruby_count %>
-      <p>Blond</p>
-      <%= @blond_count %>
+      <div class="d-flex">
+        <%= render 'shared/tags/tag-color-count', color: 'white' %>
+        <%= render 'shared/tags/tag-color-count', color: 'blond' %>
+        <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
+        <%= render 'shared/tags/tag-color-count', color: 'amber' %>
+        <%= render 'shared/tags/tag-color-count', color: 'black' %>
+      </div>
       <ul>
         <% @brewery.beers.each do |beer| %>
-          <li><%= beer.name %></li>
-          <li><%= beer.color.name %></li>
-          <li><%= @brewery.name %></li>
+          <%= render 'shared/beer-cards/beer-card-lg', beer: beer %>
         <% end %>
       </ul>
     <% else %>
