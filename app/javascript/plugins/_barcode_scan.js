@@ -1,5 +1,5 @@
 import Quagga from 'quagga';
-
+const camera = document.getElementById('barcode-scanner')
 function order_by_occurrence(arr) {
   var counts = {};
   arr.forEach(function(value){
@@ -17,18 +17,18 @@ function order_by_occurrence(arr) {
 function load_quagga(){
   if ($('#barcode-scanner').length > 0 && navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
 
-    var last_result = [];
+    let last_result = [];
     if (Quagga.initialized == undefined) {
       Quagga.onDetected(function(result) {
         var last_code = result.codeResult.code;
         last_result.push(last_code);
         if (last_result.length > 20) {
-          code = order_by_occurrence(last_result)[0];
+          const code = order_by_occurrence(last_result)[0];
           last_result = [];
           Quagga.stop();
           $.ajax({
             type: "POST",
-            url: '/products/read_barcode',
+            url: '/beers/read_barcode',
             data: { barcode: code }
           });
         }

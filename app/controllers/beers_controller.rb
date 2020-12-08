@@ -97,7 +97,7 @@ class BeersController < ApplicationController
     unless @beer.new_record?
       redirect_to @beer
     else
-      redirect_to new_product_path(barcode: params[:barcode])
+      redirect_to new_beer_path(barcode: params[:barcode])
     end
   end
 
