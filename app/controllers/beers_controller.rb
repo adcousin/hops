@@ -21,7 +21,7 @@ class BeersController < ApplicationController
     # Get the active non-deletable list (if any)
     @active_core_list = @user_core_lists.reject { |list| @beer.contents.where(list_id: list.id).empty? }.first
     unless @active_core_list.nil?
-    @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
+      @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
     end
 
     # Display review if it exists, create empty review otherwise
@@ -93,14 +93,13 @@ class BeersController < ApplicationController
   end
 
   def read_barcode
-    @beer = Beer.find_or_initialize_by(barcode: params[:barcode])
-    if @beer.new_record? == false
-      redirect_to @beer
+
+    if (@beer = Beer.find_by(barcode: params[:barcode]))
+      redirect_to beer_path(@beer)
     elsif find_beer(params[:barcode])
       redirect_to new_beer_path(name: @api_answer['product']['product_name'],
                                 barcode: params[:barcode],
-                                alcohol_strength: @api_answer['product']['nutriments']['alcohol_value'],
-                                brewery: @api_answer['product']['brands_tags'][0])
+                                alcohol_strength: @api_answer['product']['nutriments']['alcohol_value'])
       flash[:alert] = 'Review what we fetched'
     else
       flash[:alert] = 'Your Beer was not found by our best algorithm'
@@ -111,7 +110,14 @@ class BeersController < ApplicationController
   private
 
   def beers_params
-    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id, :photo)
+    params.require(:beer).permit(:name,
+                                 :description,
+                                 :alcohol_strength,
+                                 :ibu, :barcode,
+                                 :brewery_id,
+                                 :color_id,
+                                 :style_id,
+                                 :photo)
   end
 
   def set_beers
