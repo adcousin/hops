@@ -1,8 +1,10 @@
-<div class="tag-md">
-  <div class="tag-icon-md style">
-    <%= image_tag('icons/style.svg', width: 16, height: 16) %>
+<%= link_to searches_path(:query => "#{@beer.style.name}") do %>
+  <div class="tag-md">
+    <div class="tag-icon-md style">
+      <%= image_tag('icons/style.svg', width: 16, height: 16) %>
+    </div>
+    <div class="tag-name-md">
+      <p> <%= @beer.style.name %> </p>
+    </div>
   </div>
-  <div class="tag-name-md">
-    <p> <%= @beer.style.name %> </p>
-  </div>
-</div>
+<% end %>

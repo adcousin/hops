@@ -25,12 +25,17 @@
   padding: 0;
 }
 
-li.list-card-light {
+.list-items {
   flex-grow: 1;
   max-width: 250px;
-  // height: 40px;
-  padding: 5px 10px;
   margin: 10px 10px;
+}
+
+li.list-card-light {
+  flex-grow: 1;
+  width: 100%;
+  padding: 5px 10px;
+  // height: 40px;
   background: white;
   color: #2E2C2D;
   display: flex;
