@@ -11,4 +11,5 @@ class Beer < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: %i[name alcohol_strength ibu]
+
 end
