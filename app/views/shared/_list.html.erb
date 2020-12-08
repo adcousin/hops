@@ -2,7 +2,7 @@
   <div class="cards">
     <% beers.each do |beer| %>
       <%= link_to beer_path(beer.id), class: 'beer-card-lg-link' do  %>
-        <%= render "shared/beer-cards/beer-card-lg", beer: beer %>
+        <%= render "shared/beer-cards/beer-card-lg-variable", beer: beer %>
       <% end %>
     <% end %>
   </div>
