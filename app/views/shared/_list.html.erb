@@ -6,7 +6,7 @@
           <div class="d-flex align-items">
           <%= render "shared/beer-cards/beer-card-lg-variable", beer: beer %>
         <% end %>
-        <%= link_to image_tag('icons/cross-black.svg', width: 20, height: 20), list_content_path(list, content), method: 'delete', class: "button active", remote: true %>
+        <%= link_to image_tag('icons/cross-white.svg', width: 10, height: 10), list_content_path(list, content), method: 'delete', class: "button-sm active", remote: true %>
           </div>
       <% end %>
   </div>
