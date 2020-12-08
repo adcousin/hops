@@ -1,43 +1,42 @@
-<h2><%= @list.name %></h2>
-<% @contents.each do |content| %>
-  <%= link_to beer_path(content.beer) do  %>
-    <div class="beer-card-lg">
-      <div>
-        <%= image_tag('beer-placeholder.jpg', class: 'beer-photo') %>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+<div class="rounded-white-background ">
+  <div class="container pt-5 d-flex justify-content-center align-content-center">
+    <div class="cards">
+      <% @contents.each do |content| %>
+        <div class="d-flex align-items">
+          <%= link_to beer_path(content.beer), class: 'beer-card-lg-link' do  %>
+            <%= render "shared/beer-cards/beer-card-lg-variable", beer: content.beer %>
+          <% end %>
+        <%= link_to image_tag('icons/cross-white.svg', width: 10, height: 10), list_content_path(@list, content), method: 'delete', class: "button-sm active", remote: true %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="show-footer">
+    <div class="container">
+      <h2>!! TEMPORARY ZONE !!</h2>
+      <div class="d-flex justify-content-around">
+        <div class="list-card">
+          <%= link_to image_tag('icons/beer-add.svg', width: 20, height: 20), searches_path %>
+          <div>ADD BEER</div>
+        </div>
       </div>
-      <div class="beer-description-lg">
-        <div class="beer-name-alc">
-          <div class="beer-name"> <h4><%= content.beer.name %></h4>
-            <%= image_tag("icons/delete.svg", width: 14, height: 14 ) %>
-          </div>
-          <div class="beer-alc"> <%= content.beer.alcohol_strength %> </div>
-        </div>
-        <div class="beer-color-ibu">
-          <div class="beer-color"> <h5> <%= content.beer.color.name %> </h5> </div>
-          <div class="beer-ibu"> IBU </div>
-        </div>
-        <div class="beer-style"> <h6> <%= content.beer.style.name %></h6> </div>
-        <div class="beer-country"> <%= content.beer.brewery.country.name %> </div>
-        <div class="beer-brewery-icons">
-          <div class="beer-brewery"> <h5> <%= content.beer.brewery.name %> </h5> </div>
-          <div class="beer-icons">
-            <ul class="d-flex m-0 p-0">
-              <% if content.list.name == 'Whitelist' %>
-              <li><%= image_tag("icons/whitelist-black.svg", width: 16, height: 16 ) %></li>
-              <% end %>
-              <% if content.list.name == 'Blacklist' %>
-              <li><%= image_tag("icons/blacklist-black.svg", width: 16, height: 16) %></li>
-              <% end %>
-              <% if content.list.name == 'Wishlist' %>
-              <li><%= image_tag("icons/wishlist-black.svg", width: 16, height: 16) %></li>
-              <% end %>
-              <% if ['Whitelist', 'Blacklist', 'Wishlist'].exclude?(content.list.name) %>
-              <li><%= image_tag("icons/addlist-black.svg", width: 16, height: 16) %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+      <div>
+        <%= simple_form_for [@list, @content] do  |f| %>
+          <%= f.input :beer_id%>
+          <%= f.button :submit, 'Add this beer', :class => 'form-btn' %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-<% end %>
+    </div>
+</div>
+
+
+
+
+
+
