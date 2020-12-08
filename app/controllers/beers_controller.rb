@@ -97,7 +97,8 @@ class BeersController < ApplicationController
     if @beer.new_record? == false
       redirect_to @beer
     elsif find_beer(params[:barcode])
-      redirect_to new_beer_path(barcode: params[:barcode])
+      redirect_to new_beer_path(name: @api_answer['product']['product_name'], barcode: params[:barcode])
+      flash[:alert] = 'Review what we fetched'
     else
       flash[:alert] = 'Your Beer was not found by our best algorithm'
       redirect_to new_beer_path(barcode: params[:barcode])
@@ -117,11 +118,11 @@ class BeersController < ApplicationController
   def request_api(url)
     connexion = Excon.new(
       url
-      )
+    )
     connexion = connexion.get
     return nil if connexion.status != 200
 
-    JSON.parse(connexion.body)
+    return @api_answer = JSON.parse(connexion.body)
   end
 
   def find_beer(barcode)
@@ -129,5 +130,4 @@ class BeersController < ApplicationController
       "https://world.openfoodfacts.org/api/v0/product/#{barcode}.json"
     )
   end
-
 end
