@@ -28,15 +28,15 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox'
+import { load_quagga } from '../plugins/_barcode_scan'
 import { focusSearchBar } from '../components/_search_bar_focus'
 import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
-import { load_quagga } from '../components/_barcode_scan'
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  load_quagga();
   focusSearchBar();
   toggleListsState();
   dynamicRating();
-  load_quagga();
 });
