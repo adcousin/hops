@@ -11,7 +11,7 @@ class Beer < ApplicationRecord
 
   validates :name, :brewery_id, :color_id, :style_id, :alcohol_strength, :ibu, presence: true
   validates :alcohol_strength, numericality: { :greater_than_or_equal_to => 0 }
-  validates :ibu, numericality: { only_integer: true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100 }
+  validates :ibu, numericality: { only_integer: true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 150 }
   before_save :capitalize
 
   include PgSearch::Model
