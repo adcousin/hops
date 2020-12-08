@@ -4,6 +4,14 @@
   </div>
 </div>
 <div class="rounded-white-background ">
+  <div class="container text-center">
+    <%= simple_form_for [@list, @content], remote: true do  |f| %>
+      <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id, input_html: { class: 'select2' } %>
+      <%= f.button :button , :class => 'form-btn' do %>
+        <i class="fas fa-beer"></i>
+      <% end %>
+    <% end %>
+  </div>
   <div class="container pt-5 d-flex justify-content-center align-content-center">
     <div class="cards">
       <% @contents.each do |content| %>
@@ -16,23 +24,6 @@
       <% end %>
     </div>
   </div>
-  <div class="show-footer">
-    <div class="container">
-      <h2>!! TEMPORARY ZONE !!</h2>
-      <div class="d-flex justify-content-around">
-        <div class="list-card">
-          <%= link_to image_tag('icons/beer-add.svg', width: 20, height: 20), searches_path %>
-          <div>ADD BEER</div>
-        </div>
-      </div>
-      <div>
-        <%= simple_form_for [@list, @content] do  |f| %>
-          <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id %>
-          <%= f.button :submit, 'Add this beer', :class => 'form-btn' %>
-        <% end %>
-      </div>
-    </div>
-    </div>
 </div>
 
 
