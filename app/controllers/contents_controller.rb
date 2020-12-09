@@ -78,6 +78,8 @@ class ContentsController < ApplicationController
     @content.destroy
     if params[:page_tracker] == "list_show"
       redirect_to list_path(@list)
+    elsif params[:page_tracker] == "lists_show"
+      redirect_to lists_path + "##{@list.name.downcase}"
     elsif params[:page_tracker] == "beer_show"
       redirect_to beer_path(@content.beer)
     else
