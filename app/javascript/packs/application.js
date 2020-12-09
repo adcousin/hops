@@ -31,6 +31,7 @@ import { initMapbox } from '../plugins/init_mapbox'
 import { focusSearchBar } from '../components/_search_bar_focus'
 import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
+import { searchAddsDisplay } from '../components/_search_adds_display'
 import { initSelect2 } from '../components/_init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,5 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   focusSearchBar();
   toggleListsState();
   dynamicRating();
+  searchAddsDisplay();
   initSelect2();
 });

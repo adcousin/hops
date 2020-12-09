@@ -1,0 +1,17 @@
+<div class="beer-card-lg flex-column">
+  <h5 class="mt-3 mb-1">Didn’t find what you wanted?</h5>
+  <div class="w-100 d-flex justify-content-around align-items-center">
+    <%= link_to new_brewery_path do  %>
+      <div class="d-flex align-items-center">
+        <%= image_tag("icons/brewery-add.svg") %>
+        <h5 class="ml-1">Add brewery</h5>
+      </div>
+    <% end %>
+    <%= link_to new_beer_path do  %>
+      <div class="d-flex align-items-center">
+        <%= image_tag("icons/beer-add.svg") %>
+        <h5>Add beer</h5>
+      </div>
+    <% end %>
+  </div>
+</div>
