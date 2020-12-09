@@ -46,6 +46,14 @@
   // display: inline;
 }
 
+.navbar-nav-drop {
+  position: absolute;
+  top:25%;
+  z-index: 100;
+  flex-direction: row;
+  // display: inline;
+}
+
 .navbar-mid {
   flex-grow: 1;
   li.nav-item {
@@ -53,3 +61,8 @@
   }
 }
 
+.navbar-nav .dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: 0px;
+}
