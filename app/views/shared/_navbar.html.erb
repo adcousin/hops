@@ -8,10 +8,8 @@
 
     <% if user_signed_in? %>
 
-        <div class="">
           <li class="nav-item dropdown">
             <%= image_tag "icons/user.svg", width: 32, class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <ul>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to " <i class='fas fa-wine-bottle'></i> My cellar".html_safe, lists_path, class: "dropdown-item" %>
@@ -20,9 +18,8 @@
               <%= link_to "<i class='fas fa-question-circle'></i> FAQ".html_safe, '/faq', class: "dropdown-item" %>
               <%= link_to "<i class='fas fa-sign-out-alt'></i> Log out".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
-            </ul>
+
           </li>
-        </div>
 
       <div class="navbar-mid">
         <li class="nav-item">
