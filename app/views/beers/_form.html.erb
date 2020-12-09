@@ -8,14 +8,14 @@
   <h2 class="text-center mt-3" >Add/Edit a beer</h2>
   <div class="container pt-4 add-edit-container">
     <%= simple_form_for (@beer) do |f| %>
-      <%= f.input :name, input_html: {name: 'name', value: params[:name]}, placeholder: 'Beer name', label: false %>
+      <%= f.input :name, input_html: { value: params[:name] }, placeholder: 'Beer name', label: false %>
       <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
       <%= f.association :color, collection: Color.order(:id), prompt: 'Beer color', label: false %>
       <%= f.association :style, collection: Style.order(:name), prompt: "Beer style", label: false %>
-      <%= f.input :alcohol_strength, input_html: {name: 'alcohol_strength', value: params[:alcohol_strength]}, placeholder: 'Alcohol strength', label: false %>
+      <%= f.input :alcohol_strength, input_html: { value: params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
       <%= f.input :ibu, placeholder: 'IBU', label: false %>
       <%= f.input :description, placeholder: 'Something to add?', label: false %>
-      <%= f.input :barcode, input_html: {name: 'barcode', value: params[:barcode]}, placeholder: 'Barcode number', label: false %>
+      <%= f.input :barcode, input_html: { value: params[:barcode]}, placeholder: 'Barcode number', label: false %>
       <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <div class="container text-center">
         <%= image_tag "", class: "d-none mb-3", id: "photo-preview" %>
