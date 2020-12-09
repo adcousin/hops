@@ -115,8 +115,10 @@
       </div>
     </div>
     <% if @beer_suggestions.count > 0 %>
-      <div class="suggestions my-4">
+      <div class="suggestions my-4 position-relative">
         <h2>Suggestions for you</h2>
+          <div class="left-arrow d-none"><i class="fas fa-chevron-left"></i></div>
+          <div class="right-arrow"><i class="fas fa-chevron-right"></i></div>
         <div class="bs-cards mt-2">
           <% @beer_suggestions.each do |beer| %>
             <%= link_to beer_path(beer) do  %>
