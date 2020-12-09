@@ -40,11 +40,9 @@
         <%= render 'shared/tags/tag-color-count', color: 'other' %>
       </div>
       <div class="container d-inline-flex flex-column pt-2">
-        <ul class = 'flex-grow-1'>
-          <% @brewery.beers.each do |beer| %>
+        <% @brewery.beers.each do |beer| %>
             <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
           <% end %>
-        </ul>
       </div>
     <% else %>
       <p>Sorry, this Brewery doesn't have linked beers yet.</p>
