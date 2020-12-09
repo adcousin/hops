@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  // justify-content: space-between;
   // background: rgba(255, 255, 255, 0);
   // position: absolute;
   // top: 0;
@@ -14,16 +14,17 @@
   padding: 10px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  // justify-content: space-between;
   ul {
     padding: 0;
     margin: 0;
   }
 }
 
-.navbar-left, .navbar-right {
-  display: flex;
-}
+// .navbar-left, .navbar-right {
+//   display: flex;
+// }
 
 .navbar-left {
   li {
@@ -46,4 +47,8 @@
 
 .navbar-mid {
   flex-grow: 1;
+  li.nav-item {
+    text-align: center;
+  }
 }
+
