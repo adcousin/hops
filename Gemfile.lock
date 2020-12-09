@@ -99,6 +99,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    excon (0.78.1)
     execjs (2.7.0)
     ffi (1.13.1)
     font-awesome-sass (5.15.1)
@@ -313,6 +314,7 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  excon
   font-awesome-sass
   geocoder
   jbuilder (~> 2.7)

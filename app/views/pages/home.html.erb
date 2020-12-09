@@ -6,6 +6,14 @@
      <span class="line">I did it again!</span>
     </h1>
   </div>
+  <div class = 'sb-placement'>
+    <%= link_to searches_path  do  %>
+      <%= render 'shared/searchbar' %>
+    <% end %>
+    <div>
+      <%= render 'shared/barcode' %>
+    </div>
+  </div>
 </div>
 <div class="rounded-white-background">
   <div class="container pt-5 d-flex flex-column align-items-center">
