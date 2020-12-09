@@ -8,6 +8,9 @@
 require 'open-uri'
 require 'json'
 
+
+
+
 # clean all db tables
 p "Clean tables..."
 Content.delete_all
@@ -55,7 +58,7 @@ def uk_script(brewery)
     brewery.street = address
     brewery.zipcode = zipcode
     brewery.city = city
-    
+
     brewery.save
   end
 end
@@ -75,7 +78,7 @@ def create_breweries(file_name, country_name)
   file = File.join(File.dirname(__FILE__), "./breweries#{file_name}.json")
   list = JSON.parse(File.read(file))
   country = Country.find_by(name: country_name)
-  
+
   total_breweries = list["breweries"].count
   br = 0
   be = 0
@@ -89,7 +92,7 @@ def create_breweries(file_name, country_name)
 
     # split the address
     file_name == "UK" ? uk_script(new_brewery) : others_script(new_brewery)
-    
+
     brewery["beers"].each do |beer|
       be_name = beer["name"]
       be_alcohol = beer["alcohol"].gsub("%", "") if beer["alcohol"]
@@ -182,9 +185,18 @@ beers.each do |beer|
   b = Beer.find_by(name: beer[:beer_name])
   c = Color.find_by(name: beer[:color_name]) || Color.first
   s = Style.find_by(name: beer[:style_name]) || Style.first
-  
+
   b.color = c
   b.style = s
   b.photo.attach(io: open("#{URL}#{beer[:photo_key]}"), filename: "#{beer[:beer_name]}.jpg")
   b.save
 end
+
+# THIS HAS NOT BEEN TESTED. DO NOT UNCOMMENT.
+# p "Update random colors and styles for all beers"
+# # Memo pour updater le jeu de données avec des trucs randoms
+# a = Beer.all
+# a.each { |x| x.update(color: Color.all.sample) }
+# a.each { |x| x.update(style: Style.all.sample) }
+# a.each { |x| x.update(ibu: Random.new.rand(1..100)) }
+# a.each { |x| x.update(alcohol_strength: Random.new.rand(1.5..13.2).round(1)) }
