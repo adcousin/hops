@@ -77,6 +77,7 @@ class ContentsController < ApplicationController
     @content.destroy
 
     redirect_to lists_path
+    fail
     # redirect_to list_path(@list)
   end
 end
