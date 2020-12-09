@@ -55,6 +55,7 @@ class BeersController < ApplicationController
     if @beer.save
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully created"
     else
+      raise
       render :new
     end
   end
@@ -112,14 +113,7 @@ class BeersController < ApplicationController
   private
 
   def beers_params
-    params.require(:beer).permit(:name,
-                                 :description,
-                                 :alcohol_strength,
-                                 :ibu, :barcode,
-                                 :brewery_id,
-                                 :color_id,
-                                 :style_id,
-                                 :photo)
+    params.require(:beer).permit(:name,:description,:alcohol_strength,:ibu, :barcode,:brewery_id,:color_id,:style_id,:photo)
   end
 
   def set_beers

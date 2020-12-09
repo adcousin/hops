@@ -29,20 +29,20 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox'
 import { load_quagga } from '../plugins/_barcode_scan'
+import { initSelect2 } from '../plugins/_init_select2';
 import { focusSearchBar } from '../components/_search_bar_focus'
 import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
 import { searchAddsDisplay } from '../components/_search_adds_display'
-import { initSelect2 } from '../components/_init_select2';
 import { previewImageOnFileSelect } from '../components/_photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   load_quagga();
+  initSelect2();
   focusSearchBar();
   toggleListsState();
   dynamicRating();
   searchAddsDisplay();
-  initSelect2();
   previewImageOnFileSelect();
 });
