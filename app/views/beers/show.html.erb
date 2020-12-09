@@ -13,8 +13,10 @@
 </div>
 <div class="rounded-white-background">
 <div class="user-background">
-  <div class="container pt-4 pb-3">
-   <h2 class ='py-3 align-self-center d-inline-flex'><%= @beer.name.upcase %></h2>
+  <div class="container pt-4 pb-3 text-align-center">
+    <div class ='pt-4 pb-2 d-inline-flex justify-content-center w-100'>
+      <h2><%= @beer.name.upcase %></h2>
+    </div>
     <div class="notes my-4 ml-3">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
