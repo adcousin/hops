@@ -52,7 +52,7 @@ class BreweriesController < ApplicationController
   end
 
   def set_brewery
-    @brewery = Brewery.includes(:beers, beers: [:color, { contents: [:lists] }]).find(params[:id])
+    @brewery = Brewery.includes(:beers, beers: [:color, { contents: [:list] }]).find(params[:id])
   end
 
   def count_white_list
