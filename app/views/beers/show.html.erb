@@ -39,11 +39,20 @@
           <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
-          <%=image_tag("icons/rating.svg", alt: 'rate', width: 22) * @review.rate %>
-          <%= image_tag("icons/rating-alt.svg", alt: 'no-rate', width: 16) * (5 - @review.rate) %>
+          <% @review.rate.times do %>
+            <i class="fas fa-beer" style="font-size: 30px; color: #FFC700"></i> 
+          <% end %>
+          <% (5 - @review.rate).times do %>
+            <i class="fas fa-beer" style="font-size: 30px; color: #FFC70055"></i> 
+          <% end %>
+          
         </div>
-        <div class='bg-light br-4'>
-          <%= @beer_user_review.comment %>
+        <div class=''>
+          
+          <blockquote class="blockquote">
+            <h3 class="mb-0" style="font-weight: normal;"><%= @beer_user_review.comment %></h3>
+            <footer class="blockquote-footer" style="font-size: 12px;">Last edit : <%= @beer_user_review.updated_at %></footer>
+          </blockquote>
         </div>
       <% end %>
     </div>
