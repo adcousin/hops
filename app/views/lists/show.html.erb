@@ -19,7 +19,7 @@
           <%= link_to beer_path(content.beer), class: 'beer-card-lg-link' do  %>
             <%= render "shared/beer-cards/beer-card-lg-variable", beer: content.beer %>
           <% end %>
-        <%= link_to image_tag('icons/cross-white.svg', width: 10, height: 10), list_content_path(@list, content), method: 'delete', class: "button-sm active", remote: true %>
+        <%= link_to image_tag('icons/cross-white.svg', width: 10, height: 10), list_content_path(@list, content, page_tracker: "list_show"), method: 'delete', class: "button-sm active", remote: true %>
         </div>
       <% end %>
     </div>
