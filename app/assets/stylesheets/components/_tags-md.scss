@@ -8,16 +8,17 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  height: max-content;
   font-size: 16px;
-  max-height: 79px;
+  max-height: 77px;
   max-width: 200px;
   p {
     font-size: 16px;
     font-weight: bold;
   }
-  overflow: auto;
-
 }
+
+
 
 .tag-icon-md {
   min-width: 27px;
@@ -27,17 +28,23 @@
   justify-content: center;
   align-items: center;
   padding: 1px 3px;
-
 }
 
 .tag-name-md {
   color: #2E2C2D;
-  margin: 14px 0 0 0 ;
+  margin: 12px 0 0 0 ;
   max-width: 200px;
-  padding: 0;
+  padding: 0 10px;
   line-height: 16px;
   font-weight: bold;
   text-align: center;
+  
+  p {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .style {
