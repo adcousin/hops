@@ -46,7 +46,7 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
-    @brewery.address = "#{params[:brewery][:street]} #{params[:brewery][:zipcode]} #{params[:brewery][:city].capitalize}"
+    @brewery.address = "#{params[:brewery][:street]} #{params[:brewery][:zipcode]} #{params[:brewery][:city].capitalize!}"
 
     if @brewery.save
       redirect_to brewery_path(@brewery), notice: 'Brewery sucessfully created'
