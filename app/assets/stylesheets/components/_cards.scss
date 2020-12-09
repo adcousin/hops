@@ -50,7 +50,13 @@ li.list-card-light {
   background: $yellow;
 }
 
-
+.bs-cards {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  overflow: auto;
+  gap: 15px;
+}
 
 @media(max-width: 1550px){
   .card-grid{
