@@ -1,5 +1,5 @@
 import Quagga from 'quagga';
-const camera = document.querySelector('.main-title')
+
 function order_by_occurrence(arr) {
   var counts = {};
   arr.forEach(function(value){
@@ -15,10 +15,9 @@ function order_by_occurrence(arr) {
 }
 
 function load_quagga(){
-  if (camera.innerText === "Scan... your beer!") {
-    if ($('#barcode-scanner').length > 0 && navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
+  if ($('#barcode-scanner').length > 0 && navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
 
-      let last_result = [];
+    let last_result = [];
       if (Quagga.initialized == undefined) {
         Quagga.onDetected(function(result) {
           var last_code = result.codeResult.code;
@@ -53,7 +52,7 @@ function load_quagga(){
         setTimeout(function(){ Quagga.stop(); alert('We are not using your camera anymore') }, 10000);
       });
     }
-  }
+
 };
 
 export {load_quagga}
