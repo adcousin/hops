@@ -31,8 +31,8 @@
     </div>
     <h2 class ='my-4'><%= "BEERS (#{@brewery.beers.count})" %></h2>
     <% if @brewery.beers %>
-      <div class="d-flex justify-content-center">
-        <%= render 'shared/tags/tag-color-count', color: 'white' %>
+      <div class="d-flex justify-content-between">
+        <%= render 'shared/tags/tag-color-count', color: 'white'%>
         <%= render 'shared/tags/tag-color-count', color: 'blond' %>
         <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
         <%= render 'shared/tags/tag-color-count', color: 'amber' %>
