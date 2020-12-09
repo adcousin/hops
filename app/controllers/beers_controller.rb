@@ -55,7 +55,6 @@ class BeersController < ApplicationController
     if @beer.save
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully created"
     else
-      raise
       render :new
     end
   end
