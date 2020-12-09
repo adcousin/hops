@@ -114,15 +114,18 @@
         </div>
       </div>
     </div>
-    <div class="suggestions my-4">
-      <h2>Suggestions for you</h2>
-      <div class="bs-cards mt-2">
-        <% @beer_suggestions.each do |beer| %>
-          <%= link_to beer_path(beer) do  %>
-            <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
+    <% if @beer_suggestions.count > 0 %>
+      <div class="suggestions my-4">
+        <h2>Suggestions for you</h2>
+        <div class="bs-cards mt-2">
+          <% @beer_suggestions.each do |beer| %>
+            <%= link_to beer_path(beer) do  %>
+              <%= render 'shared/beer-cards/beer-card-home', beer: beer %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
+    <% end %>
   </div>
   <div class="show-footer">
     <div class="container">
