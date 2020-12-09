@@ -1,7 +1,4 @@
-<div class="banner" style = "background-image: url(<%= cl_image_path @beer.photo.key if @beer.photo.key rescue image_path 'beer-placeholder.jpg' %>);" >
-  <div class=" main-title y-border w-bg">
-    <h1><%= @beer.name %></h1>
-  </div>
+<div class="banner" style = "background-image: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.2)), url(<%= cl_image_path @beer.photo.key if @beer.photo.key rescue image_path 'beer-placeholder.jpg' %>);" >
   <div id="action-buttons">
     <div><%= render('shared/buttons/whitelist', whitelist: @whitelist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
     <div><%= render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
@@ -15,7 +12,9 @@
   </div>
 </div>
 <div class="rounded-white-background">
+  
   <div class="container pt-5">
+    <h2><%= @beer.name.upcase %></h2>
     <div class="notes my-4">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>

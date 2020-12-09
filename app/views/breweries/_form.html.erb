@@ -1,11 +1,10 @@
 <div class= 'banner'>
-  <div class=" main-title y-border w-bg">
-    <h1>Add/Edit a brewery</h1>
-  </div>
+
 </div>
 
 <div class="rounded-white-background">
-  <div class="container mt-5 add-edit-container">
+  <h2 class="text-center mt-3" >Add/Edit a brewery</h2>
+  <div class="container pt-4 add-edit-container">
     <%= simple_form_for (@brewery) do |f| %>
     <%= f.input :name, placeholder: 'Brewery name', label:false %>
     <%= f.input :street, placeholder: 'Address', label:false %>

@@ -5,7 +5,8 @@
 </div>
 
 <div class="rounded-white-background">
-  <div class="container mt-5 add-edit-container">
+  <h2 class="text-center mt-3" >Add/Edit a beer</h2>
+  <div class="container pt-4 add-edit-container">
     <%= simple_form_for (@beer) do |f| %>
       <%= f.input :name, input_html: {name: 'name', value: params[:name]}, placeholder: 'Beer name', label: false %>
       <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>

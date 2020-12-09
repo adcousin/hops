@@ -1,11 +1,10 @@
 <div class="banner">
-  <div class="main-title y-border w-bg">
-    <h1><%= link_to "#{@beer.name} - #{@beer.id}", beer_path(@beer) %></h1>
-  </div>
+
 </div>
 
 <div class="rounded-white-background">
-  <div class="container pt-5">
+  <h2 class="text-center mt-3"><%= link_to "#{@beer.name} - #{@beer.id}", beer_path(@beer) %></h2>
+  <div class="container text-center pt-4">
     <h2 class="mb-5 text-center"><%= "Adding #{@beer.name} to a custom list" %></h2>
     <%= simple_form_for [@beer,@content] do |f| %>
       <%= f.input :list, label: 'Select a custom list', collection: @custom_lists, selected: 1 %>

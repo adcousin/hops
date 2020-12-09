@@ -1,6 +1,6 @@
 .banner{
   display: flex;
-  background-image: asset-url('beer-placeholder.jpg');
+  background-image: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.2)), asset-url('beer-placeholder.jpg');
   background-position: center;
   background-size: cover;
   height: 50vh;
