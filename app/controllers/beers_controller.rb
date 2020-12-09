@@ -63,8 +63,11 @@ class BeersController < ApplicationController
   end
 
   def update
-    @beer.update(beers_params)
-    redirect_to beer_path(@beer), notice: "#{@beer.name} successfully updated"
+    if @beer.update(beers_params)
+      redirect_to beer_path(@beer), notice: "#{@beer.name} successfully updated"
+    else
+      render :edit
+    end
   end
 
   def destroy

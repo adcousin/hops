@@ -34,6 +34,7 @@ import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
 import { searchAddsDisplay } from '../components/_search_adds_display'
 import { initSelect2 } from '../components/_init_select2';
+import { previewImageOnFileSelect } from '../components/_photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -43,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   dynamicRating();
   searchAddsDisplay();
   initSelect2();
+  previewImageOnFileSelect();
 });
