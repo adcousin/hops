@@ -74,10 +74,14 @@ class ContentsController < ApplicationController
   def destroy
     @content = Content.find(params[:id])
     @list = List.find(params[:list_id])
-    @content.destroy
 
-    redirect_to lists_path
-    fail
-    # redirect_to list_path(@list)
+    @content.destroy
+    if params[:page_tracker] == "list_show"
+      redirect_to list_path(@list)
+    elsif params[:page_tracker] == "beer_show"
+      redirect_to beer_path(@content.beer)
+    else
+      redirect_to root_path
+    end
   end
 end
