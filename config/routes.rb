@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   # BEER-INFO
   # get '/contents/new', to: 'contents#new', as: 'new_content'
   resources :beers  do
+    get :scan_barcode, on: :collection
+    post :read_barcode, on: :collection
     resources :contents, only: %i[new create]
     resources :reviews, only: %i[new create edit update]
     collection do

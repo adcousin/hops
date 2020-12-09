@@ -32,18 +32,19 @@
             </div>
         </div>
     </div>
-    <h2 class ='my-4'>BEERS</h2>
+    <h2 class ='my-4'><%= "BEERS (#{@brewery.beers.count})" %></h2>
     <% if @brewery.beers %>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <%= render 'shared/tags/tag-color-count', color: 'white' %>
         <%= render 'shared/tags/tag-color-count', color: 'blond' %>
         <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
         <%= render 'shared/tags/tag-color-count', color: 'amber' %>
         <%= render 'shared/tags/tag-color-count', color: 'black' %>
+        <%= render 'shared/tags/tag-color-count', color: 'other' %>
       </div>
       <ul>
         <% @brewery.beers.each do |beer| %>
-          <%= render 'shared/beer-cards/beer-card-lg', beer: beer %>
+          <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
         <% end %>
       </ul>
     <% else %>

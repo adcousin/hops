@@ -52,3 +52,14 @@
       </div>
   </div>
 <% end %>
+
+<% if color == 'other' %>
+  <div class="tag-md ">
+      <div class="tag-icon-md <%= color %>">
+        <i class="fas fa-beer"></i>
+      </div>
+      <div class="tag-name-md">
+        <p> <%= @other_count %> </p>
+      </div>
+  </div>
+<% end %>

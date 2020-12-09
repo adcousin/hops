@@ -21,7 +21,7 @@ class BeersController < ApplicationController
     # Get the active non-deletable list (if any)
     @active_core_list = @user_core_lists.reject { |list| @beer.contents.where(list_id: list.id).empty? }.first
     unless @active_core_list.nil?
-    @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
+      @active_core_content = @active_core_list.contents.where(beer_id: @beer.id, list_id: @active_core_list.id).take
     end
 
     # Display review if it exists, create empty review otherwise
@@ -92,14 +92,54 @@ class BeersController < ApplicationController
     redirect_to beer_path(@beer), notice: 'Beer sucessfully declined'
   end
 
+  def scan_barcode
+  end
+
+  def read_barcode
+    if (@beer = Beer.find_by(barcode: params[:barcode]))
+      redirect_to beer_path(@beer)
+    elsif find_beer(params[:barcode])
+      redirect_to new_beer_path(name: @api_answer['product']['product_name'],
+                                barcode: params[:barcode],
+                                alcohol_strength: @api_answer['product']['nutriments']['alcohol_value'])
+      flash[:alert] = 'Have a look at what we found'
+    else
+      flash[:alert] = 'Your Beer was not found by our best algorithms, please enter it manually'
+      redirect_to new_beer_path(barcode: params[:barcode])
+    end
+  end
+
   private
 
   def beers_params
-    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id, :photo)
+    params.require(:beer).permit(:name,
+                                 :description,
+                                 :alcohol_strength,
+                                 :ibu, :barcode,
+                                 :brewery_id,
+                                 :color_id,
+                                 :style_id,
+                                 :photo)
   end
-
 
   def set_beers
     @beer = Beer.find(params[:id])
+  end
+
+  def request_api(url)
+    connexion = Excon.new(
+      url
+    )
+    connexion = connexion.get
+    @api_answer = JSON.parse(connexion.body)
+    return nil if @api_answer['status'].zero?
+
+    return @api_answer
+  end
+
+  def find_beer(barcode)
+    request_api(
+      "https://world.openfoodfacts.org/api/v0/product/#{barcode}.json"
+    )
   end
 end
