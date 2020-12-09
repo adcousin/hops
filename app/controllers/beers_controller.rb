@@ -99,9 +99,9 @@ class BeersController < ApplicationController
       redirect_to new_beer_path(name: @api_answer['product']['product_name'],
                                 barcode: params[:barcode],
                                 alcohol_strength: @api_answer['product']['nutriments']['alcohol_value'])
-      flash[:alert] = 'Review what we fetched'
+      flash[:alert] = 'Have a look at what we found'
     else
-      flash[:alert] = 'Your Beer was not found by our best algorithm'
+      flash[:alert] = 'Your Beer was not found by our best algorithms, please enter it manually'
       redirect_to new_beer_path(barcode: params[:barcode])
     end
   end
