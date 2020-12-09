@@ -4,11 +4,13 @@
     <div><%= render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
     <div><%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content), '#' %>
     </div>
-    <% if current_user.lists.count > 3 %>
-      <div>
-        <%= render 'shared/buttons/addlist', beer: @beer %>
-      </div>
-    <% end %>
+      <% if current_user.lists.count > 3 %>
+        <div>
+          <%= render 'shared/buttons/addlist', beer: @beer %>
+        </div>
+      <% else %>
+        <%= render 'shared/buttons/createlist' %>
+      <% end %>
   </div>
 </div>
 <div class="rounded-white-background">
