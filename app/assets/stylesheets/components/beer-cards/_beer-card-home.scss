@@ -2,44 +2,46 @@
   width: 310px;
   height: 310px;
   border-radius: 4px;
-  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
-
-  background-image: asset-url('beer-placeholder.jpg');
-  background-position: center;
-  background-size: cover;
+  border: 1px solid #dddddd;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   h5{
-    font-size: 14px;
+    font-size: 16px;
     color: #4e4b4d;
   }
 }
 
- 
+.beer-card-home-picture {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+} 
+
 .bch-name-tags {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  height: 100px;
+  padding: 10px;
 }
 
 .bch-name {
-  background-color: white;
-  padding: 2px;
+  // padding: 0;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .bch-tags {
-  background-color: rgba($color: #4e4b4d, $alpha: 1);
-  border-radius: 0 0 4px 4px;
-  box-shadow: inset 0 4px 4px rgba($color: #000000, $alpha: .25);
   ul {
     display: flex;
+    justify-content: space-between;
     margin: 0;
-    padding: 2px;
-    overflow-y: auto;
+    padding: 0;
     li {
       margin-right: 1px;
     }
@@ -49,14 +51,14 @@
 .card-grid-home{
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
+  gap: 30px 15px;
 }
 
 @media(max-width: 1320px) {
   .card-grid-home{
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
+    gap: 30px 15px;
   }
 }
 
@@ -64,7 +66,7 @@
   .card-grid-home{
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 30px 15px;
   }
 }
 
@@ -74,7 +76,6 @@
   .card-grid-home{
     display: inline-grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 30px 15px;
   }
 }
-
