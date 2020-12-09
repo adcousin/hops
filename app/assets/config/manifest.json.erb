@@ -1,0 +1,17 @@
+{
+  "background_color": "white",
+  "description": "Beer your life.",
+  "display": "fullscreen",
+  "name": "Hops!",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/pwa/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "pwa/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
