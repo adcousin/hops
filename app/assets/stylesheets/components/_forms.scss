@@ -92,3 +92,16 @@
   background: white;
   border-radius: 2px;
 }
+
+#photo-preview {
+  width: 300px;
+}
+
+@media(max-width: 768px){
+  .add-edit-container{
+    width: 80%;
+  }
+  #photo-preview {
+    width: 250px;
+  }
+}

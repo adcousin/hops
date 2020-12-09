@@ -17,7 +17,7 @@
       <%= f.input :barcode, placeholder: 'Barcode number', label: false %>
       <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <div class="container text-center">
-        <%= image_tag "", width: 300, class: "d-none mb-3", id: "photo-preview" %>
+        <%= image_tag "", class: "d-none mb-3", id: "photo-preview" %>
       </div>
       <%= f.submit "Add/Edit beer", class: "btn btn-add-edit-save w-100" %>
     <% end %>
