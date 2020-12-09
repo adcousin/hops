@@ -17,12 +17,12 @@
 <div class="rounded-white-background">
 <div class="user-background">
   <div class="container pt-4 pb-3">
-    <div class="notes my-4">
-      <h2><%= current_user.nickname.upcase %> SECTION </h2>
+    <h2 class = 'my-4'><%= current_user.nickname.upcase %> SECTION </h2>
+    <div class="notes my-4 ml-3">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
-            <h4>RATE & COMMENT</h4>
+            <h3>RATE & COMMENT</h3>
             <div>
               <% 5.times do |index| %>
                   <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
@@ -52,7 +52,7 @@
   </div>
 </div>
   <div class="container">
-    <h2 class ='mt-2'>BEER SECTION</h2>
+    <h2 class ='my-4'>BEER SECTION</h2>
     <div class="info my-2 ml-3">
       <h3>INFO</h3>
         <div class="d-flex flex-wrap">
