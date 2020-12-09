@@ -1,0 +1,11 @@
+<div class="beer-card-sm">
+  <div class="beer-name-color-alc-str">
+    <div> <h4><%= beer.name %></h4> </div>
+    <div>
+      <div><h5><%= beer.color.name %></h5></div>
+      <% if beer.alcohol_strength %>
+        <div class="ml-5px"><%= beer.alcohol_strength %>%</div>
+      <% end %>
+    </div>
+  </div>
+</div>
