@@ -14,11 +14,12 @@
 <div class="rounded-white-background">
 <div class="user-background">
   <div class="container pt-4 pb-3">
+   <h2 class ='py-3 align-self-center d-inline-flex'><%= @beer.name.upcase %></h2>
     <div class="notes my-4 ml-3">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
-            <h2>RATE & COMMENT</h2>
+            <h3>RATE & COMMENT</h3>
             <div>
               <% 5.times do |index| %>
                   <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
@@ -33,7 +34,7 @@
         <% end %>
       <% else %>
         <div class="d-flex justify-content-between">
-          <h2>NOTES</h2>
+          <h3>NOTES</h3>
           <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
@@ -49,7 +50,7 @@
 </div>
   <div class="container">
     <div class="info my-2 ml-3">
-      <h2>INFO</h2>
+      <h3>INFO</h3>
         <div class="d-flex flex-wrap">
           <% if @beer.color.name %>
             <%= render 'shared/tags/tag-md-color' %>
