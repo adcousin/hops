@@ -18,7 +18,7 @@
   <div class="container pt-5">
     <div class="notes my-4">
       <% if @beer_user_review.nil?%>
-        <%= simple_form_for ([@beer, @review]), class: 'd-flex' do |f| %>
+        <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
             <h2>RATE & COMMENT</h2>
             <div>
@@ -29,7 +29,7 @@
           </div>
           <%= f.input :rate, as: :hidden %>
           <div class="d-flex justify-content-between">
-            <%= f.input :comment, input_html: { rows: 1 }, placeholder: 'Drop a comment', label: false %>
+            <%= f.input :comment, input_html: { rows: 2 }, placeholder: 'Drop a comment', label: false %>
             <%= f.submit 'Update review', class: 'form-btn', id: 'review_submit' %>
           </div>
         <% end %>

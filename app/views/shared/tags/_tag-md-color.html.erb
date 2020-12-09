@@ -1,8 +1,10 @@
-<div class="tag-md ">
-    <div class="tag-icon-md <%= @beer.color.name %>">
-      <i class="fas fa-beer"></i>
-    </div>
-    <div class="tag-name-md">
-      <p> <%= @beer.color.name %> </p>
-    </div>
-</div>
+<%= link_to searches_path(:query => "#{@beer.color.name}") do %>
+  <div class="tag-md ">
+      <div class="tag-icon-md <%= @beer.color.name %>">
+        <i class="fas fa-beer"></i>
+      </div>
+      <div class="tag-name-md">
+        <p> <%= @beer.color.name %> </p>
+      </div>
+  </div>
+<% end %>

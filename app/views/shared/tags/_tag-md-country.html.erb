@@ -1,8 +1,10 @@
-<div class="tag-md">
-  <div class="tag-icon-md country">
-    <i class="fas fa-globe-americas"></i>
+<%= link_to searches_path(:query => "#{@beer.brewery.country.name}") do %>
+  <div class="tag-md">
+    <div class="tag-icon-md country">
+      <i class="fas fa-globe-americas"></i>
+    </div>
+    <div class="tag-name-md">
+      <p> <%= @beer.brewery.country.name %> </p>
+    </div>
   </div>
-  <div class="tag-name-md">
-    <p> <%= @beer.brewery.country.name %> </p>
-  </div>
-</div>
+<% end %>

@@ -11,6 +11,7 @@
     "mapbox-gl": "^1.13.0",
     "popper.js": "^1.16.1",
     "quagga": "^0.12.1",
+    "select2": "^4.0.13",
     "turbolinks": "^5.2.0",
     "typed.js": "^2.0.11"
   },

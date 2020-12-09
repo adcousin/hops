@@ -5,11 +5,15 @@
   height: 86px;
   background-color: white;
   box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border-radius: 4px;
 
   display: flex;
   align-items: center;
 
   margin-bottom: 5px;
+  img {
+    border-radius: 4px 0 0 4px;
+  }
 }
 
 .beer-description-lg {
@@ -26,6 +30,13 @@
   align-items: center;
   h4 {
     margin-right: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 110px;
+    text-overflow: ellipsis;
+  }
+  h6 {
+    white-space: nowrap;
   }
 }
 
@@ -36,6 +47,9 @@
   align-items: center;
   line-height: 10px;
   height: 14px;
+  h6 {
+    white-space: nowrap;
+  }
 }
 
 // .beer-country
@@ -44,6 +58,7 @@
   height: 14px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -51,4 +66,14 @@
   width: 86px;
   height: 86px;
   object-fit: cover;
+}
+
+
+.beer-card-lg-link {
+  flex-grow: 1;
+}
+
+.beer-icons li img {
+  margin-left: 4px;
+  margin-right: 0;
 }

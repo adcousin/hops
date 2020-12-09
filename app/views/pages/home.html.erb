@@ -15,9 +15,12 @@
     </div>
   </div>
 </div>
-<div class="rounded-white-background ">
-  <h2 class="mt-5 text-center">Ours newest beers</h2>
-  <div class="container pt-5 d-flex justify-content-center align-content-center">
+<div class="rounded-white-background">
+  <div class="container pt-5 d-flex flex-column align-items-center">
+    <div class = 'sb-placement'>
+      <%= render 'shared/searchbar' %>
+    </div>
+    <h2 class="mt-2 mb-5">Ours newest beers</h2>
     <div class="card-grid">
       <% @beers.each do |beer| %>
         <%= link_to beer_path(beer)do  %>

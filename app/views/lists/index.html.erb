@@ -28,9 +28,11 @@
     </div>
     <div class="show-container dsp-tabs">
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab"><%= render "./shared/list", beers: @whitelist %></div>
-        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist %></div>
-        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist %></div>
+        <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab">
+          <%= render "./shared/list", beers: @whitelist, list: @whitelist_instance %>
+        </div>
+        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist, list: @blacklist_instance %></div>
+        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist, list: @wishlist_instance %></div>
         <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/custom_lists", lists: @custom_list %>
           <%= simple_form_for [@list], remote: true do  |f| %>
             <%= f.input :name, label: false %>

@@ -1,35 +1,46 @@
 import mapboxgl from 'mapbox-gl';
+const mapElement = document.getElementById('map');
 
-const initMapbox = () => {
-  const mapElement = document.getElementById('map');
-
-  if (mapElement) { // only build a map if there's a div#map to inject into
+const buildMap = (mapElement) => {
+  if (mapElement){
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    const map = new mapboxgl.Map({
+    return new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
   }
+};
 
-  if (mapElement) {
-    // [ ... ]
-    const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-      new mapboxgl.Marker()
+const addMarkersToMap = (map, markers) => {
+    if (mapElement) {
+      const customMarker = document.createElement('div');
+      customMarker.className ='marker'
+
+      const marker = JSON.parse(mapElement.dataset.markers);
+        new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
-    });
-  }
+      }
   if (mapElement){
     fitMapToMarkers(map, markers);
   }
 };
 
 
-const fitMapToMarkers = (map, markers) => {
+const fitMapToMarkers = (map, marker) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  bounds.extend([ marker.lng, marker.lat ]);
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+};
+
+const initMapbox = () => {
+
+  if (mapElement) {
+    const map = buildMap(mapElement);
+    const markers = JSON.parse(mapElement.dataset.markers);
+    addMarkersToMap(map, markers);
+    fitMapToMarkers(map, markers);
+  }
 };
 
 export { initMapbox };
