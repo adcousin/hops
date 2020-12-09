@@ -40,12 +40,13 @@
         <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
         <%= render 'shared/tags/tag-color-count', color: 'amber' %>
         <%= render 'shared/tags/tag-color-count', color: 'black' %>
+        <%= render 'shared/tags/tag-color-count', color: 'other' %>
       </div>
-      <div class="d-flex flex-column align-items-center ">
-      <% @brewery.beers.each do |beer| %>
-        <%= render 'shared/beer-cards/beer-card-lg-variable', beer: beer %>
-      <% end %>
-    </div>
+      <ul>
+        <% @brewery.beers.each do |beer| %>
+          <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
+        <% end %>
+      </ul>
     <% else %>
       <p>Sorry, this Brewery doesn't have linked beers yet.</p>
     <% end %>
