@@ -31,7 +31,7 @@
     </div>
     <h2 class ='my-4'><%= "BEERS (#{@brewery.beers.count})" %></h2>
     <% if @brewery.beers %>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between flex-wrap">
         <%= render 'shared/tags/tag-color-count', color: 'white'%>
         <%= render 'shared/tags/tag-color-count', color: 'blond' %>
         <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
@@ -39,7 +39,7 @@
         <%= render 'shared/tags/tag-color-count', color: 'black' %>
         <%= render 'shared/tags/tag-color-count', color: 'other' %>
       </div>
-      <ul>
+      <ul class = 'd-flex flex-column align-content-center'>
         <% @brewery.beers.each do |beer| %>
           <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
         <% end %>
