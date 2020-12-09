@@ -3,8 +3,8 @@ const searchAddsDisplay = () => {
 
   if (searchAdds) {
     const searchInput = document.querySelector(".sb-input").value;
-    if (!searchInput) {
-      searchAdds.classList.add("d-none");
+    if (searchInput) {
+      searchAdds.classList.remove("d-none");
     }
   }
 };
