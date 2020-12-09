@@ -1,27 +1,39 @@
-<div class="container py-5">
-  <h2 class = 'py-5'>Sign up</h2>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Sign up</h1>
+  </div>
+</div>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+<div class="rounded-white-background">
+  <div class="container py-5 add-edit-container">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    placeholder: "Email",
+                    label: false %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: "Password",
+                    label: false %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: "Confirm password",
+                    label: false %>
+      </div>
 
-    <div class="form-actions py-2">
-      <%= f.button :submit, "Sign up", class:'btn btn-success' %>
-    </div>
-  <% end %>
+      <div class="form-actions py-2">
+        <%= f.button :submit, "Sign up", class:'btn btn-add-edit-save w-100' %>
+      </div>
+    <% end %>
 
-  <%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

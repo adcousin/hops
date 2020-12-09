@@ -20,11 +20,9 @@
   margin: 0;
 }
 
-
 .review_comment, #content_list {
   flex-grow: 1;
 }
-
 
 .form-btn {
   border: 1px solid #ced4da;
@@ -103,5 +101,14 @@
   }
   #photo-preview {
     width: 250px;
+  }
+}
+
+.user_password {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  small {
+    margin-left: 13px;
   }
 }
