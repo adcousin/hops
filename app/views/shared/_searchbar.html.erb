@@ -1,4 +1,8 @@
-<%= simple_form_for :search, url: searches_path, method: "GET", html: { class: 'searchbar' } do |f| %>
-  <%= f.input :query, input_html: {name: 'query', value: params[:query], class: 'sb-input'}, label: false, placeholder: 'Search...' %>   
-  <%= f.submit "", class: "sb-submit" %>
-<% end %>
+<div class="d-flex">
+  <%= simple_form_for :search, url: searches_path, method: "GET", html: { class: 'searchbar' } do |f| %>
+    <%= f.input :query, input_html: {name: 'query', value: params[:query], class: 'sb-input'}, label: false, placeholder: 'Search...' %>
+    <%= f.submit "", class: "sb-submit" %>
+  <% end %>
+
+  <%= link_to image_tag('icons/barcode.svg'), scan_barcode_beers_path, class: "barcode" %>
+</div>
