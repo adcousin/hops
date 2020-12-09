@@ -1,10 +1,8 @@
 <div class= 'banner'>
-  <div class=" main-title y-border w-bg">
-    <h1><%= @list.name %></h1>
-  </div>
 </div>
 <div class="rounded-white-background ">
-  <div class="container text-center">
+  <h2 class="text-center mt-3"><%= @list.name %></h2>
+  <div class="container text-center pt-4">
     <%= simple_form_for [@list, @content], remote: true do  |f| %>
       <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id, input_html: { class: 'select2' } %>
       <%= f.button :button , :class => 'form-btn' do %>

@@ -1,12 +1,10 @@
 
 
 <div class="banner">
-  <div class="main-title y-border w-bg">
-    <h1><%=@list.name%></h1>
-  </div>
 </div>
 <div class="rounded-white-background">
-  <div class="container pt-5">
+  <h2 class="text-center mt-3"><%= @list.name %></h2>
+  <div class="container text-center pt-4">
     <h2 class="text-center mb-4">Rename custom list</h2>
     <%= simple_form_for [@list], remote: true do  |f| %>
       <%= f.input :name, label: false %>
@@ -14,3 +12,4 @@
     <% end %>
   </div>
 </div>
+z
