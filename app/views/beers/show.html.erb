@@ -18,10 +18,11 @@
 <div class="user-background">
   <div class="container pt-4 pb-3">
     <div class="notes my-4">
+      <h2><%= current_user.nickname.upcase %> SECTION </h2>
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
-            <h2>RATE & COMMENT</h2>
+            <h4>RATE & COMMENT</h4>
             <div>
               <% 5.times do |index| %>
                   <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
