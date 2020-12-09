@@ -20,14 +20,15 @@
             </div>
 
           </li>
-
-      <div class="navbar-mid">
-        <li class="nav-item">
-          <%= link_to root_path do %>
-            <%= image_tag "icons/hops-logo.svg", width: 32 %>
-          <% end %>
-        </li>
-      </div>
+      <% unless current_page?(root_path)  %>
+        <div class="navbar-mid">
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <%= image_tag "icons/hops-logo.svg", width: 32 %>
+            <% end %>
+          </li>
+        </div>
+      <% end %>
 
       <div class="navbar-right">
         <li class="nav-item">
