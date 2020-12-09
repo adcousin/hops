@@ -1,22 +1,33 @@
-<div class="container py-5">
-  <h2 class = 'py-5'>Log in</h2>
+<div class= 'banner'>
+  <div class=" main-title y-border w-bg">
+    <h1>Log in</h1>
+  </div>
+</div>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="rounded-white-background">
+  <div class="container py-5 add-edit-container">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    placeholder: "Email",
+                    label: false %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" },
+                    placeholder: "password",
+                    label: false %>
+        <%= f.input :remember_me, label_html: { class: "px-3" }, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions py-2">
+        <%= f.button :submit, "Log in", class: 'btn btn-add-edit-save w-100' %>
+      </div>
+    <% end %>
+    <div class="devise-links">
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="form-actions py-2">
-      <%= f.button :submit, "Log in", class: 'btn btn-success' %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+  </div>
 </div>
