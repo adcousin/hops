@@ -43,7 +43,9 @@
       </div>
       <ul>
         <% @brewery.beers.each do |beer| %>
-          <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
+          <%= link_to beer_path(beer) do %>
+            <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
+          <% end %>
         <% end %>
       </ul>
     <% else %>
