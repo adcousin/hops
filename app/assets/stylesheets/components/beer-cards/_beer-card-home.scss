@@ -27,6 +27,7 @@
   background-color: white;
   height: 100px;
   padding: 10px;
+  border-top: 1px solid #dddddd;
 }
 
 .bch-name {
@@ -34,6 +35,12 @@
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  h5 {
+    max-width: 310px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .bch-tags {
