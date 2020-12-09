@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="rounded-white-background">
-  <div class="container pt-5">
+  <div class="container pt-4 pb-3">
     <div class="notes my-4">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
@@ -47,6 +47,8 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <div class="container">
     <div class="info my-4">
       <h2>INFO</h2>
         <div class="d-flex flex-wrap">
