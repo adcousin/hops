@@ -6,7 +6,7 @@ const buildMap = (mapElement) => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     return new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/jpavailable/ckihanqmq2n041ao7sb4s906f'
     });
   }
 };
@@ -30,7 +30,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, marker) => {
   const bounds = new mapboxgl.LngLatBounds();
   bounds.extend([ marker.lng, marker.lat ]);
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
 };
 
 const initMapbox = () => {
