@@ -4,13 +4,13 @@
   width: 100%;
   height: 86px;
   background-color: white;
-  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  border: 1px solid #dddddd;
   border-radius: 4px;
 
   display: flex;
   align-items: center;
 
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   img {
     border-radius: 4px 0 0 4px;
   }
@@ -64,8 +64,8 @@
 
 
 .beer-photo {
-  width: 86px;
-  height: 86px;
+  width: 84px;
+  height: 84px;
   object-fit: cover;
 }
 
