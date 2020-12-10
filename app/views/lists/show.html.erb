@@ -11,8 +11,13 @@
 
   <div class="container text-center pt-4">
     <%= simple_form_for [@list, @content], remote: true do  |f| %>
+    <div class="cancel-button d-flex justify-content-center">
+      <%= link_to lists_path do %>
+        <p class="btn-cancel"><i class="fas fa-backspace"></i></p>
+      <% end %>
+    </div>
       <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id, input_html: { class: 'select2' } %>
-      <%= f.button :button , :class => 'form-btn' do %>
+      <%= f.button :button , :class => 'list-btn' do %>
         <i class="fas fa-beer"></i>
       <% end %>
     <% end %>

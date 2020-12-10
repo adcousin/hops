@@ -28,3 +28,16 @@
   // background: #2E2C2D;
   // box-shadow: inset 0 4px 4px rgba($color: #000000, $alpha: .25);
 }
+
+.btn-cancel{
+  background-color: #db383880;
+  color: white;
+  border-radius: 4px;;
+  padding: 2px 4px;
+  margin-bottom: 16px;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
