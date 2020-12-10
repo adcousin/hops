@@ -9,7 +9,7 @@
       <h3 class="text-center py-1">Brewery section</h3>
       <div class="select-brewery">
         <h5 class="text-center py-1">Select an existing brewery...</h5>
-        <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
+        <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false, selected: @beer.brewery.id %>
       </div>
 
       <div class="text-center btn toggle w-100 border"><h5>...or create it!</h5></div>
