@@ -8,7 +8,7 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (mybutton){
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (window.scrollY > window.innerHeight) {
       mybutton.style.display = "block";
     } else {
       mybutton.style.display = "none";
