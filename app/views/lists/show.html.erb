@@ -1,7 +1,14 @@
 <div class= 'banner'>
 </div>
 <div class="rounded-white-background ">
-  <h2 class="text-center mt-3"><%= @list.name %></h2>
+
+  <div class ='mt-4 mb-2 text-center'>
+    <h2><%= @list.name %></h2>
+    <div class="title-border mx-auto my-2"></div>
+  </div>
+
+
+
   <div class="container text-center pt-4">
     <%= simple_form_for [@list, @content], remote: true do  |f| %>
       <%= f.association :beer, collection: Beer.order(:name), label: false, selected: Beer.all.sample.id, input_html: { class: 'select2' } %>

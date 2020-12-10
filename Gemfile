@@ -43,6 +43,8 @@ gem 'pg_search', '~> 2.3.0'
 gem 'turbolinks_render'
 gem 'excon'
 
+gem 'hamburgers'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
