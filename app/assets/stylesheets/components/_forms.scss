@@ -62,7 +62,6 @@
   width: 50%;
   min-width: 300px;
   input, select, textarea, label, img {
-    box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
     border-radius: 16px;
   }
 }
@@ -71,7 +70,6 @@
   color: white;
   background-color: #53A653;
   font-weight: bold;
-  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
   border-radius: 19px;
 }
 
