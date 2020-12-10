@@ -10,6 +10,16 @@
     <%= simple_form_for (@beer) do |f| %>
       <%= f.input :name, input_html: { value: params[:name] } , placeholder: 'Beer name', label: false %>
       <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
+
+      <%= f.simple_fields_for :brewery do |brewery_form| %>
+        <%= brewery_form.input :name %>
+        <%= brewery_form.input :street %>
+        <%= brewery_form.input :zipcode %>
+        <%= brewery_form.input :city %>
+        <%= brewery_form.input :country_id, collection: Country.all %>
+      <% end %>
+
+
       <%= f.association :color, collection: Color.order(:id), prompt: 'Beer color', label: false %>
       <%= f.association :style, collection: Style.order(:name), prompt: "Beer style", label: false %>
       <%= f.input :alcohol_strength, input_html: { value: params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
