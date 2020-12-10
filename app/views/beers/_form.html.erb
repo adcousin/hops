@@ -1,11 +1,9 @@
 <div class= 'banner'>
-  <div class=" main-title y-border w-bg">
-    <h1>Add/Edit a beer</h1>
-  </div>
+
 </div>
 
 <div class="rounded-white-background">
-  <h2 class="text-center my-3" >Add/Edit a beer</h2>
+  <h2 class="text-center my-3" >"#{@action} a beer"</h2>
   <div class="container add-edit-container">
     <%= simple_form_for (@beer) do |f| %>
       <h3 class="text-center py-1">Brewery section</h3>
@@ -29,20 +27,17 @@
         <h3 class="text-center mt-2 py-1">Beer section</h3>
         <div class="text-center py-1"><h5>Please give as much information as possible</h5></div>
       <%= f.input :name, input_html: { value: params[:name] } , placeholder: 'Beer name', label: false %>
-
-
-
       <%= f.association :color, collection: Color.order(:id), prompt: 'Beer color', label: false %>
       <%= f.association :style, collection: Style.order(:name), prompt: "Beer style", label: false %>
-      <%= f.input :alcohol_strength, input_html: { value: params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
+      <%= f.input :alcohol_strength, input_html: { value: @beer.alcohol_strength || params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
       <%= f.input :ibu, placeholder: 'IBU', label: false %>
       <%= f.input :description, placeholder: 'Something to add?', label: false %>
-      <%= f.input :barcode, input_html: { value: params[:barcode] }, placeholder: 'Barcode number', label: false %>
+      <%= f.input :barcode, input_html: { value: @beer.barcode || params[:barcode] }, placeholder: 'Barcode number', label: false %>
       <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <div class="container text-center">
         <%= image_tag "", class: "d-none mb-3", id: "photo-preview" %>
       </div>
-      <%= f.submit "Add/Edit beer", class: "btn btn-add-edit-save w-100" %>
+      <%= f.submit "#{@action} beer", class: "btn btn-add-edit-save w-100" %>
     <% end %>
   </div>
 </div>

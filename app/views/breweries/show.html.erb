@@ -4,12 +4,12 @@
   <h2 class="text-center mt-3" ><%= @brewery.name.upcase %></h2>
   <div class="container pt-4">
     <div class="info my-4">
-      <h2>Infos</h2>
+      <h2> <i class="fas fa-info-circle"></i> Infos</h2>
       <%= @brewery.address %>
       <%= @brewery.country.name %>
     </div>
     <div class="statistics my-4">
-      <h2>Statistics</h2>
+      <h2><i class="fas fa-chart-line"></i> Community statistics</h2>
         <div class="d-flex justify-content-around">
           <div class="text-center">
             <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <h2 class ='my-4'><%= "Beers (#{@brewery.beers.count})" %></h2>
+    <h2 class ='my-4'><i class="fas fa-beer"></i> <%= "Beers (#{@brewery.beers.count})" %></h2>
     <% if @brewery.beers %>
       <div class="d-flex justify-start flex-wrap">
         <% if @white_count > 0 %>
@@ -62,3 +62,4 @@
     <% end %>
   </div>
 </div>
+<button id="myBtn" title="Go to top"></button>

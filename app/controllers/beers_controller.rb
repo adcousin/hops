@@ -74,6 +74,7 @@ class BeersController < ApplicationController
   def new
     @beer = Beer.new
     @beer.build_brewery
+    @action = "Add"
   end
 
   def create
@@ -91,17 +92,20 @@ class BeersController < ApplicationController
     if @beer.save
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully created"
     else
+      @action = "Add"
       render :new
     end
   end
 
   def edit
+    @action = "Edit"
   end
 
   def update
     if @beer.update(beers_params)
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully updated"
     else
+      @action = "Edit"
       render :edit
     end
   end
