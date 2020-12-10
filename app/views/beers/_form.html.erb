@@ -8,9 +8,9 @@
   <h2 class="text-center my-3" >Add/Edit a beer</h2>
   <div class="container add-edit-container">
     <%= simple_form_for (@beer) do |f| %>
-      <h3 class="text-center">Brewery section</h3>
+      <h3 class="text-center py-1">Brewery section</h3>
       <div class="select-brewery">
-        <h5 class="text-center">Select an existing brewery...</h5>
+        <h5 class="text-center py-1">Select an existing brewery...</h5>
         <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
       </div>
 
@@ -26,8 +26,8 @@
         <% end %>
       </div>
 
-        <h3 class="text-center mt-2">Beer section</h3>
-        <div class="text-center"><h5>Please give as much information as possible</h5></div>
+        <h3 class="text-center mt-2 py-1">Beer section</h3>
+        <div class="text-center py-1"><h5>Please give as much information as possible</h5></div>
       <%= f.input :name, input_html: { value: params[:name] } , placeholder: 'Beer name', label: false %>
 
 
