@@ -28,13 +28,14 @@ const addMarkersToMap = (map, markers) => {
 
 
 const fitMapToMarkers = (map, marker) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  bounds.extend([ marker.lng, marker.lat ]);
-  map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
+  if(mapElement){
+    const bounds = new mapboxgl.LngLatBounds();
+    bounds.extend([ marker.lng, marker.lat ]);
+    map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
+  }
 };
 
 const initMapbox = () => {
-
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
