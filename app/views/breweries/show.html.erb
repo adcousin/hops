@@ -53,7 +53,7 @@
       </div>
       <div class="container d-inline-flex flex-column pt-2">
         <% @brewery.beers.each do |beer| %>
-          <%= link_to beer_path(beer) do %>
+          <%= link_to beer_path(beer), class: "brew-beer", data: { color: beer.color.name.downcase } do %>
             <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
           <% end %>
         <% end %>

@@ -27,16 +27,17 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initMapbox } from '../plugins/init_mapbox'
-import { load_quagga } from '../plugins/_barcode_scan'
+import { initMapbox } from '../plugins/init_mapbox';
+import { load_quagga } from '../plugins/_barcode_scan';
 import { initSelect2 } from '../plugins/_init_select2';
-import { focusSearchBar } from '../components/_search_bar_focus'
-import { toggleListsState } from '../components/_toggle_lists_state'
-import { dynamicRating } from '../components/_dynamic_rating'
-import { searchAddsDisplay } from '../components/_search_adds_display'
+import { focusSearchBar } from '../components/_search_bar_focus';
+import { toggleListsState } from '../components/_toggle_lists_state';
+import { dynamicRating } from '../components/_dynamic_rating';
+import { searchAddsDisplay } from '../components/_search_adds_display';
 import { previewImageOnFileSelect } from '../components/_photo_preview';
 import { goToTabWithAnchor } from '../components/_go_to_tab_with_anchor';
 import { scrollIndicators } from '../components/_scroll_indicators';
+import { colorsFilter } from '../components/_colors_filter';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -49,4 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   goToTabWithAnchor();
   scrollIndicators();
+  colorsFilter();
 });
