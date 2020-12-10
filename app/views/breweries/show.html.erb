@@ -5,63 +5,72 @@
     <h2><%= @brewery.name.capitalize %></h2>
     <div class="title-border mx-auto my-2"></div>
   </div>
-  <div class="container pt-4">
-    <div class="info my-4">
-      <h2> <i class="fas fa-info-circle"></i> Infos</h2>
-      <%= @brewery.address %>
-      <%= @brewery.country.name %>
-    </div>
-    <div class="statistics my-4">
-      <h2><i class="fas fa-chart-line"></i> Community statistics</h2>
-        <div class="d-flex justify-content-around">
-          <div class="text-center">
-            <div class="count-icon"><%= image_tag("icons/whitelist-color.svg", alt: 'white', width: 32)%></div>
-              <div><%= @whitelist_count %></div>
-            </div>
-            <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/blacklist-color.svg", alt: 'black', width: 32) %></div>
-              <div><%= @blacklist_count %></div>
-            </div>
-            <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/wishlist-color.svg", alt: 'wish', width: 32) %></div>
-              <div><%= @wishlist_count %></div>
-            </div>
-            <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/addlist-color.svg", alt: 'add', width: 32) %></div>
-              <div><%= @customlist_count %></div>
-            </div>
-        </div>
-    </div>
-    <h2 class ='my-4'><i class="fas fa-beer"></i> <%= "Beers (#{@brewery.beers.count})" %></h2>
-    <% if @brewery.beers %>
-      <div class="d-flex justify-start flex-wrap">
-        <% if @white_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'white', counter: @white_count %>
-        <% end %>
-        <% if @blond_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'blond', counter: @blond_count %>
-        <% end %>
-        <% if @ruby_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'ruby', counter: @ruby_count %>
-        <% end %>
-        <% if @amber_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'amber', counter: @amber_count %>
-        <% end %>
-        <% if @black_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'black', counter: @black_count %>
-        <% end %>
-        <% if @other_count > 0 %>
-          <%= render 'shared/tags/tag-color-count', color: 'other', counter: @other_count %>
-        <% end %>
+  <div class="white-background py-4">
+    <div class="container">
+      <div class="info ">
+        <h2> <i class="fas fa-info-circle"></i> Infos</h2>
+        <%= @brewery.address %>
+        <%= @brewery.country.name %>
       </div>
-      <div class="container d-inline-flex flex-column pt-2">
-        <% @brewery.beers.each do |beer| %>
-          
-            <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
-          
-        <% end %>
-    <% else %>
-      <p>Sorry, this Brewery doesn't have linked beers yet.</p>
-    <% end %>
+    </div>
+  </div>
+  <div class="grey-background py-4">
+    <div class="container">
+      <div class="statistics ">
+        <h2><i class="fas fa-chart-line"></i> Community statistics</h2>
+          <div class="d-flex justify-content-around">
+            <div class="text-center">
+              <div class="count-icon"><%= image_tag("icons/whitelist-color.svg", alt: 'white', width: 32)%></div>
+                <div><%= @whitelist_count %></div>
+              </div>
+              <div class="text-center">
+                <div class="count-icon"><%= image_tag("icons/blacklist-color.svg", alt: 'black', width: 32) %></div>
+                <div><%= @blacklist_count %></div>
+              </div>
+              <div class="text-center">
+                <div class="count-icon"><%= image_tag("icons/wishlist-color.svg", alt: 'wish', width: 32) %></div>
+                <div><%= @wishlist_count %></div>
+              </div>
+              <div class="text-center">
+                <div class="count-icon"><%= image_tag("icons/addlist-color.svg", alt: 'add', width: 32) %></div>
+                <div><%= @customlist_count %></div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="white-background py-4">
+    <div class="container">
+      <h2 class ='mb-2'><i class="fas fa-beer"></i> <%= "Beers (#{@brewery.beers.count})" %></h2>
+      <% if @brewery.beers %>
+        <div class="d-flex justify-start flex-wrap">
+          <% if @white_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'white', counter: @white_count %>
+          <% end %>
+          <% if @blond_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'blond', counter: @blond_count %>
+          <% end %>
+          <% if @ruby_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'ruby', counter: @ruby_count %>
+          <% end %>
+          <% if @amber_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'amber', counter: @amber_count %>
+          <% end %>
+          <% if @black_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'black', counter: @black_count %>
+          <% end %>
+          <% if @other_count > 0 %>
+            <%= render 'shared/tags/tag-color-count', color: 'other', counter: @other_count %>
+          <% end %>
+        </div>
+        <div class="container d-inline-flex flex-column pt-2">
+          <% @brewery.beers.each do |beer| %>
+            
+              <%= render 'shared/beer-cards/beer-card-sm', beer: beer %>
+            
+          <% end %>
+      <% else %>
+        <p>Sorry, this Brewery doesn't have linked beers yet.</p>
+      <% end %>
   </div>
 </div>
