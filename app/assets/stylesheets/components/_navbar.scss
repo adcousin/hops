@@ -62,6 +62,11 @@
 
 .navbar-nav .dropdown-menu {
   position: absolute;
-  top: 35px;
+  top: 40px;
   left: 0px;
+}
+
+
+.dropdown-toggle::after {
+  display: none;
 }
