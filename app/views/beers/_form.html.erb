@@ -15,7 +15,7 @@
       <%= f.input :alcohol_strength, input_html: { value: params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
       <%= f.input :ibu, placeholder: 'IBU', label: false %>
       <%= f.input :description, placeholder: 'Something to add?', label: false %>
-      <%= f.input :barcode, input_html: { value: params[:barcode]}, placeholder: 'Barcode number', label: false %>
+      <%= f.input :barcode, input_html: { value: params[:barcode] }, placeholder: 'Barcode number', label: false %>
       <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <div class="container text-center">
         <%= image_tag "", class: "d-none mb-3", id: "photo-preview" %>

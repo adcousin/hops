@@ -4,22 +4,26 @@
     <div><%= render('shared/buttons/blacklist', blacklist: @blacklist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content) %></div>
     <div><%= link_to render('shared/buttons/wishlist', wishlist: @wishlist, beer: @beer, content: @content, user_core_lists: @user_core_lists, active_core_list: @active_core_list, active_core_content: @active_core_content), '#' %>
     </div>
-    <% if current_user.lists.count > 3 %>
-      <div>
-        <%= render 'shared/buttons/addlist', beer: @beer %>
-      </div>
-    <% end %>
+      <% if current_user.lists.count > 3 %>
+        <div>
+          <%= render 'shared/buttons/addlist', beer: @beer %>
+        </div>
+      <% else %>
+        <%= render 'shared/buttons/createlist' %>
+      <% end %>
   </div>
 </div>
 <div class="rounded-white-background">
-  
-  <div class="container pt-5">
-    <h2><%= @beer.name.upcase %></h2>
-    <div class="notes my-4">
+<div class="user-background">
+  <div class="container pt-4 pb-3 text-align-center">
+    <div class ='mt-4 mb-2 d-inline-flex justify-content-center w-100'>
+      <h2><%= @beer.name.upcase %></h2>
+    </div>
+    <div class="notes my-4 ml-3">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
-            <h2>RATE & COMMENT</h2>
+            <h3>Rate & Comment</h3>
             <div>
               <% 5.times do |index| %>
                   <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
@@ -34,7 +38,7 @@
         <% end %>
       <% else %>
         <div class="d-flex justify-content-between">
-          <h2>NOTES</h2>
+          <h3>Notes</h3>
           <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
         </div>
         <div class="my-2">
@@ -55,8 +59,11 @@
         </div>
       <% end %>
     </div>
-    <div class="info my-4">
-      <h2>INFO</h2>
+  </div>
+</div>
+  <div class="container">
+    <div class="info my-2 ml-3">
+      <h3 class = 'my-1'>Info</h3>
         <div class="d-flex flex-wrap">
           <% if @beer.color.name %>
             <%= render 'shared/tags/tag-md-color' %>
@@ -74,10 +81,6 @@
             <%= render 'shared/tags/tag-md-ibu' %>
           <% end %>
 
-          <% if @beer.brewery.name %>
-            <%= render 'shared/tags/tag-md-brewery' %>
-          <% end %>
-
           <% if @beer.brewery.country.name %>
             <%= render 'shared/tags/tag-md-country' %>
           <% end %>
@@ -86,6 +89,9 @@
             <%= render 'shared/tags/tag-md-city' %>
           <% end %>
 
+          <% if @beer.brewery.name %>
+            <%= render 'shared/tags/tag-md-brewery' %>
+          <% end %>
           <%= render 'shared/tags/tag-md-add' %>
 
         </div>
@@ -93,8 +99,8 @@
           <%= @beer.description %>
         </div>
     </div>
-    <div class="statistics my-4">
-      <h2>STATISTICS</h2>
+    <div class="statistics my-4 ml-3">
+      <h3 class ='my-2'>Statistics</h3>
       <div class="d-flex justify-content-around">
         <div class="text-center">
           <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
