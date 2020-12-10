@@ -104,7 +104,7 @@ class BeersController < ApplicationController
   def update
     if beers_params[:brewery_id].nil? || beers_params[:brewery_id] == ''
       @brewery = Brewery.new(beers_params[:brewery_attributes])
-      @brewery.address = "#{beers_params[:brewery_attributes][:street]} #{beers_params[:brewery_attributes][:zipcode]} #{beers_params[:brewery_attributes][:city].capitalize}"
+      @brewery.address = "#{beers_params[:brewery_attributes][:street]} #{beers_params[:brewery_attributes][:zipcode]} #{beers_params[:brewery_attributes][:city]}"
       @brewery.save
       @beer.brewery = @brewery
     else
