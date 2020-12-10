@@ -49,7 +49,7 @@ function load_quagga(){
         if (err) { console.log(err); return }
         Quagga.initialized = true;
         Quagga.start();
-        setTimeout(function(){ Quagga.stop(); alert('We are not using your camera anymore') }, 10000);
+        setTimeout(function(){ Quagga.stop();}, 30000);
       });
     }
 
