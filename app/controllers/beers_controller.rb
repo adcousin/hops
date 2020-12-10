@@ -78,11 +78,13 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.new(beers_params)
-    if params[:brewery_id].nil?
+    if beers_params[:brewery_id].nil? || beers_params[:brewery_id] == ''
       @brewery = Brewery.new(beers_params[:brewery_attributes])
       @brewery.address = "#{beers_params[:brewery_attributes][:street]} #{beers_params[:brewery_attributes][:zipcode]} #{beers_params[:brewery_attributes][:city].capitalize}"
       @brewery.save
       @beer.brewery = @brewery
+    else
+      @beer.brewery_id = beers_params[:brewery_id]
     end
     @beer.user = current_user
     @beer.validated = false unless current_user.admin

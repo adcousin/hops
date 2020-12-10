@@ -118,3 +118,8 @@
     color: #53A653;
   }
 }
+
+
+.add-edit-container input, .add-edit-container select, .add-edit-container textarea, .add-edit-container label, .add-edit-container img {
+  box-shadow: none;
+}

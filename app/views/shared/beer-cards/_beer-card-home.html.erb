@@ -1,12 +1,12 @@
 <div class="beer-card-home">
-  <div class="beer-card-home-picture" style = "background-image: url(<%= cl_image_path beer.photo.key if beer.photo.key rescue image_path 'beer-placeholder.jpg' %>);">
+  <div class="beer-card-home-picture" style = "background-image: url(<%= cl_image_path beer.photo.key if beer.photo.key rescue image_path("beer-placeholder-#{Random.new.rand(1..5)}.jpg", class: 'beer-photo') %>);">
   </div>
   <div class="bch-name-tags">
     <div class="bch-name">
       <h5><%= beer.name %></h5>
     </div>
     <div class="bch-tags">
-      <ul> 
+      <ul>
         <% if beer.color %>
           <li><%= render 'shared/tags/tag-sm-color', beer: beer %></li>
         <% end %>
