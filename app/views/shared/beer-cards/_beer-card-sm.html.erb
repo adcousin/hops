@@ -1,11 +1,11 @@
 <div class="beer-card-sm">
   <div class="beer-name-color-alc-str">
-    <div> <h4><%= beer.name %></h4> </div>
-    <div class="text-right">
-      <div><h5><%= beer.color.name %></h5></div>
+    <div class="beer-card-sm-left">
+      <div class="mr-2"> <h4><%= beer.name %></h4> </div>
       <% if beer.alcohol_strength %>
-        <div class="ml-5px"><p><%= beer.alcohol_strength %>%</p></div>
+        <div><h5><%= beer.color.name %></h5></div>
       <% end %>
     </div>
+    <div class="beer-card-sm-right"><h4><i class="fas fa-external-link-alt"></i></h4></div>
   </div>
 </div>

@@ -25,11 +25,11 @@
 }
 
 .form-btn {
-  border: 1px solid #ced4da;
-  background-color: $yellow;
+  border: 1px solid #dddddd;
+  border-left: hidden;
+  background-color: #ffc70155;
   color: rgba(20,20,20, 0.5);
-  border-radius: 4px;
-  // height: calc(1.5em + 0.75rem + 2px);
+  border-radius: 0 4px 4px 0;
   margin-bottom: 16px;
   font-size: 1em;
   #review_submit{
@@ -49,7 +49,7 @@
 
 .form-control {
   font-size: 1em;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 .select2-container {
