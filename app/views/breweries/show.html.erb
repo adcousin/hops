@@ -31,13 +31,25 @@
     </div>
     <h2 class ='my-4'><%= "Beers (#{@brewery.beers.count})" %></h2>
     <% if @brewery.beers %>
-      <div class="d-flex justify-content-between flex-wrap">
-        <%= render 'shared/tags/tag-color-count', color: 'white'%>
-        <%= render 'shared/tags/tag-color-count', color: 'blond' %>
-        <%= render 'shared/tags/tag-color-count', color: 'ruby' %>
-        <%= render 'shared/tags/tag-color-count', color: 'amber' %>
-        <%= render 'shared/tags/tag-color-count', color: 'black' %>
-        <%= render 'shared/tags/tag-color-count', color: 'other' %>
+      <div class="d-flex justify-start flex-wrap">
+        <% if @white_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'white', counter: @white_count %>
+        <% end %>
+        <% if @blond_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'blond', counter: @blond_count %>
+        <% end %>
+        <% if @ruby_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'ruby', counter: @ruby_count %>
+        <% end %>
+        <% if @amber_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'amber', counter: @amber_count %>
+        <% end %>
+        <% if @black_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'black', counter: @black_count %>
+        <% end %>
+        <% if @other_count > 0 %>
+          <%= render 'shared/tags/tag-color-count', color: 'other', counter: @other_count %>
+        <% end %>
       </div>
       <div class="container d-inline-flex flex-column pt-2">
         <% @brewery.beers.each do |beer| %>
