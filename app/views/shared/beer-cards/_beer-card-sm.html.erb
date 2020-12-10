@@ -2,10 +2,17 @@
   <div class="beer-name-color-alc-str">
     <div class="beer-card-sm-left">
       <div class="mr-2"> <h4><%= beer.name %></h4> </div>
+      <% if beer.color.name %>
+        <div class="mr-2"><h5><%= beer.color.name %></h5></div>
+      <% end %>
       <% if beer.alcohol_strength %>
-        <div><h5><%= beer.color.name %></h5></div>
+        <div class="mr-2"><h5><%= beer.alcohol_strength %>%</h5></div>
       <% end %>
     </div>
-    <div class="beer-card-sm-right"><h4><i class="fas fa-external-link-alt"></i></h4></div>
+    <div class="beer-card-sm-right">
+      <%= link_to beer_path(beer) do %>
+        <h4><i class="fas fa-external-link-alt"></i></h4>
+      <% end %>
+    </div>
   </div>
 </div>
