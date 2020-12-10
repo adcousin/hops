@@ -37,6 +37,18 @@
   }
 }
 
+.list-btn {
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  color: rgba(20,20,20, 0.5);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 1em;
+  padding: 0;
+  height: 28px;
+  width: 28px;
+}
+
 .review-rate.fas.fa-beer.inactive {
   color: rgba(255,199,0,0.3);
   font-size: 2.5em;
