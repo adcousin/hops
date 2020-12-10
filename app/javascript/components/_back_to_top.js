@@ -7,6 +7,7 @@ const mybutton = document.getElementById("myBtn");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+  const mybutton = document.getElementById("myBtn");
   if (mybutton){
     if (window.scrollY > window.innerHeight) {
       mybutton.style.display = "block";

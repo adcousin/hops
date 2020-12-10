@@ -102,7 +102,18 @@ class BeersController < ApplicationController
   end
 
   def update
-    if @beer.update(beers_params)
+    if beers_params[:brewery_id].nil? || beers_params[:brewery_id] == ''
+      @brewery = Brewery.new(beers_params[:brewery_attributes])
+      @brewery.address = "#{beers_params[:brewery_attributes][:street]} #{beers_params[:brewery_attributes][:zipcode]} #{beers_params[:brewery_attributes][:city]}"
+      @brewery.save
+      @beer.brewery = @brewery
+    else
+      @beer.brewery = Brewery.find(beers_params[:brewery_id])
+      @beer.save
+    end
+    beers_params_fix = beers_params
+    beers_params_fix.delete(:brewery_attributes)
+    if @beer.update(beers_params_fix)
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully updated"
     else
       @action = "Edit"
