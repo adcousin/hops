@@ -3,6 +3,10 @@
     <i class="fas fa-globe-americas"></i>
   </div>
   <div class="tag-name-sm">
-    <p> <%= beer.brewery.country.name %> </p>
+    <% if beer.brewery.country.name == 'United Kingdom' %>
+      <p>UK</p>
+    <% else %>
+      <p> <%= beer.brewery.country.name %> </p>
+    <% end %>
   </div>
 </div>
