@@ -1,5 +1,5 @@
 meta_product_name: "Hops!...I did it again.."
 meta_title: "Hops!... I did it again - So that you don't get the wrong beer "
 meta_description: "Keep track of the beers you tasted"
-meta_image: "cover.jpeg" # should exist in `app/assets/images/`
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
