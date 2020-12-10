@@ -1,65 +1,8 @@
-<% if color == 'white' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @white_count %> </p>
-      </div>
+<div class="tag-md tag-color">
+  <div class="tag-icon-md <%= color %>">
+    <i class="fas fa-beer"></i>
   </div>
-<% end %>
-
-<% if color == 'blond' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @blond_count %> </p>
-      </div>
+  <div class="tag-name-md">
+    <p> <%= counter %> </p>
   </div>
-<% end %>
-
-<% if color == 'ruby' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @ruby_count %> </p>
-      </div>
-  </div>
-<% end %>
-
-<% if color == 'amber' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @amber_count %> </p>
-      </div>
-  </div>
-<% end %>
-
-<% if color == 'black' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @black_count %> </p>
-      </div>
-  </div>
-<% end %>
-
-<% if color == 'other' %>
-  <div class="tag-md ">
-      <div class="tag-icon-md <%= color %>">
-        <i class="fas fa-beer"></i>
-      </div>
-      <div class="tag-name-md">
-        <p> <%= @other_count %> </p>
-      </div>
-  </div>
-<% end %>
+</div>
