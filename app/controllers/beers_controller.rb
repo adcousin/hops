@@ -41,7 +41,7 @@ class BeersController < ApplicationController
     @black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", @beer.id).count
     @wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", @beer.id).count
     @list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", @beer.id).count
-  
+
     # beer proposals based on the users whitelists
     sql = %{with users_list as (select u.id user_ref
                                from   users u
@@ -73,14 +73,22 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    @beer.build_brewery
     @action = "Add"
   end
 
   def create
     @beer = Beer.new(beers_params)
+    if beers_params[:brewery_id].nil? || beers_params[:brewery_id] == ''
+      @brewery = Brewery.new(beers_params[:brewery_attributes])
+      @brewery.address = "#{beers_params[:brewery_attributes][:street]} #{beers_params[:brewery_attributes][:zipcode]} #{beers_params[:brewery_attributes][:city].capitalize}"
+      @brewery.save
+      @beer.brewery = @brewery
+    else
+      @beer.brewery_id = beers_params[:brewery_id]
+    end
     @beer.user = current_user
     @beer.validated = false unless current_user.admin
-
     if @beer.save
       redirect_to beer_path(@beer), notice: "#{@beer.name} successfully created"
     else
@@ -144,8 +152,9 @@ class BeersController < ApplicationController
   private
 
   def beers_params
-    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id, :photo)
+    params.require(:beer).permit(:name, :description, :alcohol_strength, :ibu, :barcode, :brewery_id, :color_id, :style_id, :photo, brewery_attributes: [:name, :street, :zipcode, :city, :country_id])
   end
+
 
   def set_beers
     @beer = Beer.find(params[:id])

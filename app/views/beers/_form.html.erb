@@ -3,11 +3,30 @@
 </div>
 
 <div class="rounded-white-background">
-  <h2 class="text-center mt-3" ><%= "#{@action} a beer" %></h2>
-  <div class="container pt-4 add-edit-container">
+  <h2 class="text-center my-3" >"#{@action} a beer"</h2>
+  <div class="container add-edit-container">
     <%= simple_form_for (@beer) do |f| %>
-      <%= f.input :name, input_html: { value: @beer.name || params[:name] } , placeholder: 'Beer name', label: false %>
-      <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
+      <h3 class="text-center py-1">Brewery section</h3>
+      <div class="select-brewery">
+        <h5 class="text-center py-1">Select an existing brewery...</h5>
+        <%= f.association :brewery, collection: Brewery.order(:name), prompt: 'Brewery name', label: false %>
+      </div>
+
+      <div class="text-center btn toggle w-100 border"><h5>...or create it!</h5></div>
+
+      <div class="add-brewery-beer px-5 py-2 d-none bg-light">
+        <%= f.simple_fields_for :brewery do |brewery_form| %>
+          <%= brewery_form.input :name, label: false, placeholder: 'New brewery name' %>
+          <%= brewery_form.input :street, label: false, placeholder: 'New brewery street' %>
+          <%= brewery_form.input :zipcode, label: false, placeholder: 'New brewery zipcode' %>
+          <%= brewery_form.input :city, label: false, placeholder: 'New brewery city' %>
+          <%= brewery_form.input :country_id, collection: Country.all, label: false, prompt: 'New brewery country' %>
+        <% end %>
+      </div>
+
+        <h3 class="text-center mt-2 py-1">Beer section</h3>
+        <div class="text-center py-1"><h5>Please give as much information as possible</h5></div>
+      <%= f.input :name, input_html: { value: params[:name] } , placeholder: 'Beer name', label: false %>
       <%= f.association :color, collection: Color.order(:id), prompt: 'Beer color', label: false %>
       <%= f.association :style, collection: Style.order(:name), prompt: "Beer style", label: false %>
       <%= f.input :alcohol_strength, input_html: { value: @beer.alcohol_strength || params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>

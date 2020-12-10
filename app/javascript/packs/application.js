@@ -37,7 +37,9 @@ import { searchAddsDisplay } from '../components/_search_adds_display'
 import { previewImageOnFileSelect } from '../components/_photo_preview';
 import { goToTabWithAnchor } from '../components/_go_to_tab_with_anchor';
 import { scrollIndicators } from '../components/_scroll_indicators';
+import { toggleBrewerySection } from '../components/_toggle_brewery_section';
 import  { scrollFunction} from '../components/_back_to_top'
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -50,5 +52,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   goToTabWithAnchor();
   scrollIndicators();
+  toggleBrewerySection();
   scrollFunction();
+
 });
