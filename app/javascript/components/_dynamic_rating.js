@@ -3,9 +3,9 @@ const toggleStarsInBlack = (rate) => {
   for (let index = 1; index <= 5; index++) {
     const star = document.getElementById(index);
     if (index <= rate) {
-      star.className = "review-rate fas fa-beer"
+      star.className = "review-rate active"
     } else {
-      star.className = "review-rate fas fa-beer inactive"
+      star.className = "review-rate"
     }
   }
 };

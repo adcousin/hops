@@ -15,20 +15,22 @@
 </div>
 <div class="rounded-white-background">
 <div class="user-background">
-  <div class="container pt-4 pb-3 text-align-center">
-    <div class ='mt-4 mb-2 d-inline-flex justify-content-center w-100'>
-      <h2><%= @beer.name.upcase %></h2>
+  <div class="container pt-4 pb-3">
+    <div class ='mt-4 mb-2 text-center'>
+      <h2><%= @beer.name.capitalize %></h2>
+      <div class="title-border mx-auto my-2"></div>
     </div>
     <div class="notes my-4 ml-3">
       <% if @beer_user_review.nil?%>
         <%= simple_form_for ([@beer, @review]), remote: true, class: 'd-flex' do |f| %>
           <div class="d-flex justify-content-between">
-            <h3>Rate & Comment</h3>
+            <h3><i class="far fa-comment-dots"></i> Rate & Comment</h3>
             <div>
               <% 5.times do |index| %>
-                  <i id="<%= index + 1 %>" class="review-rate fas fa-beer inactive"></i>
+                <%= image_tag 'icons/rating.svg', width: 20, height: 20 , id: index + 1, class: "review-rate" %>
               <% end %>
             </div>
+
           </div>
           <%= f.input :rate, as: :hidden %>
           <div class="d-flex justify-content-between">
@@ -38,20 +40,21 @@
         <% end %>
       <% else %>
         <div class="d-flex justify-content-between">
-          <h3>Notes</h3>
-          <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review) %>
-        </div>
-        <div class="my-2">
-          <% @review.rate.times do %>
-            <i class="fas fa-beer" style="font-size: 30px; color: #FFC700"></i> 
-          <% end %>
-          <% (5 - @review.rate).times do %>
-            <i class="fas fa-beer" style="font-size: 30px; color: #FFC70055"></i> 
-          <% end %>
-          
+          <div class="d-flex">
+            <h3><i class="far fa-comment-dots"></i> Rate & Comment</h3>
+            <%=link_to image_tag("icons/edit.svg", alt: 'edit', width: 16), edit_beer_review_path(@beer, @review), class: "ml-3" %>
+          </div>
+          <div class="my-2">
+            <% @review.rate.times do %>
+              <%= image_tag 'icons/rating.svg', width: 20, height: 20, class: "review-rate selected" %>
+            <% end %>
+            <% (5 - @review.rate).times do %>
+              <%= image_tag 'icons/rating.svg', width: 20, height: 20, class: "review-rate" %>
+            <% end %>
+          </div>
         </div>
         <div class=''>
-          
+
           <blockquote class="blockquote">
             <h3 class="mb-0" style="font-weight: normal;"><%= @beer_user_review.comment %></h3>
             <footer class="blockquote-footer" style="font-size: 12px;"><%= @beer_user_review.updated_at %></footer>
@@ -63,7 +66,7 @@
 </div>
   <div class="container">
     <div class="info my-2 ml-3">
-      <h3 class = 'my-1'>Info</h3>
+      <h3 class = 'my-1'><i class="fas fa-info-circle"></i> More details</h3>
         <div class="d-flex flex-wrap">
           <% if @beer.color.name %>
             <%= render 'shared/tags/tag-md-color' %>
@@ -100,7 +103,7 @@
         </div>
     </div>
     <div class="statistics my-4 ml-3">
-      <h3 class ='my-2'>Statistics</h3>
+      <h3 class ='my-2'><i class="fas fa-chart-line"></i> Community statistics</h3>
       <div class="d-flex justify-content-around">
         <div class="text-center">
           <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>

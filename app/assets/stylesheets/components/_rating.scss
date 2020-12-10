@@ -5,3 +5,10 @@
 .rate {
   margin-right: -3px;
 }
+
+img.review-rate {
+  opacity: 0.2;
+  &.selected, &.active {
+    opacity: 1;
+  }
+}
