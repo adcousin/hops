@@ -1,10 +1,8 @@
 <div class= 'banner'>
-  <div class=" main-title y-border w-bg">
-    <h1>My cellar</h1>
-  </div>
 </div>
 <div class="rounded-white-background ">
-  <div class="container pt-5">
+  <h2 class="text-center mt-3">My cellar</h2>
+  <div class="container pt-4">
 
     <div>
       <nav class="nav nav-tabs" role="tablist">
@@ -16,7 +14,7 @@
           <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
           <p><%= @black_count %></p>
         </a>
-        <a class="nav-link w-25 text-center" id="whishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlist" aria-selected="false">
+        <a class="nav-link w-25 text-center" id="wishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlist" aria-selected="false">
           <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
           <p><%= @wish_count %></p>
         </a>
@@ -29,10 +27,10 @@
     <div class="show-container dsp-tabs">
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="whitelist" role="tabpanel" aria-labelledby="home-tab">
-          <%= render "./shared/list", beers: @whitelist, list: @whitelist_instance %>
+          <%= render "./shared/list", beers: @whitelist, list: @whitelist_instance, page_tracker: 'lists_show' %>
         </div>
-        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist, list: @blacklist_instance %></div>
-        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist, list: @wishlist_instance %></div>
+        <div class="tab-pane fade" id="blacklist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @blacklist, list: @blacklist_instance, page_tracker: 'lists_show' %></div>
+        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/list", beers: @wishlist, list: @wishlist_instance, page_tracker: 'lists_show' %></div>
         <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="profile-tab"><%= render "./shared/custom_lists", lists: @custom_list %>
           <%= simple_form_for [@list], remote: true do  |f| %>
             <%= f.input :name, label: false %>

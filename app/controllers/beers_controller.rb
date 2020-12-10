@@ -41,6 +41,34 @@ class BeersController < ApplicationController
     @black_count = List.joins(:contents).where("name = 'Blacklist' AND beer_id = ?", @beer.id).count
     @wish_count = List.joins(:contents).where("name = 'Wishlist' AND beer_id = ?", @beer.id).count
     @list_count = List.joins(:contents).where("name NOT IN ('Whitelist', 'Blacklist', 'Wishlist') AND beer_id = ?", @beer.id).count
+  
+    # beer proposals based on the users whitelists
+    sql = %{with users_list as (select u.id user_ref
+                               from   users u
+                                     ,lists l
+                                     ,contents c
+                               where  u.id = l.user_id
+                                 and  l.id = c.list_id
+                                 and  c.beer_id = #{@beer.id}
+                                 and  u.id != #{current_user.id}
+                                 and  l.name = 'Whitelist')
+           select b.id
+           from   beers b
+                 ,contents c
+                 ,lists l
+                 ,users_list ul
+           where  b.id = c.beer_id
+             and  c.list_id = l.id
+             and  l.user_id = ul.user_ref
+             and  l.name = 'Whitelist'
+             and  b.id != #{@beer.id}
+           group by b.name, b.id
+           order by count(c.id) desc, b.name
+           limit 4}
+
+    @suggestions_id = ActiveRecord::Base.connection.exec_query(sql)
+    @beer_suggestions = []
+    @suggestions_id.each { |sugg| @beer_suggestions << Beer.find(sugg["id"]) }
   end
 
   def new

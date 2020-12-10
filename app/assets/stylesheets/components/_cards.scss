@@ -50,7 +50,33 @@ li.list-card-light {
   background: $yellow;
 }
 
+.bs-cards {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  overflow: auto;
+  gap: 15px;
+}
 
+.left-arrow, .right-arrow {
+  position: absolute;
+  top: 30px;
+  height: 208px;
+  width: 20px;
+  text-align: center;
+  line-height: 208px;
+  font-size: 30px;
+  background-color: white;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.left-arrow {
+  left: 0;
+}
+.right-arrow {
+  right: 0;
+}
 
 @media(max-width: 1550px){
   .card-grid{

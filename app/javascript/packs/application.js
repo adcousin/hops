@@ -35,6 +35,8 @@ import { toggleListsState } from '../components/_toggle_lists_state'
 import { dynamicRating } from '../components/_dynamic_rating'
 import { searchAddsDisplay } from '../components/_search_adds_display'
 import { previewImageOnFileSelect } from '../components/_photo_preview';
+import { goToTabWithAnchor } from '../components/_go_to_tab_with_anchor';
+import { scrollIndicators } from '../components/_scroll_indicators';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -45,4 +47,6 @@ document.addEventListener('turbolinks:load', () => {
   dynamicRating();
   searchAddsDisplay();
   previewImageOnFileSelect();
+  goToTabWithAnchor();
+  scrollIndicators();
 });
