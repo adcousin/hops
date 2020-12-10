@@ -9,6 +9,10 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 @import 'select2/dist/css/select2';
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 6px;
+$hamburger-layer-color: #2E2C2D;
+@import 'hamburgers';
 
 // Your CSS partials
 @import "components/index";

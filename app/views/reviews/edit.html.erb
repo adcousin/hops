@@ -10,7 +10,7 @@
         <h2 class="mb-4">Rate & Comment</h2>
         <div>
           <% 5.times do |index| %>
-            <%= image_tag 'icons/rating.svg', width: 20, height: 20 , id: index + 1, class: "review-rate" %>
+            <%= image_tag 'icons/rating.svg', width: 20, height: 20 , id: index + 1, class: "review-rate #{'selected' if index + 1 <= @review.rate}" %>
           <% end %>
         </div>
       </div>
