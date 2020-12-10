@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.beer = @beer
+    @review.rate = 0 unless @review.rate
     if @review.save
       redirect_to beer_path(@beer), notice: 'Review sucessfully created'
     else
