@@ -2,9 +2,9 @@
 </div>
 <div class="rounded-white-background">
   <div class ='mt-4 mb-2 text-center'>
-      <h2><%= @brewery.name.capitalize %></h2>
-      <div class="title-border mx-auto my-2"></div>
-    </div>
+    <h2><%= @brewery.name.capitalize %></h2>
+    <div class="title-border mx-auto my-2"></div>
+  </div>
   <div class="container pt-4">
     <div class="info my-4">
       <h2> <i class="fas fa-info-circle"></i> Infos</h2>
@@ -15,19 +15,19 @@
       <h2><i class="fas fa-chart-line"></i> Community statistics</h2>
         <div class="d-flex justify-content-around">
           <div class="text-center">
-            <div class="count-icon"><%= image_tag("icons/whitelist-black.svg", alt: 'white', width: 32)%></div>
+            <div class="count-icon"><%= image_tag("icons/whitelist-color.svg", alt: 'white', width: 32)%></div>
               <div><%= @whitelist_count %></div>
             </div>
             <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/blacklist-black.svg", alt: 'black', width: 32) %></div>
+              <div class="count-icon"><%= image_tag("icons/blacklist-color.svg", alt: 'black', width: 32) %></div>
               <div><%= @blacklist_count %></div>
             </div>
             <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/wishlist-black.svg", alt: 'wish', width: 32) %></div>
+              <div class="count-icon"><%= image_tag("icons/wishlist-color.svg", alt: 'wish', width: 32) %></div>
               <div><%= @wishlist_count %></div>
             </div>
             <div class="text-center">
-              <div class="count-icon"><%= image_tag("icons/addlist-black.svg", alt: 'add', width: 32) %></div>
+              <div class="count-icon"><%= image_tag("icons/addlist-color.svg", alt: 'add', width: 32) %></div>
               <div><%= @customlist_count %></div>
             </div>
         </div>
