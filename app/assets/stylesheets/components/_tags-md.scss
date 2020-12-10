@@ -6,6 +6,7 @@
   margin: 5px 5px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: start;
   align-items: center;
   height: max-content;
@@ -38,7 +39,7 @@
   line-height: 16px;
   font-weight: bold;
   text-align: center;
-  
+
   p {
     max-width: 200px;
     overflow: hidden;
