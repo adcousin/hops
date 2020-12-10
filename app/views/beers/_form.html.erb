@@ -26,7 +26,7 @@
 
         <h3 class="text-center mt-2 py-1">Beer section</h3>
         <div class="text-center py-1"><h5>Please give as much information as possible</h5></div>
-      <%= f.input :name, input_html: { value: params[:name] } , placeholder: 'Beer name', label: false %>
+      <%= f.input :name, input_html: { value: @beer.name || params[:name] } , placeholder: 'Beer name', label: false %>
       <%= f.association :color, collection: Color.order(:id), prompt: 'Beer color', label: false %>
       <%= f.association :style, collection: Style.order(:name), prompt: "Beer style", label: false %>
       <%= f.input :alcohol_strength, input_html: { value: @beer.alcohol_strength || params[:alcohol_strength] }, placeholder: 'Alcohol strength', label: false %>
