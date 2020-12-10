@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
-const mapElement = document.getElementById('map');
 
-const buildMap = (mapElement) => {
+const buildMap = () => {
+  const mapElement = document.getElementById('map');
   if (mapElement){
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     return new mapboxgl.Map({
@@ -11,7 +11,8 @@ const buildMap = (mapElement) => {
   }
 };
 
-const addMarkersToMap = (map, markers) => {
+ const addMarkersToMap = (map, markers) => {
+  const mapElement = document.getElementById('map');
     if (mapElement) {
       const customMarker = document.createElement('div');
       customMarker.className ='marker'
@@ -22,25 +23,27 @@ const addMarkersToMap = (map, markers) => {
         .addTo(map);
       }
   if (mapElement){
-    fitMapToMarkers(map, markers);
-  }
-};
+     fitMapToMarkers(map, markers);
+   }
+ };
 
 
-const fitMapToMarkers = (map, marker) => {
-  if(mapElement){
-    const bounds = new mapboxgl.LngLatBounds();
+ const fitMapToMarkers = (map, marker) => {
+  const mapElement = document.getElementById('map');
+  if (mapElement){
+     const bounds = new mapboxgl.LngLatBounds();
     bounds.extend([ marker.lng, marker.lat ]);
-    map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 });
+     map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
   }
 };
 
 const initMapbox = () => {
+  const mapElement = document.getElementById('map');
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+     addMarkersToMap(map, markers);
+     fitMapToMarkers(map, markers);
   }
 };
 
