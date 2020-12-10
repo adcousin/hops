@@ -3,7 +3,7 @@
 </div>
 
 <div class="rounded-white-background">
-  <h2 class="text-center mt-3" >Add/Edit a brewery</h2>
+  <h2 class="text-center mt-3" ><%= "#{@action} a brewery" %></h2>
   <div class="container pt-4 add-edit-container">
     <%= simple_form_for (@brewery) do |f| %>
     <%= f.input :name, placeholder: 'Brewery name', label:false %>
@@ -11,7 +11,7 @@
     <%= f.input :zipcode, placeholder: 'Zip code', label:false %>
     <%= f.input :city, placeholder: 'City', label:false %>
     <%= f.input :country_id, collection: Country.all, prompt: 'Country', label:false %>
-    <%= f.button :submit, "Add/Edit brewery",class: 'btn btn-add-edit-save w-100' %>
+    <%= f.button :submit, "#{@action} brewery",class: 'btn btn-add-edit-save w-100' %>
     <% end %>
   </div>
 </div>

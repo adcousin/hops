@@ -42,6 +42,7 @@ class BreweriesController < ApplicationController
   def new
     @brewery = Brewery.new
     # @countries = Country.all
+    @action = "Add"
   end
 
   def create
@@ -51,6 +52,7 @@ class BreweriesController < ApplicationController
     if @brewery.save
       redirect_to brewery_path(@brewery), notice: 'Brewery sucessfully created'
     else
+      @action = "Add"
       render :new
     end
   end
