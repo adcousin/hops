@@ -40,7 +40,9 @@ import { scrollIndicators } from '../components/_scroll_indicators';
 import { colorsFilter } from '../components/_colors_filter';
 import { toggleBrewerySection } from '../components/_toggle_brewery_section';
 import { scrollFunction} from '../components/_back_to_top';
+import { scrollListener } from '../components/_back_to_top'
 import { toggleHamburger} from '../components/_hamburgers';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -56,5 +58,6 @@ document.addEventListener('turbolinks:load', () => {
   colorsFilter();
   toggleBrewerySection();
   scrollFunction();
+  scrollListener();
   toggleHamburger();
 });
