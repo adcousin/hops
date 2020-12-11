@@ -20,7 +20,7 @@ function scrollFunction() {
 // When the user clicks on the button, scroll to the top of the document
 const scrollListener = () =>{
   const mybutton = document.getElementById("myBtn");
-  if(mybutton){
+  if (mybutton) {
     mybutton.addEventListener('click',(event) =>{
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     })
