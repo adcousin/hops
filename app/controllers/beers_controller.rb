@@ -177,7 +177,7 @@ class BeersController < ApplicationController
     )
     connexion = connexion.get
     @api_answer = JSON.parse(connexion.body)
-    return nil if @api_answer['status'].zero?
+    return nil if @api_answer['status'] == 500
 
     return @api_answer
   end
