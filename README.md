@@ -11,3 +11,20 @@ The _previous solution_ was to **write it down in a notebook**, but it can **qui
 ## Our Solution
 
 We though of a device which would allow us to **improve** on the _previous solution_ and has become a _part of our lives_, ***our phones***.
+
+## The Features
+
+~~WIP~~
+
+Beers features
+
+Brewery Features
+
+Search feature (+scan)
+
+Cellar Features
+
+- Users can add beers if they are not yet present
+- Users see the beers
+
+You *may experience* ***some latency*** while _first accessing_ our website, this is **due to our hosting service** and is beyond our control.
