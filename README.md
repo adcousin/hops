@@ -38,14 +38,14 @@ This is the core of our website, around which everything else gravitate.
 
 - A User can see the **recently added beers**.
 - On a ***chosen beer***, a user can see the following informations :
-
   - Their **style** such as _IPA, Triple..._
   - Their **color**  such as _Blond, Amber..._ (which also generate, _on click_, a **search query** to see **related beers**)
   - Their **alcohol strength**
   - The **country of origin**
   - Their **brewery** (which _also leads_ to the **related page**)
 
-- A User **can add a review** of a _selected beer_ and **add it** to one of the **main list** which are the following :
+- A User **can add a review** of a _selected beer_ with a comment and a rating going from 0 to 5
+- **A beer can be added** to one of the **main list** which are the following :
 
   - The **Whitelist** to store ***liked beers***
   - The **Blacklist** to store those which **shouldn't be tasted** ***ever again***
