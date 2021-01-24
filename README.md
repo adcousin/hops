@@ -30,19 +30,18 @@ A web application seemed a logical choice to solve these issues :
 
 This section is divided between the differents sections of our project for lisibility but they are related in the actuel website.
 
-### Beers features
+### Beers section
 
 This is the core of our website, around which everything else gravitate.
 
-
-Brewery Features
-
-Search feature (+scan)
-
-Cellar Features
-
 - Users can add beers if they are not yet present
 - Users see the beers
+
+### Brewery section
+
+### Cellar Features
+
+Search feature (+scan)
 
 ## Have a look
 
