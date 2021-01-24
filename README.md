@@ -34,6 +34,8 @@ This section is divided between the differents sections of our project for lisib
 
 This is ***the core*** of our website which provides **important informations on _beers_ to our users**
 
+![Beers](https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png)
+
 #### Related features
 
 ##### Beer Details
@@ -74,6 +76,8 @@ This is ***the core*** of our website which provides **important informations on
 
 This section of the website gives ***additionnal information on the breweries*** that makes all **those good**, _and sometimes not so good_, **beers**
 
+![Breweries](https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png)
+
 #### Related features
 
 ##### Brewery's beers and filtering
@@ -93,6 +97,8 @@ This section of the website gives ***additionnal information on the breweries***
 ### Cellar Features
 
 This section displays what beers the user chose in the beer section
+
+![image](https://user-images.githubusercontent.com/58084593/105638702-6c3bae80-5e74-11eb-991f-0185548c64cb.png)
 
 #### Related Features
 
