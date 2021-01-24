@@ -4,9 +4,15 @@ This was the final project of **[the Wagon Bootcamp Course](https://www.lewagon.
 
 ## The Issue
 
-We wanted to **solve an issue** that a _large part of the beers lovers_ know all too well, which is to **keep track** of **which beers they tasted** and their _associated quality_.
+The _number of beers_ are **steadily increasing** due to the ***growing popularity*** of this _type of beverage_. It has become _increasingly **difficult**_ to **keep track** of _which beer_ has been tried and **if it was good**.
 
-The _previous solution_ was to **write it down in a notebook**, but it can **quickly become tedious** to carry the notebook around while _risking to lose it_ which can be a **disaster**.
+## Existing solution
+
+Writing this information in a notebook can seem a good idea but it comes with disavantages:
+
+- You **always need to carry it** on yourself _wherever_ you go _in case_ someone offers you to grab a drink
+- You **need to be consistant** in the way you _document your discoveries_
+- ***If you lose it***, you ***loose all your precious informations*** _without hope of getting it back_.
 
 ## Our Solution
 
