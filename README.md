@@ -28,7 +28,12 @@ A web application seemed a logical choice to solve these issues :
 
 ## The Features
 
-Beers features
+This section is divided between the differents sections of our project for lisibility but they are related in the actuel website.
+
+### Beers features
+
+This is the core of our website, around which everything else gravitate.
+
 
 Brewery Features
 
