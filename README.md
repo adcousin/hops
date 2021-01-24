@@ -20,7 +20,7 @@ Writing this information in a notebook can seem a good idea but it comes with di
 
 ### A Ruby on Rails project
 
-A web application seemed a logical choice to solve these issues :
+A progressive web application (PWA) seemed a logical choice to solve these issues :
 
 - It **can be accessed** from _anywhere_ and on _any device_.
 - The data you enters is _already formated_ in a **pleasing way** for you.
