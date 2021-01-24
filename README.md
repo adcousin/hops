@@ -82,11 +82,26 @@ This section of the website gives ***additionnal information on the breweries***
 - They can see **how many of each beers color** there are **available** at this _brewery_
 - Our users can **filter them by color** to ***only display the kind of beers*** they want to see
 
+##### Community Statistics
+
+- User can see *how the beers* from ***this brewery*** have been **rated overall**
+
 ##### Location
 
 - A **map is provided**, alongside the **address**, to give the user a **visual idea** of _where_ the brewery is located
 
 ### Cellar Features
+
+This section displays what beers the user chose in the beer section
+
+#### Related Features
+
+##### List display
+
+- A user can have a **global appreciation** of _how many beers_ there are in **each** of **their lists**
+- A user can **remove beers** from **their lists**
+- They can see if a beer is ***present across multiples lists***
+- They can ***delete, create and edit*** customs lists.
 
 ## Have a look
 
