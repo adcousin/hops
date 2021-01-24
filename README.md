@@ -46,6 +46,14 @@ This is ***the core*** of our website, _around which everything else gravitate_.
   - The **country of origin**
   - Their **brewery** (which _also leads_ to the **related page**)
 
+##### Search
+
+- A User can do a **named search** for a ***particular beer***
+- A user can search for a ***particular color of beer***
+- A ***bar code can be scanned*** to _fetch the **related beer** from our database_ or to **prefill a form** to create if not absent
+
+
+
 ##### Reviews and listing
 
 - A User **can add a review** of a _selected beer_, _review_ made of a **0 to 5 rating** alongside **a comment**
