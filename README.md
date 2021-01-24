@@ -32,7 +32,7 @@ This section is divided between the differents sections of our project for lisib
 
 ### Beers section
 
-This is ***the core*** of our website, _around which everything else gravitate_.
+This is ***the core*** of our website which provides **important informations on _beers_ to our users**
 
 #### Related features
 
@@ -49,10 +49,8 @@ This is ***the core*** of our website, _around which everything else gravitate_.
 ##### Search
 
 - A User can do a **named search** for a ***particular beer***
-- A user can search for a ***particular color of beer***
+- A user **can search** for a ***particular color of beer***
 - A ***bar code can be scanned*** to _fetch the **related beer** from our database_ or to **prefill a form** to create if not absent
-
-
 
 ##### Reviews and listing
 
@@ -70,13 +68,25 @@ This is ***the core*** of our website, _around which everything else gravitate_.
 
 - Users can **add beers** if they are _not yet present_ in our database
 - Users can **edit existing beers** if they think an information is invalid
-- When on a beer page, a user can see **related community suggestion** based on _their likings_
+- _When on a beer page_, a user can see **related community suggestion** based on _their likings_
 
 ### Brewery section
 
-### Cellar Features
+This section of the website gives ***additionnal information on the breweries*** that makes all **those good**, _and sometimes not so good_, **beers**
 
-Search feature (+scan)
+#### Related features
+
+##### Brewery's beers and filtering
+
+- Our users can view **how many** _beers_ **this brewery is producing** and the **name of each one** with some details like the **color** and the **alcohol strength**
+- They can see **how many of each beers color** there are **available** at this _brewery_
+- Our users can **filter them by color** to ***only display the kind of beers*** they want to see
+
+##### Location
+
+- A **map is provided**, alongside the **address**, to give the user a **visual idea** of _where_ the brewery is located
+
+### Cellar Features
 
 ## Have a look
 
