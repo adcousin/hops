@@ -44,13 +44,14 @@ This is the core of our website, around which everything else gravitate.
   - The **country of origin**
   - Their **brewery** (which _also leads_ to the **related page**)
 
-- A User **can add a review** of a _selected beer_ with a comment and a rating going from 0 to 5
+- A User **can add a review** of a _selected beer_, _review_ made of a **0 to 5 rating** alongside **a comment**
 - **A beer can be added** to one of the **main list** which are the following :
 
   - The **Whitelist** to store ***liked beers***
   - The **Blacklist** to store those which **shouldn't be tasted** ***ever again***
   - The **Wishlist** to store beers that our users **would like to try** in the future
 
+- A user can see **statistics related to those main lists** in order to have a _better appreciation_ of **how this beer is perceived by other people**
 - A user can also **create customs lists**, which are _also made to store beers_, and **name them as they like**
 
 - Users can add beers if they are not yet present
