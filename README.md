@@ -28,7 +28,7 @@ A web application seemed a logical choice to solve these issues :
 
 ## The Features
 
-This section is divided between the differents sections of our project for lisibility but they are related in the actuel website.
+This section is divided between the differents sections of our project for lisibility but they are related in the actual website.
 
 ### Beers section
 
