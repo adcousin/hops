@@ -98,7 +98,7 @@ This section of the website gives ***additionnal information on the breweries***
 
 This section displays what beers the user chose in the beer section
 
-![image](https://user-images.githubusercontent.com/58084593/105638702-6c3bae80-5e74-11eb-991f-0185548c64cb.png)
+![Cellar](https://user-images.githubusercontent.com/58084593/105638702-6c3bae80-5e74-11eb-991f-0185548c64cb.png)
 
 #### Related Features
 
