@@ -40,7 +40,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="625 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="650 px"/>
 
 #### Related features
 
@@ -88,7 +88,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png" alt="BreweryDesktop" width="625 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png" alt="BreweryDesktop" width="650 px"/>
 
 #### Related features
 
@@ -116,7 +116,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105692455-bbc6bc80-5efe-11eb-9a23-012dcad9af17.png" alt="CellarDesktop" width="625 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105692455-bbc6bc80-5efe-11eb-9a23-012dcad9af17.png" alt="CellarDesktop" width="650 px"/>
 
 #### Related Features
 
