@@ -34,7 +34,8 @@ This section is divided between the differents sections of our project for lisib
 
 This is ***the core*** of our website which provides **important informations on _beers_ to our users**
 
-![Beers](https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png)
+<img src="https://user-images.githubusercontent.com/58084593/105690905-d8fa8b80-5efc-11eb-9243-653c6944d30a.png" alt="BeersMobile" width="150 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="625 px"/>
 
 #### Related features
 
@@ -76,7 +77,8 @@ This is ***the core*** of our website which provides **important informations on
 
 This section of the website gives ***additionnal information on the breweries*** that makes all **those good**, _and sometimes not so good_, **beers**
 
-![Breweries](https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png)
+<img src="https://user-images.githubusercontent.com/58084593/105692030-3d6a1a80-5efe-11eb-927e-df6cb2e42b90.png" alt="BeersMobile" width="150 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png" alt="BreweryDesktop" width="625 px"/>
 
 #### Related features
 
@@ -98,7 +100,8 @@ This section of the website gives ***additionnal information on the breweries***
 
 This section displays what beers the user chose in the beer section
 
-![Cellar](https://user-images.githubusercontent.com/58084593/105638702-6c3bae80-5e74-11eb-991f-0185548c64cb.png)
+<img src="https://user-images.githubusercontent.com/58084593/105692195-67234180-5efe-11eb-879a-06d920776827.png" alt="CellarMobile" width="150 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105692455-bbc6bc80-5efe-11eb-9a23-012dcad9af17.png" alt="CellarDesktop" width="625 px"/>
 
 #### Related Features
 
