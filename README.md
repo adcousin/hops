@@ -34,8 +34,8 @@ This section is divided between the differents sections of our project for lisib
 
 This is ***the core*** of our website which provides **important informations on _beers_ to our users**
 
-<img src="https://user-images.githubusercontent.com/58084593/105690905-d8fa8b80-5efc-11eb-9243-653c6944d30a.png" alt="BeersMobile" width="150 px"/>
-<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="625 px"/>
+<img align='inline' src="https://user-images.githubusercontent.com/58084593/105690905-d8fa8b80-5efc-11eb-9243-653c6944d30a.png" alt="BeersMobile" width="150 px"/>
+<img align='inline' src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="625 px"/>
 
 #### Related features
 
