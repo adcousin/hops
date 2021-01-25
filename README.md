@@ -40,7 +40,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" width="650 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638618-e3247780-5e73-11eb-9782-9a2059d99102.png" alt="BeersDesktop" />
 
 #### Related features
 
@@ -88,7 +88,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png" alt="BreweryDesktop" width="650 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105638669-2bdc3080-5e74-11eb-9b32-dc118164de72.png" alt="BreweryDesktop" />
 
 #### Related features
 
