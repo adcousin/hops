@@ -116,7 +116,7 @@ Mobile
 
 Desktop
 
-<img src="https://user-images.githubusercontent.com/58084593/105692455-bbc6bc80-5efe-11eb-9a23-012dcad9af17.png" alt="CellarDesktop" width="650 px"/>
+<img src="https://user-images.githubusercontent.com/58084593/105692455-bbc6bc80-5efe-11eb-9a23-012dcad9af17.png" alt="CellarDesktop"/>
 
 #### Related Features
 
