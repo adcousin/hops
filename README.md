@@ -2,6 +2,10 @@
 
 This was the final project of **[the Wagon Bootcamp Course](https://www.lewagon.com/fr "Check it out")** which was made in **9 days**  by **a team of four people**.
 
+## Have a look
+
+**Our project** is available **[here][Hops]** for you to _see all these features_ in action.
+
 ## The Issue
 
 The _number of beers_ is **steadily increasing** due to the ***growing popularity*** of this _type of beverage_. It has become _increasingly **difficult**_ to **keep track** of _which beer_ has been tried and **if it was good**.
@@ -126,10 +130,6 @@ Desktop
 - A user can **remove beers** from **their lists**
 - They can see if a beer is ***present across multiples lists***
 - They can ***delete, create and edit*** customs lists.
-
-## Have a look
-
-**Our project** is available **[here][Hops]** for you to _see all these features_ in action.
 
 ### Side note
 
